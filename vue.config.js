@@ -17,14 +17,5 @@ module.exports = {
             // extracted common chunks and vendor chunks.
             // chunks: ['chunk-vendors', 'chunk-common', 'index']
         }
-    },
-    chainWebpack: config =>
-        config.module
-        .rule('index-pug')
-        .test(path.resolve('public/index.pug'))
-        .uses
-        .delete('pug-plain-loader')
-        .end()
-        .use('pug-loader')
-        .loader('pug-loader')
+    }
 }
