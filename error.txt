@@ -1,0 +1,52 @@
+
+> aem-webapp@0.1.0 serve D:\Projects\aem-webapp
+> vue-cli-service serve
+
+ INFO  Starting development server...
+ ERROR  Failed to compile with 1 errors7:14:18 PM
+
+  Error: Child compilation failed:
+  Module parse failed: Unexpected token (1:0)
+  You may need an appropriate loader to handle this file type.
+  > <var>pug = require("!../node_modules/pug-runtime/index.js");</var><function>  template(locals) {var pug_html = "", pug_mixins = {}, pug_interp;pug_html = pu  g_html + "\u003C!DOCTYPE html\u003E\u003Chtml lang=\"en\"\u003E\u003Chead\u003  E\u003Cmeta charset=\"utf-8\"\u003E\u003Cmeta http-equiv=\"X-UA-Compatible\" c  ontent=\"IE=edge\"\u003E\u003Cmeta name=\"viewport\" content=\"width=device-wi  dth,initial-scale=1.0\"\u003E\u003Ctitle\u003Eaem-webapp\u003C\u002Ftitle\u003  E\u003C\u002Fhead\u003E\u003Cbody\u003E\u003Cnoscript\u003E\u003Cstrong\u003EW  e're sorry but aem-webapp doesn't work properly without JavaScript enabled. Pl  ease enable it to continue.\u003C\u002Fstrong\u003E\u003C\u002Fnoscript\u003E      The AEM + VUE APP...\u003Ch1\u003EVue + AEM...\u003C\u002Fh1\u003E\u003Cdiv   id=\"app\"\u003E\u003C\u002Fdiv\u003E\u003C\u002Fbody\u003E\u003C\u002Fhtml\u  003E";;return pug_html;};</function><module class="exports">= template;</modul  e>:
+  SyntaxError: Unexpected token (1:0)
+  
+  - compiler.js:79 childCompiler.runAsChild
+    [aem-webapp]/[html-webpack-plugin]/lib/compiler.js:79:16
+  
+  - Compiler.js:300 compile
+    [aem-webapp]/[webpack]/lib/Compiler.js:300:11
+  
+  - Compiler.js:556 hooks.afterCompile.callAsync.err
+    [aem-webapp]/[webpack]/lib/Compiler.js:556:14
+  
+  
+  - Hook.js:154 AsyncSeriesHook.lazyCompileHook
+    [aem-webapp]/[tapable]/lib/Hook.js:154:20
+  
+  - Compiler.js:553 compilation.seal.err
+    [aem-webapp]/[webpack]/lib/Compiler.js:553:30
+  
+  
+  - Hook.js:154 AsyncSeriesHook.lazyCompileHook
+    [aem-webapp]/[tapable]/lib/Hook.js:154:20
+  
+  - Compilation.js:1323 hooks.optimizeAssets.callAsync.err
+    [aem-webapp]/[webpack]/lib/Compilation.js:1323:35
+  
+  
+  - Hook.js:154 AsyncSeriesHook.lazyCompileHook
+    [aem-webapp]/[tapable]/lib/Hook.js:154:20
+  
+  - Compilation.js:1314 hooks.optimizeChunkAssets.callAsync.err
+    [aem-webapp]/[webpack]/lib/Compilation.js:1314:32
+  
+  
+  - Hook.js:154 AsyncSeriesHook.lazyCompileHook
+    [aem-webapp]/[tapable]/lib/Hook.js:154:20
+  
+  - Compilation.js:1309 hooks.additionalAssets.callAsync.err
+    [aem-webapp]/[webpack]/lib/Compilation.js:1309:36
+  
+  
+

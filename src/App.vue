@@ -1,15 +1,11 @@
 <template lang="pug">
-include AppTemplate.pug
+include AppTemplate
 </template>
 
 <script>
-import LogoAuthor from './components/global/LogoAuthor';
 
 export default {
-  name: 'app',
-  components: {
-    LogoAuthor
-  }
+  name: 'app'
 }
 </script>
 
