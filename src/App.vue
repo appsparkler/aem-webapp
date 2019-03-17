@@ -1,8 +1,6 @@
-<template lang="pug" src="./AppTemplate.pug">
-</template>
+<template lang="pug" src="./AppTemplate.pug"></template>
 
 <script>
-
 export default {
   name: 'app',
   data() {

@@ -42,33 +42,4 @@ module.exports = {
           .loader('pug-plain-loader')
           .end();
     }
-
-        // config.module
-        // .rule('pug')
-        // .test(/\.pug$/)
-        // .uses
-        // .delete('pug-plain-loader')
-        // .end()
-        // .use('pug-loader')
-        // .loader('pug-loader');
-
-
-
-
-        /*
-        {
-            test: /\.pug$/,
-            exclude: /pages.*\.pug$/,
-            use: ['cache-loader', 'pug-plain-loader']
-        },
-
-
-        // PUG LOADER FOR PURE PUG TEMPLATES
-        {
-            test: /pages.*\.pug$/,
-            exclude: /\.vue$/,
-            use: ['cache-loader', 'raw-loader', 'pug-plain-loader']
-        },
-
-        */
 }
