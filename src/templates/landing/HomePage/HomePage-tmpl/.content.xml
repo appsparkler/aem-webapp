@@ -10,7 +10,7 @@
     ranking="{Long}100">
     <jcr:content
         jcr:primaryType="cq:PageContent"
-        sling:resourceType="/apps/aemarch13/src/templates/landing/HomePage/HomePage-cmp"
+        sling:resourceType="/apps/aemarch13/dist/templates/landing/HomePage/HomePage-cmp"
     >
   </jcr:content>
 </jcr:root>

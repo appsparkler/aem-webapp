@@ -5,5 +5,5 @@
   xmlns:jcr="http://www.jcp.org/jcr/1.0"
   jcr:primaryType="cq:Component"
   jcr:title="Home Page Template Component"
-  sling:resourceSuperType="/apps/aemarch13/src/templates/global/BasePage/BasePage-cmp"
+  sling:resourceSuperType="/apps/aemarch13/dist/templates/global/BasePage/BasePage-cmp"
   componentGroup=".hidden"/>
