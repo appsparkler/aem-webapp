@@ -17,29 +17,48 @@ module.exports = {
             // chunks: ['chunk-vendors', 'chunk-common', 'index']
         }
     },
-    chainWebpack: config => {
-        const pugRule = config.module.rule('pug');
-        pugRule.uses.clear();
+    configureWebpack: {
+        plugins: [
+            getPluginToHotReloadIncludedPugs()
+        ]
+    },
+    chainWebpack: (...args) => {
+        clearPugRuleAndReplaceIt.apply(null, args);
+        addRuleForPublicPugs.apply(null, args);
+    }
+}
 
-        pugRule
-            .test(/\.pug$/)
-            .exclude
-            .add(/public.*\.pug$/)
-            .end()
-            .use('pug-plain-loader')
-            .loader('pug-plain-loader');
+// private functions
+function getPluginToHotReloadIncludedPugs() {
+    const LiveReloadPlugin = require("webpack-livereload-plugin");
+    return new LiveReloadPlugin({
+        appendScriptTag: true
+    });
+}
 
-        config.module
-            .rule('publicpugs')
-            .test(/public.*\.pug$/)
-            .exclude
+function addRuleForPublicPugs(config) {
+    config.module
+        .rule('publicpugs')
+          .test(/public.*\.pug$/)
+          .exclude
             .add(/\.vue$/)
             .end()
-            .use('raw')
+          .use('raw')
             .loader('raw-loader')
             .end()
-            .use('pug-plain')
+          .use('pug-plain')
             .loader('pug-plain-loader')
             .end();
-    }
+}
+
+function clearPugRuleAndReplaceIt(config) {
+    const pugRule = config.module.rule('pug');
+    pugRule.uses.clear();
+    pugRule
+        .test(/\.pug$/)
+        .exclude
+        .add(/public.*\.pug$/)
+        .end()
+        .use('pug-plain-loader')
+        .loader('pug-plain-loader');
 }
