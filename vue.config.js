@@ -1,5 +1,3 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-
 module.exports = {
     pages: {
         index: {
@@ -19,46 +17,60 @@ module.exports = {
     },
     configureWebpack: {
         plugins: [
-            getPluginToHotReloadIncludedPugs()
+          ...get_HTMLWebpackPluginsToCompilePugs(),
+          get_PluginToHotReloadIncludedPugs()
         ]
     },
     chainWebpack: (...args) => {
-        clearPugRuleAndReplaceIt.apply(null, args);
-        addRuleForPublicPugs.apply(null, args);
+        add_ruleForVuePlusPugs.apply(null, args);
     }
 }
 
-// private functions
-function getPluginToHotReloadIncludedPugs() {
-    const LiveReloadPlugin = require("webpack-livereload-plugin");
-    return new LiveReloadPlugin({
-        appendScriptTag: true
-    });
+// abstracted methods
+function get_HTMLWebpackPluginsToCompilePugs() {
+    const HtmlWebpackPlugin = require('html-webpack-plugin');
+    const glob = require('glob');
+    const plugins = [];
+    try {
+        glob.sync('src/**/*.pug').forEach(templatePath => {
+            const destPath = templatePath.replace('src/', '').replace('.pug', '.html');
+            plugins.push(new HtmlWebpackPlugin({
+                template: templatePath,
+                filename: destPath,
+                base: 'dist',
+                inject: false
+            }));
+        });
+    } catch (e) {
+        throw e;
+    }
+    return plugins;
 }
 
-function addRuleForPublicPugs(config) {
-    config.module
-        .rule('publicpugs')
-          .test(/public.*\.pug$/)
-          .exclude
-            .add(/\.vue$/)
+function add_ruleForVuePlusPugs(webpackConfig) {
+    const pugRule = webpackConfig.module.rule('pug');
+    pugRule.uses.clear();
+    pugRule
+        .test(/\.pug$/)
+        .oneOf('pug-vue')
+          .resourceQuery(/vue/)
+          .use('pug-plain-loader')
+            .loader('pug-plain-loader')
             .end()
+          .end()
+        .oneOf('pug-template')
           .use('raw')
             .loader('raw-loader')
             .end()
           .use('pug-plain')
             .loader('pug-plain-loader')
-            .end();
+            .end()
+        .end()
 }
 
-function clearPugRuleAndReplaceIt(config) {
-    const pugRule = config.module.rule('pug');
-    pugRule.uses.clear();
-    pugRule
-        .test(/\.pug$/)
-        .exclude
-        .add(/public.*\.pug$/)
-        .end()
-        .use('pug-plain-loader')
-        .loader('pug-plain-loader');
+function get_PluginToHotReloadIncludedPugs() {
+    const LiveReloadPlugin = require("webpack-livereload-plugin");
+    return new LiveReloadPlugin({
+        appendScriptTag: true
+    });
 }
