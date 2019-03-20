@@ -1,10 +1,15 @@
 nav.navbar.navbar-dark.bg-dark.navbar-expand-lg
   //- The First AEM Component
-  sly(
-    data-sly-resource="/apps/aemarch13/dist/components/global/LogoAuthor"
-    data-sly-unwrap
-  )
-  include ../components/global/LogoAuthor/LogoAuthor.pug 
+  if (process.env.isProd)
+    
+    sly(
+      data-sly-resource="/apps/aemarch13/dist/components/global/LogoAuthor"
+      data-sly-unwrap
+    )
+  
+  else
+    
+    include ../components/global/LogoAuthor/LogoAuthor.pug 
 
   button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
     span.navbar-toggler-icon
