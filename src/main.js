@@ -7,8 +7,6 @@ import 'bootstrap'
 Vue.config.productionTip = false
 Vue.config.ignoreElements = ['sly'];
 
-
-
 // new Vue({
 //     render: h => h(App)
 // }).$mount('#app');
