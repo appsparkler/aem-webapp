@@ -1,0 +1,4 @@
+TODO RENAME-content-to-template-content-or-something-else (AEM doesn't like content.html)
+TODO UPDATE-data-sly-resource-syntax-needs-to-be-updated-to-data-sly-resource="${'LogoAuthor' @ resourceType='/apps/aemarch13/...' }" />
+TODO SETUP-placeholder-mixin-for-AEM-COMPONENTS
+TODO WRITE-SCRIPT-to-create-ClientLibraryFolders

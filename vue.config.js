@@ -2,7 +2,7 @@ let vueConfig = {};
 let { isDev, isProd } = process.env;
 
 // ASSETS DIR
-if(isProd) vueConfig.assetsDir = 'ui-libs';
+if(isProd) vueConfig.assetsDir = '[name]-[ext]-libs-v-[contenthash]';
 
 // PAGES
 if(isDev) vueConfig.pages = get_pages();
@@ -13,9 +13,11 @@ vueConfig.configureWebpack = {
         ...get_HTMLWebpackPluginsToCompilePugs()
     ]
 };
+
 // CONFIGURE WEBPACK -- PLUGINS
 if(isDev) vueConfig.configureWebpack.plugins.push(get_PluginToHotReloadIncludedPugs())
-if(isProd) vueConfig.configureWebpack.plugins.push(get_pluginToCopyAppFolders())
+if(isProd) vueConfig.configureWebpack.plugins.push(get_pluginToCopyAppFolders());
+
 // CHAIN WEBPACK
 vueConfig.chainWebpack = (...args) => {
     add_ruleForVuePlusPugs.apply(null, args);
@@ -28,21 +30,32 @@ function get_pluginToCopyAppFolders() {
     try {
         const CopyPlugin = require('copy-webpack-plugin');
         const plugin = new CopyPlugin([{
-                from: 'src/templates/**/*.*',
+                from: 'src/templates/**/*?.*',
                 transformPath: path => path.replace('src/', ''),
-                ignore: '**/*.pug'
+                ignore: ['**/*.pug', '**/*.vue'],
+                force: true
             },
             {
-                from: 'src/includes/**/*.*',
+                from: 'src/includes/**/*?.*',
                 transformPath: path => path.replace('src/', ''),
-                ignore: '**/*.pug'
+                ignore: ['**/*.pug', '**/*.vue'],
+                force:true
+
             },
             {
-                from: 'src/components/*',
+                from: 'src/components/**/*?.*',
                 transformPath: path => path.replace('src/', ''),
-                ignore: '**/*.pug'
+                ignore: ['**/*.pug', '**/*.vue'],
+                force: true
+            },
+            {
+                from: 'src/**/.content.xml',
+                transformPath: path => path.replace('src/', ''),
+                force: true
             }
-        ]);
+        ],{
+          copyUnmodified: true
+        });
         return plugin;
     } catch (e) {
         throw "error in getting plugin to copy App Folders " + e;
