@@ -2,7 +2,7 @@ let vueConfig = {};
 let { isDev, isProd } = process.env;
 
 // ASSETS DIR
-if(isProd) vueConfig.assetsDir = '[name]-[ext]-libs-v-[contenthash]';
+if(isProd) vueConfig.assetsDir = '[id]-libs-v-[chunkhash]';
 
 // PAGES
 if(isDev) vueConfig.pages = get_pages();
