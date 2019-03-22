@@ -1,12 +1,12 @@
 if process.env.NODE_ENV === 'development'
   include ../../../../includes/Navbar.pug
   
-  block content
+  block template-content
     
   include ../../../../includes/Footer.pug
 
 else 
   
   sly(data-sly-include="/apps/aemarch13/dist/includes/Navbar.html")
-  sly(data-sly-include="content.html")
+  sly(data-sly-include="template-content.html")
   sly(data-sly-include="/apps/aemarch13/dist/includes/Footer.html")
