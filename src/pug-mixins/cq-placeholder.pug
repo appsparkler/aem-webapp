@@ -1,0 +1,11 @@
+mixin cqPlaceholder(isEmptyParam)
+  style(type="text/css").
+    .cq-placeholder, 
+    .new {
+      height: auto;
+    }
+  p= isEmptyParam
+  sly(
+    data-sly-use.templates="/apps/core/wcm/components/commons/v1/templates.html"
+    data-sly-call="${templates.placeholder @ isEmpty=!#{isEmptyParam} }" test=isEmptyParam
+  )

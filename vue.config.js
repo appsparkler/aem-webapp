@@ -1,3 +1,4 @@
+const path = require('path');
 let vueConfig = {};
 let { isDev, isProd } = process.env;
 
@@ -11,7 +12,12 @@ if(isDev) vueConfig.pages = get_pages();
 vueConfig.configureWebpack = {
     plugins: [
         ...get_HTMLWebpackPluginsToCompilePugs()
-    ]
+    ],
+    resolve: {
+        modules: [
+            path.resolve('src')
+        ]
+    }
 };
 
 // CONFIGURE WEBPACK -- PLUGINS
@@ -39,7 +45,7 @@ function get_pluginToCopyAppFolders() {
                 from: 'src/includes/**/*?.*',
                 transformPath: path => path.replace('src/', ''),
                 ignore: ['**/*.pug', '**/*.vue'],
-                force:true
+                force: true
 
             },
             {
@@ -53,8 +59,8 @@ function get_pluginToCopyAppFolders() {
                 transformPath: path => path.replace('src/', ''),
                 force: true
             }
-        ],{
-          copyUnmodified: true
+        ], {
+            copyUnmodified: true
         });
         return plugin;
     } catch (e) {
@@ -65,19 +71,33 @@ function get_pluginToCopyAppFolders() {
 function get_pages() {
     try {
         let pages = {
-            index: {
+            BasePage: {
                 // entry for the page
-                entry: 'src/main.js',
+                entry: path.resolve('src/templates/global/BasePage/main.js'),
                 // the source template
-                template: 'public/index.pug',
+                template: path.resolve('src/templates/global/BasePage/index.pug'),
                 // output as dist/index.html
-                filename: 'index.html',
+                filename: 'BasePage/index.html',
                 // when using title option,
                 // template title tag needs to be <title><%= HtmlWebpackPlugin.options.title %></title>
-                title: 'Index Page',
+                title: 'Base Page',
                 // chunks to include on this page, by default includes
                 // extracted common chunks and vendor chunks.
-                // chunks: ['chunk-vendors', 'chunk-common', 'index']
+                chunks: ['chunk-vendors', 'chunk-common', 'BasePage']
+            },
+            HomePage: {
+                // entry for the page
+                entry: path.resolve('src/templates/landing/HomePage/main.js'),
+                // the source template
+                template: path.resolve('src/templates/landing/HomePage/index.pug'),
+                // output as dist/index.html
+                filename: 'HomePage/index.html',
+                // when using title option,
+                // template title tag needs to be <title><%= HtmlWebpackPlugin.options.title %></title>
+                title: 'Home Page',
+                // chunks to include on this page, by default includes
+                // extracted common chunks and vendor chunks.
+                chunks: ['chunk-vendors', 'chunk-common', 'HomePage']
             }
         };
         return pages;
@@ -114,16 +134,17 @@ function add_ruleForVuePlusPugs(webpackConfig) {
         .oneOf('pug-vue')
         .resourceQuery(/vue/)
         .use('pug-plain-loader')
-        .loader('pug-plain-loader')
-        .end()
+          .loader('pug-plain-loader')
+          .end()
         .end()
         .oneOf('pug-template')
         .use('raw')
-        .loader('raw-loader')
-        .end()
+          .loader('raw-loader')
+          .end()
         .use('pug-plain')
-        .loader('pug-plain-loader')
-        .end()
+            .loader('pug-plain-loader')
+            .options({basedir: path.resolve('src')})
+            .end()
         .end()
 }
 
