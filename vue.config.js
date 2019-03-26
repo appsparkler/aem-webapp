@@ -3,10 +3,11 @@ let vueConfig = {};
 let { isDev, isProd } = process.env;
 
 // ASSETS DIR
-if(isProd) vueConfig.assetsDir = '[id]-libs-v-[chunkhash]';
+vueConfig.assetsDir = '[id]';
+// if(isProd) vueConfig.assetsDir = '[path]';
 
 // PAGES
-if(isDev) vueConfig.pages = get_pages();
+vueConfig.pages = get_pages();
 
 // CONFIGURE WEBPACK
 vueConfig.configureWebpack = {
@@ -23,6 +24,7 @@ vueConfig.configureWebpack = {
 // CONFIGURE WEBPACK -- PLUGINS
 if(isDev) vueConfig.configureWebpack.plugins.push(get_PluginToHotReloadIncludedPugs())
 if(isProd) vueConfig.configureWebpack.plugins.push(get_pluginToCopyAppFolders());
+if(isProd) vueConfig.configureWebpack.plugins.push(get_pluginToGenerateManifest());
 
 // CHAIN WEBPACK
 vueConfig.chainWebpack = (...args) => {
@@ -41,6 +43,7 @@ function get_pluginToCopyAppFolders() {
                 ignore: ['**/*.pug', '**/*.vue'],
                 force: true
             },
+            // includes folder
             {
                 from: 'src/includes/**/*?.*',
                 transformPath: path => path.replace('src/', ''),
@@ -48,14 +51,28 @@ function get_pluginToCopyAppFolders() {
                 force: true
 
             },
+            // components
             {
                 from: 'src/components/**/*?.*',
                 transformPath: path => path.replace('src/', ''),
                 ignore: ['**/*.pug', '**/*.vue'],
                 force: true
             },
+            // templates
             {
                 from: 'src/**/.content.xml',
+                transformPath: path => path.replace('src/', ''),
+                force: true
+            },
+            // chunk-common
+            {
+                from: 'src/**/chunk-common/*?.*',
+                transformPath: path => path.replace('src/', ''),
+                force: true
+            },
+            // chunk-vendors
+            {
+                from: 'src/**/chunk-vendors/*?.*',
                 transformPath: path => path.replace('src/', ''),
                 force: true
             }
@@ -71,33 +88,33 @@ function get_pluginToCopyAppFolders() {
 function get_pages() {
     try {
         let pages = {
-            BasePage: {
+            'templates/global/BasePage/BasePage-publish-libs': {
                 // entry for the page
                 entry: path.resolve('src/templates/global/BasePage/main.js'),
                 // the source template
                 template: path.resolve('src/templates/global/BasePage/index.pug'),
                 // output as dist/index.html
-                filename: 'BasePage/index.html',
+                filename: isDev ? 'basepage/index.html' : '../recycle-bin/basepage/index.html',
                 // when using title option,
                 // template title tag needs to be <title><%= HtmlWebpackPlugin.options.title %></title>
                 title: 'Base Page',
                 // chunks to include on this page, by default includes
                 // extracted common chunks and vendor chunks.
-                chunks: ['chunk-vendors', 'chunk-common', 'BasePage']
+                chunks: ['chunk-vendors', 'chunk-common', 'templates/global/HomePage/HomePage-publish-libs']
             },
-            HomePage: {
+            'templates/landing/HomePage/HomePage-publish-libs': {
                 // entry for the page
                 entry: path.resolve('src/templates/landing/HomePage/main.js'),
                 // the source template
                 template: path.resolve('src/templates/landing/HomePage/index.pug'),
                 // output as dist/index.html
-                filename: 'HomePage/index.html',
+                filename: isDev ? 'homepage/index.html' : '../recycle-bin/homepage/index.html',
                 // when using title option,
                 // template title tag needs to be <title><%= HtmlWebpackPlugin.options.title %></title>
                 title: 'Home Page',
                 // chunks to include on this page, by default includes
                 // extracted common chunks and vendor chunks.
-                chunks: ['chunk-vendors', 'chunk-common', 'HomePage']
+                chunks: ['chunk-vendors', 'chunk-common', 'templates/global/HomePage/HomePage-publish-libs']
             }
         };
         return pages;
@@ -134,17 +151,17 @@ function add_ruleForVuePlusPugs(webpackConfig) {
         .oneOf('pug-vue')
         .resourceQuery(/vue/)
         .use('pug-plain-loader')
-          .loader('pug-plain-loader')
-          .end()
+        .loader('pug-plain-loader')
+        .end()
         .end()
         .oneOf('pug-template')
         .use('raw')
-          .loader('raw-loader')
-          .end()
+        .loader('raw-loader')
+        .end()
         .use('pug-plain')
-            .loader('pug-plain-loader')
-            .options({basedir: path.resolve('src')})
-            .end()
+        .loader('pug-plain-loader')
+        .options({ basedir: path.resolve('src') })
+        .end()
         .end()
 }
 
@@ -158,5 +175,19 @@ function get_PluginToHotReloadIncludedPugs() {
         }
     } catch (e) {
 
+    }
+}
+
+function get_pluginToGenerateManifest() {
+    try {
+        const ManifestPlugin = require('webpack-manifest-plugin');
+        return new ManifestPlugin({
+          filter(fd){
+            if(fd.isChunk) return true;
+            else return false;
+          }
+        });
+    } catch (e) {
+        console.log('error in get_pluginToGenerateManifest : ' + e);
     }
 }
