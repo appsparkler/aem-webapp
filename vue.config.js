@@ -3,7 +3,7 @@ let vueConfig = {};
 let { isDev, isProd } = process.env;
 
 // ASSETS DIR
-vueConfig.assetsDir = '[id]';
+vueConfig.assetsDir = '[id]/[contenthash:8]';
 // if(isProd) vueConfig.assetsDir = '[path]';
 
 // PAGES
