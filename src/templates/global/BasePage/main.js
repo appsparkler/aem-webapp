@@ -4,6 +4,6 @@ import 'bootstrap'
 import greeter from './test2.js';
 import commonGreeter from 'common-script.js'
 
-alert('hello...')
+console.log('hello from BasePage/main.js')
 commonGreeter();
 greeter();

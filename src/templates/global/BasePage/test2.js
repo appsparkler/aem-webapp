@@ -1,3 +1,3 @@
 export default () => {
-  alert('hello from Base Page...')
+  console.log('hello from Base Page...');
 }

@@ -1,1 +1,1 @@
-export default () => alert('Yay! I am a common greeter!!!')
+export default () => console.log('Yay! I am a common greeter!!!')

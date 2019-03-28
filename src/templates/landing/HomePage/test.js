@@ -1,3 +1,3 @@
 export default function(){
-  alert('hello there...')
+  console.log('hello from HomePage/test.js')
 }
