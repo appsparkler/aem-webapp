@@ -7,4 +7,27 @@ html(lang="en")
     //- link(rel="icon" href="<%= BASE_URL %>favicon.ico")
     title aem-webapp
   body
-    include ..\\src\\templates\\landing\\HomePage\\HomePage-cmp\\template-content
+    div.container
+      h1 Templates
+      table.table
+        thead.thead-dark
+          tr
+            th #
+            th Name
+            th Link
+            th Description
+          
+        tr
+          td 1
+          td Base Page
+          td
+            a(href="/basepage") Base Page
+          td  The Base Page Template for an AEM application.
+      
+        tr
+          td 2
+          td Home Page
+          td
+            a(href="/homepage") Home Page
+          td  The Home Page Template for an AEM application.
+          

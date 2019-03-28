@@ -3,7 +3,7 @@ let vueConfig = {};
 let { isDev, isProd } = process.env;
 
 // ASSETS DIR
-vueConfig.assetsDir = '[id]/[contenthash:8]';
+// vueConfig.assetsDir = '[id]/[contenthash:8]';
 // if(isProd) vueConfig.assetsDir = '[path]';
 
 // PAGES
@@ -12,19 +12,22 @@ vueConfig.pages = get_pages();
 // CONFIGURE WEBPACK
 vueConfig.configureWebpack = {
     plugins: [
-        ...get_HTMLWebpackPluginsToCompilePugs()
+        // ...get_HTMLWebpackPluginsToCompilePugs()
     ],
     resolve: {
         modules: [
             path.resolve('src')
         ]
+    },
+    devServer: {
+        writeToDisk: true
     }
 };
 
 // CONFIGURE WEBPACK -- PLUGINS
-if(isDev) vueConfig.configureWebpack.plugins.push(get_PluginToHotReloadIncludedPugs())
-if(isProd) vueConfig.configureWebpack.plugins.push(get_pluginToCopyAppFolders());
-if(isProd) vueConfig.configureWebpack.plugins.push(get_pluginToGenerateManifest());
+// if(isDev) vueConfig.configureWebpack.plugins.push(get_PluginToHotReloadIncludedPugs())
+// if(isProd) vueConfig.configureWebpack.plugins.push(get_pluginToCopyAppFolders());
+// if(isProd) vueConfig.configureWebpack.plugins.push(get_pluginToGenerateManifest());
 
 // CHAIN WEBPACK
 vueConfig.chainWebpack = (...args) => {
@@ -88,6 +91,20 @@ function get_pluginToCopyAppFolders() {
 function get_pages() {
     try {
         let pages = {
+            'AppIndex': {
+                // entry for the page
+                entry: path.resolve('src/main.js'),
+                // the source template
+                template: path.resolve('public/index.pug'),
+                // output as dist/index.html
+                filename: isDev ? 'index.html' : '../recycle-bin/index.html',
+                // when using title option,
+                // template title tag needs to be <title><%= HtmlWebpackPlugin.options.title %></title>
+                title: 'App Index',
+                // chunks to include on this page, by default includes
+                // extracted common chunks and vendor chunks.
+                chunks: ['chunk-vendors', 'AppIndex']
+            },
             'templates/global/BasePage/BasePage-publish-libs': {
                 // entry for the page
                 entry: path.resolve('src/templates/global/BasePage/main.js'),
@@ -100,7 +117,7 @@ function get_pages() {
                 title: 'Base Page',
                 // chunks to include on this page, by default includes
                 // extracted common chunks and vendor chunks.
-                chunks: ['chunk-vendors', 'chunk-common', 'templates/global/HomePage/HomePage-publish-libs']
+                chunks: ['chunk-vendors', 'chunk-common', 'templates/global/BasePage/BasePage-publish-libs']
             },
             'templates/landing/HomePage/HomePage-publish-libs': {
                 // entry for the page
@@ -114,7 +131,7 @@ function get_pages() {
                 title: 'Home Page',
                 // chunks to include on this page, by default includes
                 // extracted common chunks and vendor chunks.
-                chunks: ['chunk-vendors', 'chunk-common', 'templates/global/HomePage/HomePage-publish-libs']
+                chunks: ['chunk-vendors', 'chunk-common', 'templates/landing/HomePage/HomePage-publish-libs']
             }
         };
         return pages;
@@ -134,7 +151,7 @@ function get_HTMLWebpackPluginsToCompilePugs() {
                 template: templatePath,
                 filename: destPath,
                 base: 'dist',
-                inject: false
+                // inject: false
             }));
         });
     } catch (e) {
@@ -182,10 +199,10 @@ function get_pluginToGenerateManifest() {
     try {
         const ManifestPlugin = require('webpack-manifest-plugin');
         return new ManifestPlugin({
-          filter(fd){
-            if(fd.isChunk) return true;
-            else return false;
-          }
+            filter(fd) {
+                if(fd.isChunk) return true;
+                else return false;
+            }
         });
     } catch (e) {
         console.log('error in get_pluginToGenerateManifest : ' + e);
