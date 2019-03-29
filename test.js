@@ -1,9 +1,10 @@
-const { readdirSync: readDir, lstatSync: get_folderItemStats, copySync: copy, moveSync: move } = require('fs-extra');
+const { readdirSync: readDir, lstatSync: get_folderItemStats, copySync: copy, moveSync: move, removeSync: deleteFile } = require('fs-extra');
 const { resolve: resolvePath, join: joinPath } = require('path');
 const { sync: get_glob } = require('glob');
 const get_directories = folderPath => readDir(folderPath).filter(folderItem => get_folderItemStats(resolvePath(folderPath, folderItem)).isDirectory());
 
 process_chunkVendors(resolvePath('dist/chunk-vendors'));
+process_chunkVendors(resolvePath('dist/chunk-common'));
 process_chunkCommons();
 process_templates();
 
@@ -17,13 +18,13 @@ function process_chunkVendors(pathToDir) {
     //
     dirs.forEach(copyFiles_toDir.bind(null, files, pathToDir));
     dirs.forEach(renameFiles_inDir.bind(null, pathToDir));
-    dirs.forEach(deleteFiles_fromDir.bind(null));
+    files.forEach(deleteFiles_fromDir.bind(null, pathToDir))
 }
 
-function deleteFiles_fromDir() {
-
+function deleteFiles_fromDir(pathToDir, fileName) {
+    const filePath = joinPath(pathToDir, fileName);
+    deleteFile(filePath);
 }
-
 
 function rename_files(type, pathToDir, dir, jsFile) {
     if(type === 'js') move(resolvePath(jsFile), resolvePath(pathToDir, dir, type, 'script.js'))
