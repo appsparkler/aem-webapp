@@ -85,63 +85,12 @@ function get_pluginToCopyAppFolders() {
                 force: true
             }
         ], {
-            copyUnmodified: true
+            copyUnmodified: true,
+            compilerHook: 'beforeCompile'
         });
         return plugin;
     } catch (e) {
         throw "error in getting plugin to copy App Folders " + e;
-    }
-}
-
-function get_pages2() {
-    try {
-        let pages = {
-            'AppIndex': {
-                // entry for the page
-                entry: path.resolve('src/main.js'),
-                // the source template
-                template: path.resolve('public/index.pug'),
-                // output as dist/index.html
-                filename: isDev ? 'index.html' : '../recycle-bin/index.html',
-                // when using title option,
-                // template title tag needs to be <title><%= HtmlWebpackPlugin.options.title %></title>
-                title: 'App Index',
-                // chunks to include on this page, by default includes
-                // extracted common chunks and vendor chunks.
-                chunks: ['chunk-vendors', 'chunk-common', 'AppIndex']
-            },
-            'BasePage': {
-                // entry for the page
-                entry: path.resolve('src/templates/global/BasePage/main.js'),
-                // the source template
-                template: path.resolve('src/templates/global/BasePage/index.pug'),
-                // output as dist/index.html
-                filename: isDev ? 'basepage/index.html' : '../recycle-bin/basepage/index.html',
-                // when using title option,
-                // template title tag needs to be <title><%= HtmlWebpackPlugin.options.title %></title>
-                title: 'Base Page',
-                // chunks to include on this page, by default includes
-                // extracted common chunks and vendor chunks.
-                chunks: ['chunk-vendors', 'chunk-common', 'BasePage']
-            },
-            HomePage: {
-                // entry for the page
-                entry: path.resolve('src/templates/landing/HomePage/main.js'),
-                // the source template
-                template: path.resolve('src/templates/landing/HomePage/index.pug'),
-                // output as dist/index.html
-                filename: isDev ? 'homepage/index.html' : '../recycle-bin/homepage/index.html',
-                // when using title option,
-                // template title tag needs to be <title><%= HtmlWebpackPlugin.options.title %></title>
-                title: 'Home Page',
-                // chunks to include on this page, by default includes
-                // extracted common chunks and vendor chunks.
-                chunks: ['chunk-vendors', 'chunk-common', 'HomePage']
-            }
-        };
-        return pages;
-    } catch (e) {
-        throw "Error in getting pages : " + e;
     }
 }
 
