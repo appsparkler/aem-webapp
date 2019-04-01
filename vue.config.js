@@ -45,16 +45,18 @@ module.exports = vueConfig;
 function get_pluginToCopyAppFolders() {
     try {
         const CopyPlugin = require('copy-webpack-plugin');
-        const plugin = new CopyPlugin([{
+        const plugin = new CopyPlugin([
+          // TEMPLATES
+            {
                 from: 'src/templates/**/*?.*',
-                transformPath: path => path.replace('src/', ''),
+                transformPath: path => path.replace('src\\', ''),
                 ignore: ['**/*.pug', '**/*.vue'],
                 force: true
             },
             // includes folder
             {
                 from: 'src/includes/**/*?.*',
-                transformPath: path => path.replace('src/', ''),
+                transformPath: path => path.replace('src\\', ''),
                 ignore: ['**/*.pug', '**/*.vue'],
                 force: true
 
@@ -62,31 +64,30 @@ function get_pluginToCopyAppFolders() {
             // components
             {
                 from: 'src/components/**/*?.*',
-                transformPath: path => path.replace('src/', ''),
+                transformPath: path => path.replace('src\\', ''),
                 ignore: ['**/*.pug', '**/*.vue'],
                 force: true
             },
             // templates
             {
                 from: 'src/**/.content.xml',
-                transformPath: path => path.replace('src/', ''),
+                transformPath: path => path.replace('src\\', ''),
                 force: true
             },
             // chunk-common
             {
                 from: 'src/**/chunk-common/*?.*',
-                transformPath: path => path.replace('src/', ''),
+                transformPath: path => path.replace('src\\', ''),
                 force: true
             },
             // chunk-vendors
             {
                 from: 'src/**/chunk-vendors/*?.*',
-                transformPath: path => path.replace('src/', ''),
+                transformPath: path => path.replace('src\\', ''),
                 force: true
             }
         ], {
-            copyUnmodified: true,
-            compilerHook: 'beforeCompile'
+            copyUnmodified: true
         });
         return plugin;
     } catch (e) {

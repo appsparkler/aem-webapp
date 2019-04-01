@@ -5,8 +5,12 @@ const get_directories = folderPath => readDir(folderPath).filter(folderItem => g
 
 process_chunkVendors(resolvePath('dist/chunk-vendors'));
 process_chunkVendors(resolvePath('dist/chunk-common'));
-process_chunkCommons();
-process_templates();
+
+process_chunkVendors(resolvePath('dist/templates/global/BasePage/BasePage-publish-libs'));
+process_chunkVendors(resolvePath('dist/templates/landing/HomePage/HomePage-publish-libs'));
+//
+// process_chunkCommons();
+// process_templates();
 
 function process_chunkVendors(pathToDir) {
     const files = [
