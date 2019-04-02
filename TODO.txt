@@ -1,6 +1,11 @@
 TODO WRITE-SCRIPT-to-create-ClientLibraryFolders (WIP)
 TODO SETUP-fonts-and-image-resources-in-build
 TODO CREATE-Insights-Template-and-verify-build
+TODO SETUP-i18n
+TODO PORT-all-existing-components
+TODO SETUP-design-for-page
+TODO SETUP-generators-for-aemvue
+
 
 TODO SETUP-webpack-resolvers-for-src-root - DONE
 TODO SETUP-client-ClientLibraryFolders-for-Home-Page - DONE
