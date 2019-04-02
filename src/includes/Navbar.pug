@@ -1,12 +1,12 @@
 nav.navbar.navbar-dark.bg-dark.navbar-expand-lg
   //- The First AEM Component
   if (process.env.isProd)
-    
-    sly(
-      data-sly-resource="${ 'logo' @ resourceType='/apps/aemarch13/dist/components/global/LogoAuthor' }"
-      data-sly-unwrap
-    )
-  
+    <span>
+      sly(
+        data-sly-resource="${ 'logo' @ resourceType='/apps/aemarch13/dist/components/global/LogoAuthor' }"
+        data-sly-unwrap
+      )
+    </span>
   else
     
     include ../components/global/LogoAuthor/LogoAuthor.pug 
