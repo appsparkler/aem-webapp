@@ -11,9 +11,7 @@ vueConfig.pages = get_pages();
 
 // CONFIGURE WEBPACK
 vueConfig.configureWebpack = {
-    plugins: [
-        // ...get_HTMLWebpackPluginsToCompilePugs()
-    ],
+    plugins: [],
     resolve: {
         modules: [
             path.resolve('src')
@@ -30,7 +28,9 @@ vueConfig.configureWebpack = {
 };
 
 // CONFIGURE WEBPACK -- PLUGINS
-if(isDev) vueConfig.configureWebpack.plugins.push(get_PluginToHotReloadIncludedPugs())
+
+if(isDev) vueConfig.configureWebpack.plugins.push(get_PluginToHotReloadIncludedPugs());
+if(isProd) vueConfig.configureWebpack.plugins.push(...get_HTMLWebpackPluginsToCompilePugs());
 if(isProd) vueConfig.configureWebpack.plugins.push(get_pluginToCopyAppFolders());
 // if(isProd) vueConfig.configureWebpack.plugins.push(get_pluginToGenerateManifest());
 
@@ -158,7 +158,7 @@ function get_HTMLWebpackPluginsToCompilePugs() {
                 template: templatePath,
                 filename: destPath,
                 base: 'dist',
-                // inject: false
+                inject: false
             }));
         });
     } catch (e) {

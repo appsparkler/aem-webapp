@@ -38,8 +38,8 @@ function rename_files(type, pathToDir, dir, jsFile) {
 function renameFiles_inDir(pathToDir, dir) {
     const jsFiles = get_glob(joinPath(pathToDir, dir, '**/*.js'));
     const cssFiles = get_glob(joinPath(pathToDir, dir, '**/*.css'));
-    jsFiles.forEach(rename_files.bind(null, 'js', pathToDir, dir))
-    cssFiles.forEach(rename_files.bind(null, 'css', pathToDir, dir))
+    jsFiles.forEach(rename_files.bind(null, 'js', pathToDir, dir));
+    cssFiles.forEach(rename_files.bind(null, 'css', pathToDir, dir));
 }
 
 function copyFiles_toDir(files, pathToDir, dir) {
