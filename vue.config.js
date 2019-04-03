@@ -3,7 +3,7 @@ let vueConfig = {};
 let { isDev, isProd } = process.env;
 
 // ASSETS DIR
-vueConfig.assetsDir = '[id]/[contenthash:8]';
+vueConfig.assetsDir = '[name]/[contenthash:8]';
 // if(isProd) vueConfig.assetsDir = '[path]';
 
 // PAGES
@@ -37,16 +37,106 @@ if(isProd) vueConfig.configureWebpack.plugins.push(get_pluginToCopyAppFolders())
 // CHAIN WEBPACK
 vueConfig.chainWebpack = (...args) => {
     add_ruleForVuePlusPugs.apply(null, args);
+    modify_ruleForFonts.apply(null, args);
+    modify_ruleForImages.apply(null, args);
+    modify_ruleForSVG.apply(null, args);
 };
 
 module.exports = vueConfig;
 
 // abstracted methods
+function modify_ruleForSVG(config) {
+    const svgRule = config.module.rule('svg');
+    svgRule
+      .use('file-loader')
+        .loader('file-loader')
+          .options({
+              // name: '[name]/[contenthash:8]/img/[name].[hash:8].[ext]'
+              name: 'chunk-vendors/[contenthash:8]/resources/svg/[name].[hash:8].[ext]'
+            })
+          .end()
+        .end()
+      .end()
+    /* config.module.rule('svg')
+    {
+      test: /\.(svg)(\?.*)?$/,
+      use: [
+        {
+          loader: 'file-loader',
+          options: {
+            name: '[name]/[contenthash:8]/img/[name].[hash:8].[ext]'
+          }
+        }
+      ]
+    }
+    */
+}
+
+function modify_ruleForImages(config) {
+    const imageRule = config.module.rule('images');
+    imageRule
+        .use('url-loader')
+        .loader('url-loader')
+        .options({
+            limit: 4096,
+            fallback: {
+                loader: 'file-loader',
+                options: {
+                    // name: '[name]/[contenthash:8]/img/[name].[hash:8].[ext]'
+                    // name: 'chunk-vendors/[contenthash:8]/resources/fonts/[name].[hash:8].[ext]'
+                    name: 'chunk-vendors/[contenthash:8]/resources/images/[name].[hash:8].[ext]'
+                }
+            }
+        })
+        .end()
+        .end()
+        .end()
+    /* config.module.rule('images')
+    {
+      test: /\.(png|jpe?g|gif|webp)(\?.*)?$/,
+      use: [
+        {
+          loader: 'url-loader',
+          options: {
+            limit: 4096,
+            fallback: {
+              loader: 'file-loader',
+              options: {
+                name: '[name]/[contenthash:8]/img/[name].[hash:8].[ext]'
+              }
+            }
+          }
+        }
+      ]
+    },
+    */
+}
+
+function modify_ruleForFonts(config) {
+    const fontRule = config.module.rule('fonts');
+    fontRule
+        .use('url-loader')
+        .loader('url-loader')
+        .options({
+            limit: 4096,
+            fallback: {
+                loader: 'file-loader',
+                options: {
+                    // name: 'fonts/[name].[hash:8].[ext]'
+                    name: 'chunk-vendors/[contenthash:8]/resources/fonts/[name].[hash:8].[ext]'
+
+                }
+            }
+        })
+        .end()
+        .end()
+}
+
 function get_pluginToCopyAppFolders() {
     try {
         const CopyPlugin = require('copy-webpack-plugin');
         const plugin = new CopyPlugin([
-          // TEMPLATES
+            // TEMPLATES
             {
                 from: 'src/templates/**/*?.*',
                 transformPath: path => path.replace('src\\', ''),

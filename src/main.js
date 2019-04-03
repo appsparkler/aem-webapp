@@ -1,9 +1,9 @@
-import Vue from 'vue';
 // import App from './App.vue'
 import commonGreeter from 'common-script.js'
 import 'bootstrap\\dist\\css\\bootstrap.css'
 import 'jquery'
 import 'bootstrap'
+import Vue from 'vue';
 
 commonGreeter();
 
