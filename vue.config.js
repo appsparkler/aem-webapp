@@ -18,7 +18,7 @@ vueConfig.configureWebpack = {
         ]
     },
     devServer: {
-        // writeToDisk: true
+        writeToDisk: true
     },
     optimization: {
         splitChunks: {
