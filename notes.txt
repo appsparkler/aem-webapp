@@ -1,0 +1,22 @@
+The HTML structure we want to come up with :
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>AEM Home Page</title>
+    <!--  REQUIRED META TAGS -->
+
+      <!--  VENDOR CSS -->
+      <!--  BASE TEMPLATE CSS -->
+      <!--  CHILD TEMPLATE CSS -->
+  </head>
+  <body>
+    <!--  BASE PAGE NAVBAR HTML -->
+    <!--  CHILD PAGE CONTENT -->
+    <!-- BASE PAGE FOOTER HTML -->
+
+    <!--  VENDOR JS -->
+    <!--  BASE TEMPLATE JS -->
+    <!--  CHILD TEMPLATE JS -->
+  </body>
+</html>

@@ -3,7 +3,9 @@ let vueConfig = {};
 let { isDev, isProd } = process.env;
 
 // ASSETS DIR
-vueConfig.assetsDir = '[name]/[contenthash:8]';
+// vueConfig.assetsDir = '[name]/[contenthash:8]';
+vueConfig.assetsDir = '[name]/[chunkhash:8]';
+vueConfig.assetsDir = '[name]/[chunkhash:8]-[contenthash:8]';
 // if(isProd) vueConfig.assetsDir = '[path]';
 
 // PAGES
@@ -214,7 +216,7 @@ function get_pages() {
                 title: 'Base Page',
                 // chunks to include on this page, by default includes
                 // extracted common chunks and vendor chunks.
-                chunks: ['chunk-vendors', 'chunk-common', 'templates/global/BasePage/BasePage-publish-libs']
+                chunks: ['chunk-vendors', 'templates/global/BasePage/BasePage-publish-libs']
             },
             'templates/landing/HomePage/HomePage-publish-libs': {
                 // entry for the page
@@ -228,7 +230,11 @@ function get_pages() {
                 title: 'Home Page',
                 // chunks to include on this page, by default includes
                 // extracted common chunks and vendor chunks.
-                chunks: ['chunk-vendors', 'chunk-common', 'templates/landing/HomePage/HomePage-publish-libs']
+                chunks: [
+                  'chunk-vendors',
+                  'templates/global/BasePage/BasePage-publish-libs',
+                  'templates/landing/HomePage/HomePage-publish-libs'
+                ]
             }
         };
         return pages;
