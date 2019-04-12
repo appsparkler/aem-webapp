@@ -1,4 +1,4 @@
-TODO SETUP-fonts-and-image-resources-in-build
+TODO RESOLVE-issue-of-basedir-on-pug-config-for-include-statements-with-absolute-paths
 TODO CREATE-Insights-Template-and-verify-build
 TODO SETUP-i18n
 TODO PORT-all-existing-components

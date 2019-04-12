@@ -16,8 +16,12 @@ vueConfig.configureWebpack = {
     plugins: [],
     resolve: {
         modules: [
-            path.resolve('src')
-        ]
+            path.resolve(__dirname, 'src'),
+            'node_modules'
+        ],
+        alias:{
+          '$': 'jquery'
+        }
     },
     devServer: {
         writeToDisk: true
@@ -42,11 +46,16 @@ vueConfig.chainWebpack = (...args) => {
     modify_ruleForFonts.apply(null, args);
     modify_ruleForImages.apply(null, args);
     modify_ruleForSVG.apply(null, args);
+    configure_resolve.apply(null, args);
 };
 
 module.exports = vueConfig;
 
 // abstracted methods
+function configure_resolve(config) {
+  config.resolve.alias
+    .set('@', path.resolve(__dirname, 'src'));
+}
 function modify_ruleForSVG(config) {
     const svgRule = config.module.rule('svg');
     svgRule
