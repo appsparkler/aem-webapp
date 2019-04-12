@@ -14,8 +14,6 @@ const { sync: get_glob } = require('glob');
 const get_directories = folderPath => readDir(folderPath).filter(folderItem => get_folderItemStats(resolvePath(folderPath, folderItem)).isDirectory());
 
 process_chunkVendors(resolvePath('dist/chunk-vendors'));
-process_chunkVendors(resolvePath('dist/chunk-common'));
-
 process_chunkVendors(resolvePath('dist/templates/global/BasePage/BasePage-publish-libs'));
 process_chunkVendors(resolvePath('dist/templates/landing/HomePage/HomePage-publish-libs'));
 //
@@ -23,19 +21,16 @@ process_chunkVendors(resolvePath('dist/templates/landing/HomePage/HomePage-publi
 // process_templates();
 
 function process_chunkVendors(pathToDir) {
-    const files = [
-        // 'js.txt',
-        // 'css.txt',
-        '.content.xml'
-    ];
+    const clientLibContentXMLFile = '.content.xml'
     const dirs = get_directories(pathToDir);
     //
-    dirs.forEach(copyFiles_toDir.bind(null, files, pathToDir));
+    dirs.forEach(copyFiles_toDir.bind(null, clientLibContentXMLFile, pathToDir));
+    deleteFiles_fromDir.call(null, pathToDir, clientLibContentXMLFile)
     dirs.forEach(write_clientLibMapFile.bind(null, pathToDir, 'js'));
     dirs.forEach(write_clientLibMapFile.bind(null, pathToDir, 'css'));
 }
 
-function write_clientLibMapFile(pathToDir, type, fileName, ) {
+function write_clientLibMapFile(pathToDir, type, fileName) {
   const globPattern = joinPath(`**/*.${type}`);
   const globOptions = {
     cwd: joinPath(pathToDir, fileName)
@@ -43,6 +38,10 @@ function write_clientLibMapFile(pathToDir, type, fileName, ) {
   const matchingFilePaths = get_glob(globPattern, globOptions);
   const txtFilePath = joinPath(pathToDir, fileName, `${type}.txt`);
   matchingFilePaths.forEach(filePath => write_file(txtFilePath, filePath));
+}
+
+function copyFiles_toDir(clientLibContentXMLFile, pathToDir, dir) {
+    copy(joinPath(pathToDir, clientLibContentXMLFile), joinPath(pathToDir, dir, clientLibContentXMLFile));
 }
 
 function deleteFiles_fromDir(pathToDir, fileName) {
@@ -62,9 +61,6 @@ function renameFiles_inDir(pathToDir, dir) {
     cssFiles.forEach(rename_files.bind(null, 'css', pathToDir, dir));
 }
 
-function copyFiles_toDir(files, pathToDir, dir) {
-    files.forEach(file => copy(joinPath(pathToDir, file), joinPath(pathToDir, dir, file)));
-}
 
 function process_chunkCommons() {
 

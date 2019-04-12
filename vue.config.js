@@ -30,7 +30,6 @@ vueConfig.configureWebpack = {
 };
 
 // CONFIGURE WEBPACK -- PLUGINS
-
 if(isDev) vueConfig.configureWebpack.plugins.push(get_PluginToHotReloadIncludedPugs());
 if(isProd) vueConfig.configureWebpack.plugins.push(...get_HTMLWebpackPluginsToCompilePugs());
 if(isProd) vueConfig.configureWebpack.plugins.push(get_pluginToCopyAppFolders());
@@ -190,20 +189,6 @@ function get_pluginToCopyAppFolders() {
 function get_pages() {
     try {
         let pages = {
-            'AppIndex': {
-                // entry for the page
-                entry: path.resolve('src/main.js'),
-                // the source template
-                template: path.resolve('public/index.pug'),
-                // output as dist/index.html
-                filename: isDev ? 'index.html' : 'recycle-bin/index.html',
-                // when using title option,
-                // template title tag needs to be <title><%= HtmlWebpackPlugin.options.title %></title>
-                title: 'App Index',
-                // chunks to include on this page, by default includes
-                // extracted common chunks and vendor chunks.
-                chunks: ['chunk-vendors', 'chunk-common', 'AppIndex']
-            },
             'templates/global/BasePage/BasePage-publish-libs': {
                 // entry for the page
                 entry: path.resolve('src/templates/global/BasePage/main.js'),
@@ -216,7 +201,10 @@ function get_pages() {
                 title: 'Base Page',
                 // chunks to include on this page, by default includes
                 // extracted common chunks and vendor chunks.
-                chunks: ['chunk-vendors', 'templates/global/BasePage/BasePage-publish-libs']
+                chunks: [
+                  'chunk-vendors',
+                  'templates/global/BasePage/BasePage-publish-libs'
+                ]
             },
             'templates/landing/HomePage/HomePage-publish-libs': {
                 // entry for the page
@@ -236,6 +224,20 @@ function get_pages() {
                   'templates/landing/HomePage/HomePage-publish-libs'
                 ]
             }
+        };
+        if(isProd) pages['AppIndex'] = {
+            // entry for the page
+            entry: path.resolve('src/main.js'),
+            // the source template
+            template: path.resolve('public/index.pug'),
+            // output as dist/index.html
+            filename: isDev ? 'index.html' : 'recycle-bin/index.html',
+            // when using title option,
+            // template title tag needs to be <title><%= HtmlWebpackPlugin.options.title %></title>
+            title: 'App Index',
+            // chunks to include on this page, by default includes
+            // extracted common chunks and vendor chunks.
+            chunks: ['chunk-vendors', 'chunk-common', 'AppIndex']
         };
         return pages;
     } catch (e) {
