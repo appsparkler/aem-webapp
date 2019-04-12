@@ -33,6 +33,7 @@ vueConfig.configureWebpack = {
 if(isDev) vueConfig.configureWebpack.plugins.push(get_PluginToHotReloadIncludedPugs());
 if(isProd) vueConfig.configureWebpack.plugins.push(...get_HTMLWebpackPluginsToCompilePugs());
 if(isProd) vueConfig.configureWebpack.plugins.push(get_pluginToCopyAppFolders());
+if(isProd) vueConfig.configureWebpack.plugins.push(get_clientLibraryFolderWebpackPlugin());
 // if(isProd) vueConfig.configureWebpack.plugins.push(get_pluginToGenerateManifest());
 
 // CHAIN WEBPACK
@@ -225,7 +226,7 @@ function get_pages() {
                 ]
             }
         };
-        if(isProd) pages['AppIndex'] = {
+        if(isDev) pages['AppIndex'] = {
             // entry for the page
             entry: path.resolve('src/main.js'),
             // the source template
@@ -312,4 +313,9 @@ function get_pluginToGenerateManifest() {
     } catch (e) {
         console.log('error in get_pluginToGenerateManifest : ' + e);
     }
+}
+
+function get_clientLibraryFolderWebpackPlugin() {
+    const ClientLibFolderWebpackPlugin = require('./ClientLibraryFolderWebpackPlugin.js');
+    return new ClientLibFolderWebpackPlugin();
 }
