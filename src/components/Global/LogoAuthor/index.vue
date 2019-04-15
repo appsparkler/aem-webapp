@@ -1,5 +1,4 @@
-<template lang="pug">
-include LogoAuthor
+<template lang="pug" src="./LogoAuthor.pug">
 </template>
 
 <script>
@@ -9,10 +8,10 @@ export default {
 </script>
 
 <style>
-*  {
+/* *  {
   height:108px;
   width: 143px;
   display:block;
   outline: 4px red solid;
-}
+} */
 </style>

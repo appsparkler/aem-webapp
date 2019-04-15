@@ -11,6 +11,10 @@ vueConfig.assetsDir = '[name]/[chunkhash:8]-[contenthash:8]';
 // PAGES
 vueConfig.pages = get_pages();
 
+// DEV SERVER
+vueConfig.devServer = {};
+vueConfig.devServer.proxy = 'http://localhost:4502';
+
 // CONFIGURE WEBPACK
 vueConfig.configureWebpack = {
     plugins: [],
@@ -56,6 +60,7 @@ function configure_resolve(config) {
   config.resolve.alias
     .set('@', path.resolve(__dirname, 'src'));
 }
+
 function modify_ruleForSVG(config) {
     const svgRule = config.module.rule('svg');
     svgRule
@@ -284,6 +289,7 @@ function add_ruleForVuePlusPugs(webpackConfig) {
         .resourceQuery(/vue/)
         .use('pug-plain-loader')
         .loader('pug-plain-loader')
+        .options({ basedir: path.resolve('src') })
         .end()
         .end()
         .oneOf('pug-template')
