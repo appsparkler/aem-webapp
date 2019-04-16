@@ -1,4 +1,6 @@
-TODO RESOLVE-issue-of-basedir-on-pug-config-for-include-statements-with-absolute-paths
+TODO SETUP-for-dynamic-includes-in-sly-and-pug
+TODO SETUP-for-async-vue-components
+TODO SETUP-for-a-client-site-renovation-for-client (example : /apps/client/v2/components etc)
 TODO CREATE-Insights-Template-and-verify-build
 TODO SETUP-i18n
 TODO PORT-all-existing-components
