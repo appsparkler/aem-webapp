@@ -1,30 +1,26 @@
 import 'bootstrap\\dist\\css\\bootstrap.css'
+import '@fortawesome/fontawesome-free/css/all.css'
 import $ from 'jquery'
 import 'bootstrap'
-import '@fortawesome/fontawesome-free/css/all.css'
 //
 import Vue from 'vue';
-import LogoAuthor from "components/global/LogoAuthor/index.vue";
 
-
-$('[class^=vue-component-]').each((idx, el) => {
-    console.log(LogoAuthor);
-    LogoAuthor.data = function() {
-      return {
-        greeting: 'hello'
-      }
-    };
+$('[data-vue-component]').each((idx, el) => {
+  console.log(el);
+  const componentPath = $(el).attr('data-vue-component');
+  const componentImportPath = `components/${componentPath}`
+  // alert(componentImportPath)
+  import(`components/${componentPath}`)
+  .then(({default:component}) => {
     new Vue({
-      // components:{LogoAuthor},
       el,
-      // template: `<LogoAuthor />`,
-      // data() {
-      //   return {
-      //     greeting: 'Hello!'
-      //   }
-      // },
       render(h) {
-        return h(LogoAuthor);
+        return h(component, {
+          props: {
+            title: 'AEM + VUE'
+          }
+        });
       }
     })
+  });
 });
