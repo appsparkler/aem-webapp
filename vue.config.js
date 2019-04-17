@@ -218,6 +218,7 @@ function get_pages() {
                 // extracted common chunks and vendor chunks.
                 chunks: [
                   'chunk-vendors',
+                  'chunk-common',
                   'templates/global/BasePage/BasePage-publish-libs'
                 ]
             },
@@ -235,10 +236,30 @@ function get_pages() {
                 // extracted common chunks and vendor chunks.
                 chunks: [
                   'chunk-vendors',
+                  'chunk-common',
                   'templates/global/BasePage/BasePage-publish-libs',
                   'templates/landing/HomePage/HomePage-publish-libs'
                 ]
+            },
+            /**/
+            'components/global/LogoAuthor/LogoAuthor-publish-libs': {
+                // entry for the page
+                entry: path.resolve('src/components/global/LogoAuthor/index.js'),
+                // the source template
+                template: path.resolve('src/components/global/LogoAuthor/index.pug'),
+                // output as dist/index.html
+                filename: isDev ? 'components/LogoAuthor/index.html' : 'recycle-bin/components/LogoAuthor/index.html',
+                // when using title option,
+                // template title tag needs to be <title><%= HtmlWebpackPlugin.options.title %></title>
+                title: 'Logo Author',
+                // chunks to include on this page, by default includes
+                // extracted common chunks and vendor chunks.
+                chunks: [
+                  'chunk-vendors',
+                  'components/global/LogoAuthor/LogoAuthor-publish-libs'
+                ]
             }
+
         };
         if(isDev) pages['AppIndex'] = {
             // entry for the page

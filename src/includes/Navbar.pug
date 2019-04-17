@@ -8,7 +8,13 @@ nav.navbar.navbar-dark.bg-dark.navbar-expand-lg
   //-     )
   //- else
   //- 
-  include ../components/global/LogoAuthor/LogoAuthor-main.pug 
+  if process.env.isDev
+    
+    include ../components/global/LogoAuthor/LogoAuthor-main.pug 
+  
+  else
+    
+    sly(data-sly-include="/apps/aemarch13/dist/components/global/LogoAuthor/LogoAuthor-main.html")
 
   button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
     span.navbar-toggler-icon

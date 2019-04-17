@@ -2,6 +2,8 @@ TODO EXECUTE-plan
   TODO SETUP-pages-for-components-and-setup-clientlibs-for-the-components
   TODO SETUP-mixin-for-various-pug-components
   TODO TRY-to-include-the-vue-components-element-itself-as-the-template
+
+  
 TODO SETUP-for-dynamic-includes-in-sly-and-pug
 TODO SETUP-for-async-vue-components
 TODO SETUP-for-a-client-site-renovation-for-client (example : /apps/client/v2/components etc)
