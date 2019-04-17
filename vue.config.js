@@ -42,7 +42,7 @@ if(isDev) vueConfig.configureWebpack.plugins.push(get_PluginToHotReloadIncludedP
 if(isProd) vueConfig.configureWebpack.plugins.push(...get_HTMLWebpackPluginsToCompilePugs());
 if(isProd) vueConfig.configureWebpack.plugins.push(get_pluginToCopyAppFolders());
 if(isProd) vueConfig.configureWebpack.plugins.push(get_clientLibraryFolderWebpackPlugin());
-// if(isProd) vueConfig.configureWebpack.plugins.push(get_pluginToGenerateManifest());
+// UNUTILIZED : if(isProd) vueConfig.configureWebpack.plugins.push(get_pluginToGenerateManifest());
 
 // CHAIN WEBPACK
 vueConfig.chainWebpack = (...args) => {
@@ -256,6 +256,7 @@ function get_pages() {
                 // extracted common chunks and vendor chunks.
                 chunks: [
                   'chunk-vendors',
+                  'chunk-common',
                   'components/global/LogoAuthor/LogoAuthor-publish-libs'
                 ]
             }

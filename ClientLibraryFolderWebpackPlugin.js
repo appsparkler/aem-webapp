@@ -47,6 +47,7 @@ class ClientLibFolderWebpackPlugin {
   apply(compiler) {
       compiler.hooks.afterEmit.tap('ClientLibFolderWebpackPlugin', compilation => {
         process_clientLibraryFolders('dist/chunk-vendors');
+        process_clientLibraryFolders('dist/chunk-common');
         process_clientLibraryFolders('dist/templates/global/BasePage/BasePage-publish-libs');
         process_clientLibraryFolders('dist/templates/landing/HomePage/HomePage-publish-libs');
         process_clientLibraryFolders('dist/components/global/LogoAuthor/LogoAuthor-publish-libs');

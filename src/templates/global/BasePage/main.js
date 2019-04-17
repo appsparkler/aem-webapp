@@ -11,8 +11,8 @@ Vue.config.ignoredElements=['sly']
 $('[data-vue-component]').each((idx, el) => {
   console.log(el);
   const componentPath = $(el).attr('data-vue-component');
-  const componentImportPath = `components/${componentPath}/index.js`
-  import(`components/${componentPath}`)
+  const componentImportPath = `components/${componentPath}/component`
+  import( /* webpackMode: "eager" */ `components/${componentPath}`)
   .then(({default:component}) => {
     new Vue({
       el,
