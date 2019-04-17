@@ -1,4 +1,4 @@
-<template lang="pug" src="./LogoAuthor.pug">
+<template lang="pug" src="./LogoAuthor-main.pug">
 </template>
 
 <script>

@@ -3,7 +3,10 @@ import '@fortawesome/fontawesome-free/css/all.css'
 import $ from 'jquery'
 import 'bootstrap'
 //
+import "./styles.css";
+//
 import Vue from 'vue';
+Vue.config.ignoredElements=['sly']
 
 $('[data-vue-component]').each((idx, el) => {
   console.log(el);

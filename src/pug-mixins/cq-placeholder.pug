@@ -1,10 +1,5 @@
 mixin cqPlaceholder(isEmptyParam)
   -
     var dataSlyCall = '${template.placeholder @ isEmpty=!'+ isEmptyParam +' }'
-  style(type="text/css").
-    .cq-placeholder, 
-    .new {
-      height: auto;
-    }
   sly(data-sly-use.template="/apps/core/wcm/components/commons/v1/templates.html")
   sly(data-sly-call=dataSlyCall)

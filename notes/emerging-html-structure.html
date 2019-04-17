@@ -12,6 +12,20 @@ The HTML structure we want to come up with :
   </head>
   <body>
     <!--  BASE PAGE NAVBAR HTML -->
+    <!--  MOBILE NAVBAR-->
+    <nav>
+      <a class="navbar-brand">
+        <img src="path/to/logo-img.png" />
+        <sly data-sly-resource="${ 'Logo' @ resourceType='path/to/Logo/component' }"></sly>
+      </a>
+    </nav>
+
+    <!--  DESKTOP NAVBAR -->
+    <nav>
+      <a class="navbar-brand">
+        <img src="path/to/logo-img.png" />
+      </a>
+    </nav>
     <!--  CHILD PAGE CONTENT -->
     <!-- BASE PAGE FOOTER HTML -->
 
