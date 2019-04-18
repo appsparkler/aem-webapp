@@ -24,7 +24,8 @@ vueConfig.configureWebpack = {
             'node_modules'
         ],
         alias:{
-          '$': 'jquery'
+        vue$: 'vue/dist/vue.esm.js',
+        '$': 'jquery'
         }
     },
     devServer: {

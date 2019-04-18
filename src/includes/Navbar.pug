@@ -1,6 +1,10 @@
 nav.navbar.navbar-dark.bg-dark.navbar-expand-lg
   if process.env.isDev
-    div(data-av-component='global/LogoAuthor') 
+    div(
+      data-av-component="global/LogoAuthor" 
+      data-properties='{alt: "The Logo",href: "/content/aemarch13/xx/en/20190417_home",imgSrc: "/content/dam/kpmg/xx/images/2018/07/kpmg-logo.jpg"}'
+    )
+      include /components/global/LogoAuthor/vueTemplate
   else
     |
     sly(
