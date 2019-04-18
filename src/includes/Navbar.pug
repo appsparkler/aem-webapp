@@ -1,21 +1,12 @@
 nav.navbar.navbar-dark.bg-dark.navbar-expand-lg
-  //- The First AEM Component
-  //- if (process.env.isProd)
-  //-   span
-  //-     sly(
-  //-       data-sly-resource="${ 'logo' @ resourceType='/apps/aemarch13/dist/components/global/LogoAuthor' }"
-  //-       data-sly-unwrap
-  //-     )
-  //- else
-  //- 
   if process.env.isDev
-    
-    include ../components/global/LogoAuthor/LogoAuthor-main.pug 
-  
+    div(data-av-component='global/LogoAuthor') 
   else
-    
-    sly(data-sly-include="/apps/aemarch13/dist/components/global/LogoAuthor/LogoAuthor-main.html")
-
+    |
+    sly(
+      data-sly-use.LogoAuthorTemplate='/apps/aemarch13/dist/components/global/LogoAuthor/LogoAuthorTemplate.html'
+      data-sly-call="${ LogoAuthorTemplate.tmpl @ resourcePath='logo' }"
+    )
   button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
     span.navbar-toggler-icon
   #navbarSupportedContent.collapse.navbar-collapse

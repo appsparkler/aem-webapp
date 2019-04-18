@@ -8,10 +8,10 @@ import "./styles.css";
 import Vue from 'vue';
 Vue.config.ignoredElements=['sly']
 
-$('[data-vue-component]').each((idx, el) => {
-  console.log(el);
-  const componentPath = $(el).attr('data-vue-component');
-  const componentImportPath = `components/${componentPath}/component`
+$('[data-av-component]').each((idx, el) => {
+  console.log($(el).clone());
+  const componentPath = $(el).attr('data-av-component');
+  const componentImportPath = `components/${componentPath}`
   import( /* webpackMode: "eager" */ `components/${componentPath}`)
   .then(({default:component}) => {
     new Vue({
@@ -19,7 +19,11 @@ $('[data-vue-component]').each((idx, el) => {
       render(h) {
         return h(component, {
           props: {
-            title: 'AEM + VUE'
+            properties:{
+              alt: "The Logo",
+              href: "/content/aemarch13/xx/en/20190417_home",
+              imgSrc: "/content/dam/kpmg/xx/images/2018/07/kpmg-logo.jpg"
+            }
           }
         });
       }

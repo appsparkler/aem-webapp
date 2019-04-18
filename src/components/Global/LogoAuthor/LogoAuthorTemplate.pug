@@ -1,0 +1,9 @@
+template(data-sly-template.tmpl='${ @ resourcePath }', data-sly-use.logo='${currentPage.path}/jcr:content/${resourcePath}')
+  a.navbar-brand(
+    href="${logo.href  @ extension='html'}" 
+    data-av-component='global/LogoAuthor'
+  )
+    img(src='${logo.imgSrc}')
+    |
+  include vue-template.pug
+  

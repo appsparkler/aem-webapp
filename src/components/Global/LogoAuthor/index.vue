@@ -1,13 +1,15 @@
-<template src="./LogoAuthor-main.pug" lang="pug">
-</template>
+<template lang="pug" src="./vueTemplate.pug"></template>
 
 <script>
 export default {
-  props: ['title']
+  props: ['properties']
 }
 </script>
 
 <style>
+a.navbar-brand {
+  outline: 1px blue solid;
+}
 /* *  {
   height:108px;
   width: 143px;
