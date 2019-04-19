@@ -1,4 +1,5 @@
 TODO EXECUTE-plan
+  TODO CREATE-exprience-template-for-navbar
   TODO SETUP-a-separate-app-or-page-for-front-end-app-templates-experiences-and-components
   TODO SETUP-pages-for-components-and-setup-clientlibs-for-the-components
   TODO SETUP-mixin-for-various-pug-components

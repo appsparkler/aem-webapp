@@ -1,0 +1,198 @@
+<nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+  <a class="navbar-brand"
+     href="${ properties['logoImg/href'] ? properties['logoImg/href'] : '#' @ extension='html' }">
+    <sly data-sly-resource="${ 'logoImg' @ resourceType='/apps/aemarch13/dist/components/global/LogoAuthor' }"></sly>
+  </a>
+  <button class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse"
+       id="navbarSupportedContent">
+<style>
+    .parsys-helper .cq-Editable-dom.new.newpar.section {
+        width: 100px;
+        margin:0px;
+    }
+    .parsys-helper .parbase.text.cq-Editable-dom {
+        display:none;
+    }
+
+	.my-parsys-navbar-nav p{
+		margin-bottom: 0px;
+    }
+
+    .my-parsys-navbar-nav .cq-placeholder {
+    	min-width: 100px;
+    	height: auto;
+    }
+</style>
+
+
+<ul class="navbar-nav parsys-helper">
+    <li class="nav-link">
+    	<sly data-sly-resource="${ 'my-parsys' @ resourceType='/libs/wcm/foundation/components/parsys' }"> </sly>
+    </li>
+</ul>
+
+  <sly data-sly-list="${resource.listChildren}" >
+    <ul class="navbar-nav mr-auto my-parsys-navbar-nav" data-sly-test="${ item.name == 'my-parsys' }">
+		<li class="nav-link" data-sly-repeat="${item.listChildren}">
+          <sly
+          	data-sly-use.myParsysPath="./my-parsys/${item.name}"
+          	data-sly-resource="${ myParsysPath @ resourceType=item.resourceType }"></sly>
+        </li>
+    </ul>
+  </sly>
+
+  </div>
+</nav>
+
+<!--  -->
+<nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+  <a class="navbar-brand"
+     href="${ properties['logoImg/href'] ? properties['logoImg/href'] : '#' @ extension='html' }">
+    <sly data-sly-resource="${ 'logoImg' @ resourceType='/apps/aemarch13/dist/components/global/LogoAuthor' }"></sly>
+  </a>
+  <button class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse"
+       id="navbarSupportedContent">
+
+  <sly data-sly-list="${resource.listChildren}" >
+    <ul class="navbar-nav mr-auto" data-sly-test="${ item.name == 'my-parsys' }">
+		    <li class="nav-link" data-sly-repeat="${item.listChildren}">
+            <sly
+              data-sly-use.myParsysPath="./my-parsys/${item.name}"
+              data-sly-resource="${ myParsysPath @ resourceType=item.resourceType }"
+            />
+        </li>
+    </ul>
+  </sly>
+
+  <ul class="navbar-nav mr-auto">
+	<li class="nav-link">
+		<sly data-sly-resource="${ 'my-parsys' @ resourceType='/libs/wcm/foundation/components/parsys' }"> </sly>
+    </li>
+  </ul>
+
+
+  </div>
+</nav>
+
+<!--  -->
+<nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+  <a class="navbar-brand"
+     href="${ properties['logoImg/href'] ? properties['logoImg/href'] : '#' @ extension='html' }">
+    <sly data-sly-resource="${ 'logoImg' @ resourceType='/apps/aemarch13/dist/components/global/LogoAuthor' }"></sly>
+  </a>
+  <button class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse"
+       id="navbarSupportedContent">
+
+  <sly data-sly-list="${resource.listChildren}" >
+    <ul class="navbar-nav mr-auto" data-sly-test="${ item.name == 'my-parsys' }">
+		<li class="nav-link" data-sly-repeat="${item.listChildren}">
+          <sly data-sly-resource="${ item.name @ resourceType=item.resourceType }"
+        </li>
+    </ul>
+  </sly>
+
+  <ul class="navbar-nav mr-auto">
+	<li class="nav-link">
+		<sly data-sly-resource="${ 'my-parsys' @ resourceType='/libs/wcm/foundation/components/parsys' }"> </sly>
+    </li>
+  </ul>
+
+
+  </div>
+</nav>
+
+
+
+
+
+
+<!--  -->
+<nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+  <a class="navbar-brand"
+     href="${ properties['logoImg/href'] ? properties['logoImg/href'] : '#' @ extension='html' }">
+    <sly data-sly-resource="${ 'logoImg' @ resourceType='/apps/aemarch13/dist/components/global/LogoAuthor' }"></sly>
+  </a>
+  <button class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse"
+       id="navbarSupportedContent">
+
+  <sly data-sly-list="${resource.listChildren}" >
+    <ul class="navbar-nav mr-auto" data-sly-test="${ item.name == 'my-parsys' }">
+		<li class="nav-link" data-sly-repeat="${item.listChildren}">
+          <sly data-sly-resource="${ item.name @ resourceType=item.resourceType }"
+        </li>
+    </ul>
+  </sly>
+
+
+
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2"
+             type="search"
+             placeholder="Search"
+             aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0"
+              type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+
+
+
+
+<div data-sly-resource="${ 'my-parsys' @ resourceType='/libs/wcm/foundation/components/parsys' }"> </div>
+
+<!--  -->
+<div class="container">
+  <sly data-sly-list="${resource.listChildren}" >
+      <ul class="list-group"
+        data-sly-test="${ item.name == 'my-parsys' }"
+      >
+        <li class="list-group-item"  data-sly-repeat="${item.listChildren}">
+          <sly data-sly-resource="${ 'my-parsys/'item.name @ resourceType=item.resourceType }"
+        </li>
+        <li class="list-group-item">
+          <div data-sly-resource="${ 'my-parsys' @ resourceType='/libs/wcm/foundation/components/parsys' }"> </div>
+        </li>
+    </ul>
+  </sly>
+</div>
