@@ -7,9 +7,7 @@ export default {
 </script>
 
 <style>
-a.navbar-brand {
-  outline: 1px blue solid;
-}
+
 /* *  {
   height:108px;
   width: 143px;

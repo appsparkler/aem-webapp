@@ -4,7 +4,8 @@ nav.navbar.navbar-dark.bg-dark.navbar-expand-lg
       data-av-component="global/LogoAuthor" 
       data-properties='{alt: "The Logo",href: "/content/aemarch13/xx/en/20190417_home",imgSrc: "/content/dam/kpmg/xx/images/2018/07/kpmg-logo.jpg"}'
     )
-      include /components/global/LogoAuthor/vueTemplate
+      div#vueTemplate
+        include /components/global/LogoAuthor/vueTemplate
   else
     |
     sly(
