@@ -1,17 +1,14 @@
 nav.navbar.navbar-dark.bg-dark.navbar-expand-lg
   if process.env.isDev
-    div(
-      data-av-component="global/LogoAuthor" 
-      data-properties='{alt: "The Logo",href: "/content/aemarch13/xx/en/20190417_home",imgSrc: "/content/dam/kpmg/xx/images/2018/07/kpmg-logo.jpg"}'
-    )
-      div#vueTemplate
-        include /components/global/LogoAuthor/vueTemplate
+
+    a.navbar-brand(href="#")
+      div(data-av-component="global/LogoAuthor")
+
   else
-    |
-    sly(
-      data-sly-use.LogoAuthorTemplate='/apps/aemarch13/dist/components/global/LogoAuthor/LogoAuthorTemplate.html'
-      data-sly-call="${ LogoAuthorTemplate.tmpl @ resourcePath='logo' }"
-    )
+      
+    a.navbar-brand(href="${ properties['logoImg/href'] ? properties['logoImg/href'] : '#' @ extension='html' }")
+      sly(data-sly-resource="${ 'logoImg' @ resourceType='/apps/aemarch13/dist/components/global/LogoAuthor' }")
+      
   button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
     span.navbar-toggler-icon
   #navbarSupportedContent.collapse.navbar-collapse

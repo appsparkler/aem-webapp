@@ -1,0 +1,9 @@
+//- AEM, HTL assets
+div(data-av-component="global/LogoAuthor")
+sly(
+  data-sly-use.template='/apps/core/wcm/components/commons/v1/templates.html'
+  data-sly-call='${template.placeholder @ isEmpty=!imgSrc }'
+)
+sly(data-sly-use.clientlib='/libs/granite/sightly/templates/clientlib.html')
+  sly(data-sly-call="${clientlib.css @ categories='aemarch13.LogoAuthor'}")
+  sly(data-sly-call="${clientlib.js @ categories='aemarch13.LogoAuthor'}")

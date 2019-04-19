@@ -1,11 +1,1 @@
-a.navbar-brand(
-  :href="properties.href"
-  :title="properties.alt"
-)
-  img(:src='properties.imgSrc' :alt="properties.alt")
-  //- AEM, HTL assets
-  sly(data-sly-resource="${ resourcePath @ resourceType='/apps/aemarch13/dist/components/global/LogoAuthor' }")
-  sly(
-    data-sly-use.template='/apps/core/wcm/components/commons/v1/templates.html'
-    data-sly-call='${template.placeholder @ isEmpty=!imgSrc }'
-  )
+img(:src='properties.imgSrc' :alt="properties.alt")
