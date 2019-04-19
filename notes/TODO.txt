@@ -1,4 +1,5 @@
 TODO EXECUTE-plan
+  TODO TRY-data-sly-use-with-resources (https://stackoverflow.com/questions/36654433/aem-sightly-how-to-loop-through-component-child-nodes)
   TODO CREATE-exprience-template-for-navbar
   TODO SETUP-a-separate-app-or-page-for-front-end-app-templates-experiences-and-components
   TODO SETUP-pages-for-components-and-setup-clientlibs-for-the-components
