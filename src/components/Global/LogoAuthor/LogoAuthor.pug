@@ -1,9 +1,23 @@
-//- AEM, HTL assets
-div(data-av-component="global/LogoAuthor")
+//- HTML for server rendering - this will be compiled into a Vue component
+span(
+  data-av-component="global/LogoAuthor"
+  data-properties-path="${resource.path}.infinity.json"
+)
+  a(
+    href="${properties.href}"
+    title="${properties.alt}"
+  )
+    img(
+      src="${properties.imgSrc}" 
+      alt="${properties.alt}"
+    )
+  
+//- PLACEHOLDER
 sly(
   data-sly-use.template='/apps/core/wcm/components/commons/v1/templates.html'
-  data-sly-call='${template.placeholder @ isEmpty=!imgSrc }'
+  data-sly-call='${template.placeholder @ isEmpty=!properties.imgSrc }'
 )
+//- COMPONENT LIBS
 sly(data-sly-use.clientlib='/libs/granite/sightly/templates/clientlib.html')
   sly(data-sly-call="${clientlib.css @ categories='aemarch13.LogoAuthor'}")
   sly(data-sly-call="${clientlib.js @ categories='aemarch13.LogoAuthor'}")

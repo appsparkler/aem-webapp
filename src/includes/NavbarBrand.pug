@@ -1,0 +1,6 @@
+if process.env.isProd
+  div(data-sly-call="${ templateLib.ImageLink @ resourcePath='logoImg', linkClasses='nabvar-brand' }")
+
+else
+  
+  +GlobalImageLink("navbar-brand border border-danger", "#", null, "https://placehold.it/120x40?text=Yo%20Wassup")
