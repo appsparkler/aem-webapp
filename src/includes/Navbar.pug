@@ -1,14 +1,10 @@
+include /pug-mixins/index
+
+
 nav.navbar.navbar-dark.bg-dark.navbar-expand-lg
-  if process.env.isDev
-
-    a.navbar-brand(href="#")
-      div(data-av-component="global/LogoAuthor")
-
-  else
-      
-    a.navbar-brand(href="${ properties['logoImg/href'] ? properties['logoImg/href'] : '#' @ extension='html' }")
-      sly(data-sly-resource="${ 'logoImg' @ resourceType='/apps/aemarch13/dist/components/global/LogoAuthor' }")
-      
+  
+  +GlobalImageLink("navbar-brand border border-danger", "#", null, "https://placehold.it/120x40?text=Yo%20Wassup")
+  
   button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
     span.navbar-toggler-icon
   #navbarSupportedContent.collapse.navbar-collapse

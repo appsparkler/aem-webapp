@@ -1,0 +1,22 @@
+mixin GlobalImageLink(linkClasses, href, imgClasses, imgSrc)
+  
+  if process.env.isProd
+    template(data-sly-template.imagelink='${ @ linkClasses, imgClasses, resourcePath }')
+      a(
+        class="${linkClasses}"
+        data-sly-test.hrefresourcepathpath="${ resourcePath }/href" 
+        href="${ properties[hrefResourcePathPath] ? properties[hrefResourcePathPath] : '#' @ extension='html' }"
+      )
+        sly(
+          data-sly-resource="${ resourcePath @ resourceType='/apps/aemarch13/dist/components/global/LogoAuthor' }"
+        )
+  else 
+    
+    a(
+      class=linkClasses
+      href=href
+    )
+      img(
+        class=imgClasses
+        src=imgSrc
+      )
