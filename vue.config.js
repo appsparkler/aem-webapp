@@ -260,6 +260,24 @@ function get_pages() {
                   'chunk-common',
                   'components/global/LogoAuthor/LogoAuthor-publish-libs'
                 ]
+            },
+            'components/experiences/Navbar/Navbar-publish-libs': {
+                // entry for the page
+                entry: path.resolve('src/components/experiences/Navbar/index.js'),
+                // the source template
+                template: path.resolve('src/components/experiences/Navbar/index.pug'),
+                // output as dist/index.html
+                filename: isDev ? 'components/experiences/Navbar/index.html' : 'recycle-bin/components/experiences/LogoAuthor/index.html',
+                // when using title option,
+                // template title tag needs to be <title><%= HtmlWebpackPlugin.options.title %></title>
+                title: 'Navbar Experience',
+                // chunks to include on this page, by default includes
+                // extracted common chunks and vendor chunks.
+                chunks: [
+                  'chunk-vendors',
+                  'chunk-common',
+                  'components/experiences/Navbar/Navbar-publish-libs'
+                ]
             }
 
         };
