@@ -1,24 +1,20 @@
-nav.navbar.navbar-dark.bg-dark.navbar-expand-lg
-  
-  span.navbar-brand
-    style.
-      span.navbar-brand .cq-Editable-dom {
-        display: inline-block;
-      }
-    if process.env.isProd
-      span(
-        data-sly-resource="${ 'logoImg' @ resourceType='/apps/aemarch13/dist/components/global/LogoAuthor' }"
-      )
-    else
-      
-      span(data-av-component="global/LogoAuthor" data-properties-path="/content/aemarch13/xx/en/20190417_home/jcr:content/logoImg.infinity.json" )
-  
-  button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+//- The NavbarNav Parsys
+sly(data-sly-test='${wcmmode.edit}')
+  div.container
+    div.col-3
+      h4.bg-primary.text-white.p-2 NavbarNav Parsys
+      div(data-sly-resource="${ 'navbarnav' @ resourceType='/libs/foundation/components/parsys' }")
+
+//- NAVBAR
+nav.navbar.navbar-expand-lg.navbar-light.bg-light
+  a.navbar-brand(href='#')
+    span(data-sly-resource="${ 'logo' @ resourceType='/libs/wcm/foundation/components/image' }")
+  //- COLLAPSE BUTTON
+  button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
     span.navbar-toggler-icon
-      
+  //- NAVBAR NAV
   #navbarSupportedContent.collapse.navbar-collapse
-    include NavbarNav
-    
-    form.form-inline.my-2.my-lg-0
-      input.form-control.mr-sm-2(type='search' placeholder='Search' aria-label='Search')
-      button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Search
+    ul.navbar-nav.mr-auto
+      sly(data-sly-list='${resource.listChildren}')
+        li.nav-item(data-sly-test="${item.name == 'navbarnav' }", data-sly-repeat='${item.listChildren}')
+          a.nav-link(href='#') test...
