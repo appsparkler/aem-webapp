@@ -7,9 +7,8 @@ if process.env.NODE_ENV === 'development'
 
 else 
   
-  //- HEADER
-  sly(data-sly-include="/apps/aemarch13/dist/includes/Navbar.html")
-  //- CONTENT
-  sly(data-sly-resource="${ 'pageExperienceComponents' @ resourceType='/libs/foundation/components/parsys' }")
-  //- FOOTER
-  sly(data-sly-include="/apps/aemarch13/dist/includes/Footer.html")
+  sly(
+    data-sly-use.templatedcontainer='com.day.cq.wcm.foundation.TemplatedContainer'
+    data-sly-repeat.child='${templatedContainer.structureResources}'
+    data-sly-resource="${child.path @ resourceType=child.resourceType, decorationTagName='div'}"
+  )
