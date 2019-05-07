@@ -175,6 +175,13 @@ function get_pluginToCopyAppFolders() {
                 ignore: ['**/*.pug', '**/*.vue'],
                 force: true
             },
+            // experiences
+            {
+                from: 'src/experiences/**/*?.*',
+                transformPath: path => path.replace('src\\', ''),
+                ignore: ['**/*.pug', '**/*.vue'],
+                force: true
+            },
             // templates
             {
                 from: 'src/**/.content.xml',

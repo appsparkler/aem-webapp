@@ -51,6 +51,7 @@ class ClientLibFolderWebpackPlugin {
         process_clientLibraryFolders('dist/templates/global/BasePage/BasePage-publish-libs');
         process_clientLibraryFolders('dist/templates/landing/HomePage/HomePage-publish-libs');
         process_clientLibraryFolders('dist/components/global/LogoAuthor/LogoAuthor-publish-libs');
+        process_clientLibraryFolders('dist/experiences/global/xt-navbar/xt-navbar-publish-libs');
       })
   }
 };
