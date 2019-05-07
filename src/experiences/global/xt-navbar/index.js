@@ -1,2 +1,1 @@
-import "bootstrap/dist/css/bootstrap.css";
-// import LogoAuthor from "./index.vue";
+console.log('loading xt navbar now....')

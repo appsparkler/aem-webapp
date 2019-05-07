@@ -285,7 +285,27 @@ function get_pages() {
                   'chunk-common',
                   'components/experiences/Navbar/Navbar-publish-libs'
                 ]
-            }
+            },
+            /* experiences */
+            'experiences/global/xt-navbar/xt-navbar-publish-libs': {
+                // entry for the page
+                entry: path.resolve('src/experiences/global/xt-navbar/index.js'),
+                // the source template
+                template: path.resolve('src/experiences/global/xt-navbar/index.pug'),
+                // output as dist/index.html
+                filename: isDev ? 'experiences/global/xt-navbar/index.html' : 'recycle-bin/experiences/global/xt-navbar/index.html',
+                // when using title option,
+                // template title tag needs to be <title><%= HtmlWebpackPlugin.options.title %></title>
+                title: 'XT Navbar',
+                // chunks to include on this page, by default includes
+                // extracted common chunks and vendor chunks.
+                chunks: [
+                  'chunk-vendors',
+                  'chunk-common',
+                  'templates/global/BasePage/BasePage-publish-libs',
+                  'experiences/global/xt-navbar/xt-navbar-publish-libs'
+                ]
+            },
 
         };
         if(isDev) pages['AppIndex'] = {
