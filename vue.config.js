@@ -265,9 +265,11 @@ function get_pages() {
                 chunks: [
                   'chunk-vendors',
                   'chunk-common',
+                  'templates/global/BasePage/BasePage-publish-libs',
                   'components/global/LogoAuthor/LogoAuthor-publish-libs'
                 ]
             },
+            /**/
             'components/experiences/Navbar/Navbar-publish-libs': {
                 // entry for the page
                 entry: path.resolve('src/components/experiences/Navbar/index.js'),

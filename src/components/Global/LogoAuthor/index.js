@@ -1,21 +1,36 @@
-import "bootstrap/dist/css/bootstrap.css"
-import LogoAuthor from "./index.vue";
-import Vue from 'vue';
-export default LogoAuthor;
+import Vue from 'vue'
 
-// Vue.config.ignoredElements = ['sly'];
-// //
-// new Vue({
-//   el: "#test",
-//   components: { LogoAuthor },
-//   render(h){
-//     return h(LogoAuthor, {
-//       props: {
-//         properties:{
-//           alt: "The Logo",
-//           imgSrc: "/content/dam/kpmg/xx/images/2018/07/kpmg-logo.jpg"
+// export default class LogoComponent {
+//   constructor(config) {
+//     Vue.component('logo', {
+//       template:config.template,
+//       methods: {
+//         logoClicked() {
+//           alert('yay! logo was clicked!!!')
 //         }
 //       }
 //     })
 //   }
-// });
+// }
+
+export default class {
+  constructor(config) {
+    Vue.component('logo', {
+      template: config.template,
+      methods: {
+        logoClicked() {
+          alert('yay...logo was clicked')
+        }
+      }
+    })
+  }
+}
+
+// export default {
+//   // template: `<a href="#" class="navbar-brand" @click="logoClicked();">Navbar</a>`,
+//   methods:{
+//     logoClicked() {
+//       alert('yay! logo clicked')
+//     }
+//   }
+// }

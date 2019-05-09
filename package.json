@@ -13,12 +13,12 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.8.1",
     "popper.js": "^1.14.7",
-    "vue": "^2.6.6"
+    "vue": "^2.6.10"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.5.0",
     "@vue/cli-plugin-eslint": "^3.5.0",
-    "@vue/cli-service": "^3.5.0",
+    "@vue/cli-service": "^3.7.0",
     "babel-eslint": "^10.0.1",
     "bootstrap": "^4.3.1",
     "copy-webpack-plugin": "^5.0.2",
@@ -26,7 +26,7 @@
     "eslint": "^5.8.0",
     "eslint-plugin-vue": "^5.0.0",
     "fs-extra": "^7.0.1",
-    "jquery": "^3.3.1",
+    "jquery": "^3.4.1",
     "pug": "^2.0.3",
     "pug-loader": "^2.4.0",
     "pug-plain-loader": "^1.0.0",

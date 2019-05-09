@@ -1,8 +1,11 @@
-nav.navbar.navbar-expand-lg.navbar-dark.bg-primary
+nav#xt_navbar.navbar.navbar-expand-lg.navbar-dark.bg-primary
   
   span.navbar-brand
-    a(href='#')
-      img(src="https://placehold.it/120x40?text=APPSPARKLER")
+    if process.env.isDev
+      include /components/global/LogoAuthor/LogoAuthor
+    else 
+      
+      sly(data-sly-resource="${ 'logo' @ resourceType='/apps/aemarch13/dist/components/global/LogoAuthor' }")
         
   button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
     span.navbar-toggler-icon
