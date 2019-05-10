@@ -2,16 +2,27 @@ import Vue from 'vue';
 import $ from 'jquery';
 import LogoComponent from 'components/global/LogoAuthor';
 
-const $navbars = $('[id^=xt_navbar]');
+// Vue.component('global-logo-author', {
+//   template: `
+//     <h2>The Navbar...</h2>
+//   `
+// })
 
-$navbars.each(function(idx, el) {
-    setup_logoComponent.apply(null, arguments);
-    var navbarTemplate = get_navbarTemplate.apply(this, arguments);
-    new Vue({
-      el,
-      template: navbarTemplate
-    })
-});
+new Vue({
+  el: '#xt_navbar',
+  template: $('#xt_navbar').get(0).outerHTML
+})
+
+// const $navbars = $('[id^=xt_navbar]');
+//
+// $navbars.each(function(idx, el) {
+//     setup_logoComponent.apply(null, arguments);
+//     var navbarTemplate = get_navbarTemplate.apply(this, arguments);
+//     new Vue({
+//       el,
+//       template: navbarTemplate
+//     })
+// });
 
 function setup_logoComponent(idx, el) {
     try {
