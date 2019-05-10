@@ -1,32 +1,20 @@
 import Vue from 'vue'
 import $ from 'jquery'
-// export default class LogoComponent {
-//   constructor(config) {
-//     Vue.component('logo', {
-//       template:config.template,
-//       methods: {
-//         logoClicked() {
-//           alert('yay! logo was clicked!!!')
-//         }
-//       }
-//     })
-//   }
-// }
+
 const GlobalLogoAuthorComponent = Vue.component(
   'global-logo-author', {
+    comments: true,
     template: `
-      <a hfref="#" @click="logoClicked();">
+      <a hfref="#" @click="logoAuthorClicked();">
         <img src="https://placehold.it/120x40?text=The%20Component" />
       </a>
     `,
     methods:{
       logoAuthorClicked() {
-        alert('yay! logo author was clicked')
+        alert(`${this.$options.name} clicked...`);
       }
   }
 });
-
-
 
 $('[is^=global-logo-author]').each(setup_component.bind(this));
 
@@ -39,25 +27,3 @@ function setup_component(idx, el) {
     template: componentTemplate
   });
 }
-
-// export default class {
-//   constructor(config) {
-//     Vue.component('logo', {
-//       template: config.template,
-//       methods: {
-//         logoClicked() {
-//           alert('yay...logo was clicked')
-//         }
-//       }
-//     })
-//   }
-// }
-
-// export default {
-//   // template: `<a href="#" class="navbar-brand" @click="logoClicked();">Navbar</a>`,
-//   methods:{
-//     logoClicked() {
-//       alert('yay! logo clicked')
-//     }
-//   }
-// }
