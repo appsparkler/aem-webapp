@@ -1,0 +1,9 @@
+div(
+  is='${component.name}-${currentNode.name}-${currentNode.parent.name}' 
+  :image-link-config='imageLinkConfig ? imageLinkConfig : {}'
+)
+  a.navbar-brand(
+    href='#' 
+    @click='XTImageLinkClicked();'
+  )
+    img(src='https://placehold.it/40/fff/000?text=${properties.logoText}')

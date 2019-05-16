@@ -1,56 +1,26 @@
-import Vue from 'vue';
-import $ from 'jquery';
-import LogoComponent from 'components/global/LogoAuthor';
+function initialize_XTImageLinkComponents() {
+  var xtImageLink = Vue.component('xt-image-link', {
+        template:`<a href="#" class="navbar-brand" @clicked="XTImageLinkClicked();">{{ logoText }}</a>`,
+        props: [ 'imageLinkConfig' ],
+        methods:{
+            XTImageLinkClicked: function() {
+                console.log(this.$options.name, ' was clicked...');
+            }
+        },
+        comments: true
+    });
 
-// Vue.component('global-logo-author', {
-//   template: `
-//     <h2>The Navbar...</h2>
-//   `
-// })
-
-new Vue({
-  el: '#xt_navbar',
-  template: $('#xt_navbar').get(0).outerHTML
-})
-
-// const $navbars = $('[id^=xt_navbar]');
-//
-// $navbars.each(function(idx, el) {
-//     setup_logoComponent.apply(null, arguments);
-//     var navbarTemplate = get_navbarTemplate.apply(this, arguments);
-//     new Vue({
-//       el,
-//       template: navbarTemplate
-//     })
-// });
-
-function setup_logoComponent(idx, el) {
-    try {
-        const componentTemplate = $('.vue-logo-component', el).get(0).outerHTML;
-        new LogoComponent({
-          template: componentTemplate
+    $('[is^=xt-image-link]').each(function(idx, el) {
+        var componentTemplate = el.innerHTML;
+        var $xtImageLink = $(el);
+        var componentName = $xtImageLink.attr('is');
+        // clear html to avoid vue-warnings
+        $xtImageLink.find("[is^=xt]").html('');
+        var component = Vue.component(componentName, {
+            extends: xtImageLink,
+            template: componentTemplate
         });
-    } catch (e) {
-      console.error(e);
-    }
+    });
 }
 
-function get_navbarTemplate(idx, elem) {
-  try {
-    const navbarTempalte = elem.outerHTML;
-    return elem.outerHTML;
-  } catch (e) {
-      console.log('error in getting navbar-template');
-  }
-}
-
-function get_vueLogoComponent(idx, elem) {
-    try {
-      const logoComponentTemplate = $('.vue-logo-component', elem).get(0).outerHTML;
-      LogoComponent.template = logoComponentTemplate;
-      const vueLogoComponent = Vue.component('logo', LogoComponent);
-      return vueLogoComponent;
-    } catch (e) {
-        console.log('error in get_vueLogoComponent');
-    }
-}
+export default initialize_XTImageLinkComponents
