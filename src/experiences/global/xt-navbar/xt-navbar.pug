@@ -1,4 +1,4 @@
-div(is='${component.name}-${currentNode.name}')
+div(is='${component.name}-${resource.name}-${resource.parent.name}')
   .wrapper-xt-navbar
     nav.navbar.navbar-expand-lg.navbar-dark.bg-secondary
       sly(data-sly-test="${currentStyle.image_link_logo == 'ON'}", data-sly-resource="${ 'navbarLogo' @ resourceType='/apps/myApp/components/global/xt-image-link' }")
