@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root
+  xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+  xmlns:cq="http://www.day.com/jcr/cq/1.0"
+  xmlns:jcr="http://www.jcp.org/jcr/1.0"
+  xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+  jcr:primaryType="nt:unstructured"
+  jcr:title="XT Image Link Editor"
+  sling:resourceType="cq/gui/components/authoring/dialog"
+>
+  <content jcr:primaryType="nt:unstructured" sling:resourceType="granite/ui/components/coral/foundation/container">
+    <items jcr:primaryType="nt:unstructured">
+      <container jcr:primaryType="nt:unstructured" maximized="true" sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+          <imageLinkLogoCheckbox jcr:primaryType="nt:unstructured" fieldDescription="The Logo-Image for the XT Navbar" name="./image_link_logo" sling:resourceType="/libs/granite/ui/components/coral/foundation/form/checkbox" text="Image Link Logo" uncheckedValue="OFF" value="ON"/>
+        </items>
+      </container>
+    </items>
+  </content>
+</jcr:root>
