@@ -1,5 +1,6 @@
 div(
   is='${component.name}-${resource.name}-${resource.parent.name}' 
+  data-component-path="${component.path}"
   :image-link-config='imageLinkConfig ? imageLinkConfig : {}'
 )
   a.navbar-brand(

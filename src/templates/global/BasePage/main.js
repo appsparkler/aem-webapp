@@ -6,8 +6,7 @@ import 'bootstrap'
 import Vue from 'vue';
 
 // experimental
-import initialize_xtNavbar from 'experiences/global/xt-navbar/index.js';
-import initialize_xtImageLink from 'experiences/global/xt-image-link/index.js'
+
 
 configure_Vue();
 initialize_app();
@@ -18,6 +17,8 @@ function configure_Vue() {
 }
 
 function initialize_app() {
+  import initialize_xtNavbar from 'experiences/global/xt-navbar/index.js';
+  import initialize_xtImageLink from 'experiences/global/xt-image-link/index.js'
   initialize_xtImageLink();
   initialize_xtNavbar();
     //
@@ -30,7 +31,7 @@ function initialize_app() {
         el: '#app',
         template: appTemplate,
         mounted: function() {
-			console.log('app is mounted');
+	         console.log('app is mounted');
         },
         comments: true
     });

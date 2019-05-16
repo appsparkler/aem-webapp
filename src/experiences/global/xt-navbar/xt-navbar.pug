@@ -1,4 +1,7 @@
-div(is='${component.name}-${resource.name}-${resource.parent.name}')
+div(
+  is='${component.name}-${resource.name}-${resource.parent.name}'
+  data-component-path="${component.path}"
+)
   .wrapper-xt-navbar
     nav.navbar.navbar-expand-lg.navbar-dark.bg-secondary
       sly(data-sly-test="${currentStyle.image_link_logo == 'ON'}", data-sly-resource="${ 'navbarLogo' @ resourceType='/apps/aemarch13/dist/experiences/global/xt-image-link' }")
