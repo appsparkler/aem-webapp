@@ -18,8 +18,8 @@ function configure_Vue() {
 }
 
 function initialize_app() {
-    initialize_xtNavbar();
-    initialize_xtImageLink();
+  initialize_xtImageLink();
+  initialize_xtNavbar();
     //
     var $app = $('#app');
     var $xtComponents = $app.find('[is^=xt]');
