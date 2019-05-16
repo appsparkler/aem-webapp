@@ -1,3 +1,5 @@
+initialize_XTImageLinkComponents();
+
 function initialize_XTImageLinkComponents() {
   var xtImageLink = Vue.component('xt-image-link', {
         template:`<a href="#" class="navbar-brand" @clicked="XTImageLinkClicked();">{{ logoText }}</a>`,
@@ -23,4 +25,4 @@ function initialize_XTImageLinkComponents() {
     });
 }
 
-export default initialize_XTImageLinkComponents
+export default initialize_XTImageLinkComponents;
