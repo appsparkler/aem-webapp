@@ -1,3 +1,6 @@
+import Vue from 'vue'
+import $ from 'jquery'
+
 initialize_XTNavbarComponents()
 
 function initialize_XTNavbarComponents() {
