@@ -1,3 +1,6 @@
+import Vue from 'vue'
+import $ from 'jquery'
+
 initialize_XTImageLinkComponents();
 
 function initialize_XTImageLinkComponents() {
