@@ -3,48 +3,29 @@ import '@fortawesome/fontawesome-free/css/all.css'
 import $ from 'jquery'
 import 'bootstrap'
 //
-import "./styles.css";
-//
 import Vue from 'vue';
+configure_Vue();
+ininitalize_app();
 
-$(document).ready(setup_vueComponents);
-$(document).ready(move_parsysHelperParbaseElems);
-
-function move_parsysHelperParbaseElems() {
-  const $parsysHelper = $('.parsys-helper');
-  const $parsysHelperParent =$parsysHelper.parent();
-  $('.parsys-helper .cq-Editable-dom:not(.newpar)').remove();
-  $parsysHelper.appendTo($parsysHelperParent)
-  console.log('items moved and removed...');
+function configure_Vue() {
+  Vue.config.ignoredElements = ['cq', 'sly'];
+  Vue.config.comments = true;
 }
 
-function setup_vueComponents() {
-  $('[data-av-component]').each((idx, el) => {
+function initialize_app() {
 
-    const $el = $(el);
-    const componentPath = $el.attr('data-av-component');
-    const propertiesPath = $el.attr('data-properties-path');
-
-    import( /* webpackMode: "eager" */ `components/${componentPath}`)
-    .then(render_VueComponent.bind(null, el, propertiesPath));
-  });
+    var $app = $('#app');
+    var $xtComponents = $app.find('[is^=xt]');
+    $xtComponents.html('');
+    var appTemplate = $app.get(0).outerHTML;
+    new Vue({
+        el: '#app',
+        template: appTemplate,
+        mounted: function() {
+			console.log('app is mounted');
+        },
+        comments: true
+    });
 }
 
-function render_VueComponent(el, propertiesPath, {default: component}) {
-  let properties;
-  $.ajax({
-    url:propertiesPath,
-    async:false,
-    success: res => properties = res
-  });
-  new Vue({
-    el,
-    render(h) {
-      return h(component, {
-        props: {
-          properties
-        }
-      })
-    }
-  })
-}
+export default initialize_app

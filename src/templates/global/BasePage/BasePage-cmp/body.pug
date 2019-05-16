@@ -1,14 +1,6 @@
-if process.env.NODE_ENV === 'development'
-  include /includes/Navbar.pug
-  
-  block template-content
-  
-  include /includes/Footer.pug
-
-else 
-  
+div#app
   sly(
-    data-sly-use.templatedcontainer='com.day.cq.wcm.foundation.TemplatedContainer'
-    data-sly-repeat.child='${templatedContainer.structureResources}'
-    data-sly-resource="${child.path @ resourceType=child.resourceType, decorationTagName='div'}"
-  )
+      data-sly-use.templatedcontainer='com.day.cq.wcm.foundation.TemplatedContainer'
+      data-sly-repeat.child='${templatedContainer.structureResources}'
+      data-sly-resource="${child.path @ resourceType=child.resourceType, decorationTagName='div'}"
+    )
