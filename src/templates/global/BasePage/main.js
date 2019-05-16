@@ -4,6 +4,11 @@ import $ from 'jquery'
 import 'bootstrap'
 //
 import Vue from 'vue';
+
+// experimental
+import initialize_xtNavbar from 'experiences/global/xt-navbar/index.js';
+import initialize_xtImageLink from 'experiences/global/xt-image-link/index.js'
+
 configure_Vue();
 initialize_app();
 
@@ -13,7 +18,9 @@ function configure_Vue() {
 }
 
 function initialize_app() {
-
+    initialize_xtNavbar();
+    initialize_xtImageLink();
+    //
     var $app = $('#app');
     var $xtComponents = $app.find('[is^=xt]');
     $xtComponents.html('');

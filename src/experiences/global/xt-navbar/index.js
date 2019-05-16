@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import $ from 'jquery'
 
-initialize_XTNavbarComponents()
+// initialize_XTNavbarComponents()
 
 function initialize_XTNavbarComponents() {
   var xtNavbarComponent = Vue.component('xt-navbar', {

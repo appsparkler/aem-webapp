@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import $ from 'jquery'
 
-initialize_XTImageLinkComponents();
+// initialize_XTImageLinkComponents();
 
 function initialize_XTImageLinkComponents() {
   var xtImageLink = Vue.component('xt-image-link', {
