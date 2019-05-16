@@ -1,55 +1,39 @@
-nav#xt_navbar.navbar.navbar-expand-lg.navbar-dark.bg-primary
-  
-  //- NAVBAR BRAND 2
-  span.navbar-brand
-    if process.env.isDev
-      div(is="global-logo-author-1")
-        include /components/global/LogoAuthor/LogoAuthor
-    else 
-      
-      span(
-        is="global-logo-author-1"
-        data-sly-resource="${ 'global-logo-author-1' @ resourceType='/apps/aemarch13/dist/components/global/LogoAuthor' }"
-      )
-      
-  //- NABVAR BRAND 2
-  span.navbar-brand
-    if process.env.isDev
-      div(is="global-logo-author-2")
-        include /components/global/LogoAuthor/LogoAuthor
-    else 
-      
-      span(
-        is="global-logo-author-2"
-        data-sly-resource="${ 'global-logo-author-2' @ resourceType='/apps/aemarch13/dist/components/global/LogoAuthor' }"
-      )
-        
-  button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
-    span.navbar-toggler-icon
-  
-  #navbarSupportedContent.collapse.navbar-collapse
-    
-    ul.navbar-nav.mr-auto
-      li.nav-item.active
-        a.nav-link(href='#')
-          | Home 
-          span.sr-only (current)
-      li.nav-item
-        a.nav-link(href='#') Link
-      li.nav-item.dropdown
-        a#navbarDropdown.nav-link.dropdown-toggle(href='#', role='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
-          | Dropdown
-        .dropdown-menu(aria-labelledby='navbarDropdown')
-          a.dropdown-item(href='#') Action
-          a.dropdown-item(href='#') Another action
-          .dropdown-divider
-          a.dropdown-item(href='#') Something else here
-      li.nav-item
-        a.nav-link.disabled(href='#') Disabled
-    
-    form.form-inline.my-2.my-lg-0
-      input.form-control.mr-sm-2(type='search', placeholder='Search', aria-label='Search')
-      button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Search
-
-if process.env.isProd
-  include client-libs
+div(is='${component.name}-${currentNode.name}')
+  .wrapper-xt-navbar
+    nav.navbar.navbar-expand-lg.navbar-dark.bg-secondary
+      sly(data-sly-test="${currentStyle.image_link_logo == 'ON'}", data-sly-resource="${ 'navbarLogo' @ resourceType='/apps/myApp/components/global/xt-image-link' }")
+      p.navbar-brand(data-sly-test="${currentStyle.image_link_logo != 'ON'}")
+        span.bg-dark.text-white Set policy for Logo
+      button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
+        span.navbar-toggler-icon
+      #navbarSupportedContent.collapse.navbar-collapse
+        ul.navbar-nav.mr-auto
+          li.nav-item.active
+            a.nav-link(href='#')
+              | Home
+              span.sr-only (current)
+          li.nav-item
+            a.nav-link(href='#') Link
+          li.nav-item.dropdown
+            a#navbarDropdown.nav-link.dropdown-toggle(href='#', role='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+              | Dropdown
+            .dropdown-menu(aria-labelledby='navbarDropdown')
+              a.dropdown-item(href='#') Action
+              a.dropdown-item(href='#') Another action
+              .dropdown-divider
+              a.dropdown-item(href='#') Something else here
+          li.nav-item
+            a.nav-link.disabled(href='#') Disabled
+        form.form-inline.my-2.my-lg-0
+          input.form-control.mr-sm-2(type='search', placeholder='Search', aria-label='Search')
+          button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Search
+    .container(data-sly-test='${wcmmode.isEdit}')
+      .row
+        .col-12.text-white.bg-dark
+          h4
+            | Navbar Configuration
+        .col-2.bg-warning.text-white
+          span.pre Logo Config
+          sly(data-sly-test="${currentStyle.image_link_logo == 'ON'}", data-sly-resource="${ 'navbarLogo' @ resourceType='/apps/myApp/components/global/xt-image-link' }")
+          p.navbar-brand(data-sly-test="${currentStyle.image_link_logo != 'ON'}")
+            span.bg-dark.text-white Set policy for Logo
