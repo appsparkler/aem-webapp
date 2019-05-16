@@ -5,7 +5,7 @@ import 'bootstrap'
 //
 import Vue from 'vue';
 configure_Vue();
-ininitalize_app();
+initialize_app();
 
 function configure_Vue() {
   Vue.config.ignoredElements = ['cq', 'sly'];
@@ -18,6 +18,7 @@ function initialize_app() {
     var $xtComponents = $app.find('[is^=xt]');
     $xtComponents.html('');
     var appTemplate = $app.get(0).outerHTML;
+    console.log('appTemplate', appTemplate)
     new Vue({
         el: '#app',
         template: appTemplate,

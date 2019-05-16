@@ -20,10 +20,12 @@ function initialize_XTNavbarComponents() {
         $navbar.find("[is^=xt]").html('');
         var componentTemplate = el.innerHTML;
         var componentName = $navbar.attr('is');
+        console.log(componentTemplate);
         var component = Vue.component(componentName, {
             extends: xtNavbarComponent,
             template: componentTemplate
         });
+        console.log('navbar-component', component);
     });
 }
 

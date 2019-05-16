@@ -230,6 +230,7 @@ function get_pages() {
                   'templates/global/BasePage/BasePage-publish-libs'
                 ]
             },
+            /*
             'templates/landing/HomePage/HomePage-publish-libs': {
                 // entry for the page
                 entry: path.resolve('src/templates/landing/HomePage/main.js'),
@@ -249,6 +250,7 @@ function get_pages() {
                   'templates/landing/HomePage/HomePage-publish-libs'
                 ]
             },
+            */
             /**/
             'components/global/LogoAuthor/LogoAuthor-publish-libs': {
                 // entry for the page

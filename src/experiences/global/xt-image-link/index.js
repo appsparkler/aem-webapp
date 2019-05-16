@@ -25,6 +25,7 @@ function initialize_XTImageLinkComponents() {
             extends: xtImageLink,
             template: componentTemplate
         });
+        console.log('xt-image-link-component', component);
     });
 }
 
