@@ -1,56 +1,27 @@
-import Vue from 'vue';
-import $ from 'jquery';
-import LogoComponent from 'components/global/LogoAuthor';
+initialize_XTNavbarComponents()
 
-// Vue.component('global-logo-author', {
-//   template: `
-//     <h2>The Navbar...</h2>
-//   `
-// })
+function initialize_XTNavbarComponents() {
+  var xtNavbarComponent = Vue.component('xt-navbar', {
+        template:`<h1>XT Navbar</h1>`,
+        data: function() {
+            return {
+			imageLinkConfig: {
+                    greet: 'hi'
+                }
+            }
+        }
+    });
 
-new Vue({
-  el: '#xt_navbar',
-  template: $('#xt_navbar').get(0).outerHTML
-})
-
-// const $navbars = $('[id^=xt_navbar]');
-//
-// $navbars.each(function(idx, el) {
-//     setup_logoComponent.apply(null, arguments);
-//     var navbarTemplate = get_navbarTemplate.apply(this, arguments);
-//     new Vue({
-//       el,
-//       template: navbarTemplate
-//     })
-// });
-
-function setup_logoComponent(idx, el) {
-    try {
-        const componentTemplate = $('.vue-logo-component', el).get(0).outerHTML;
-        new LogoComponent({
-          template: componentTemplate
+    $('[is^=xt-navbar]').each(function(idx, el) {
+    	var $navbar = $(el);
+        $navbar.find("[is^=xt]").html('');
+        var componentTemplate = el.innerHTML;
+        var componentName = $navbar.attr('is');
+        var component = Vue.component(componentName, {
+            extends: xtNavbarComponent,
+            template: componentTemplate
         });
-    } catch (e) {
-      console.error(e);
-    }
+    });
 }
 
-function get_navbarTemplate(idx, elem) {
-  try {
-    const navbarTempalte = elem.outerHTML;
-    return elem.outerHTML;
-  } catch (e) {
-      console.log('error in getting navbar-template');
-  }
-}
-
-function get_vueLogoComponent(idx, elem) {
-    try {
-      const logoComponentTemplate = $('.vue-logo-component', elem).get(0).outerHTML;
-      LogoComponent.template = logoComponentTemplate;
-      const vueLogoComponent = Vue.component('logo', LogoComponent);
-      return vueLogoComponent;
-    } catch (e) {
-        console.log('error in get_vueLogoComponent');
-    }
-}
+export default initialize_XTNavbarComponents
