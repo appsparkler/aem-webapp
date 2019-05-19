@@ -2,14 +2,23 @@ div(
   is='${component.name}-${resource.name}-${resource.parent.name}'
   data-component-path="${component.path}"
 )
-  .wrapper-xt-navbar
+  div
     nav.navbar.navbar-expand-lg.navbar-dark.bg-secondary
-      sly(data-sly-test="${currentStyle.image_link_logo == 'ON'}", data-sly-resource="${ 'navbarLogo' @ resourceType='/apps/aemarch13/dist/experiences/global/xt-image-link' }")
+      
+      //- IMAGE-LINK COMPONENT FOR NAVBAR LOGO
+      sly(
+        data-sly-test="${currentStyle.image_link_logo == 'ON'}"
+        data-sly-resource="${ 'navbarLogo' @ resourceType='/apps/aemarch13/dist/experiences/global/xt-image-link' }"
+      )
       p.navbar-brand(data-sly-test="${currentStyle.image_link_logo != 'ON'}")
         span.bg-dark.text-white Set policy for Logo
+        
+      //- MOBILE NAVBAR MENU TOGGLE BUTTON
       button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
         span.navbar-toggler-icon
-      #navbarSupportedContent.collapse.navbar-collapse
+          
+      //-  NAVBAR NAV MENU
+      div#navbarSupportedContent.collapse.navbar-collapse
         ul.navbar-nav.mr-auto
           li.nav-item.active
             a.nav-link(href='#')
@@ -30,12 +39,14 @@ div(
         form.form-inline.my-2.my-lg-0
           input.form-control.mr-sm-2(type='search', placeholder='Search', aria-label='Search')
           button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Search
-    .container(data-sly-test='${wcmmode.isEdit}')
-      .row
-        .col-12.text-white.bg-dark
+    
+    //- AEM AUTHOR NAVBAR EDITOR
+    div.container(data-sly-test='${wcmmode.isEdit}')
+      div.row
+        div.col-12.text-white.bg-dark
           h4
             | Navbar Configuration
-        .col-2.bg-warning.text-white
+        div.col-2.bg-warning.text-white
           span.pre Logo Config
           sly(data-sly-test="${currentStyle.image_link_logo == 'ON'}", data-sly-resource="${ 'navbarLogo' @ resourceType='/apps/aemarch13/dist/experiences/global/xt-image-link' }")
           p.navbar-brand(data-sly-test="${currentStyle.image_link_logo != 'ON'}")

@@ -1,0 +1,3 @@
+#base=js
+
+listeners/click_cq-dialog-submit.js
