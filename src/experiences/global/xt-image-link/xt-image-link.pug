@@ -1,10 +1,14 @@
 div(
-  is='${component.name}-${resource.name}-${resource.parent.name}' 
-  data-component-path="${component.path}"
+  is='${component.name}-${resource.name}-${resource.parent.name}'
   :image-link-config='imageLinkConfig ? imageLinkConfig : {}'
 )
-  a.navbar-brand(
-    href='#' 
+  a(
+    class='${currentStyle.linkCSSClasses}' 
+    href='${properties.href}' 
     @click='XTImageLinkClicked();'
   )
-    img(src='https://placehold.it/40/fff/000?text=${properties.logoText}')
+    img(
+      class='${currentStyle.imgCSSClasses}' 
+      src='https://placehold.it/${currentStyle.imgWidth}x${currentStyle.imgHeight}/fff/000?text=${properties.logoText}'
+    )
+    | {{ imageLinkConfig.greet }}
