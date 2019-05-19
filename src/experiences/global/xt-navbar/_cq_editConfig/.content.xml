@@ -5,6 +5,7 @@
 <cq:listeners
   jcr:primaryType="cq:EditListenersConfig"
   afteredit="function() {var $contentFrame = $('iframe#ContentFrame');var src=$contentFrame.attr('src');$contentFrame.attr('src', src);}"
+  afterdelete="function() {var $contentFrame = $('iframe#ContentFrame');var src=$contentFrame.attr('src');$contentFrame.attr('src', src);}"
   afterinsert="function() {var $contentFrame = $('iframe#ContentFrame');var src=$contentFrame.attr('src');$contentFrame.attr('src', src);}"
 />
 </jcr:root>
