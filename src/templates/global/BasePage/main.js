@@ -4,10 +4,10 @@ import $ from 'jquery'
 import 'bootstrap'
 //
 import Vue from 'vue';
-
+//
+import initialize_xtNavbar from 'experiences/global/xt-navbar/index.js';
+import initialize_xtImageLink from 'experiences/global/xt-image-link/index.js'
 // experimental
-
-
 configure_Vue();
 initialize_app();
 
@@ -17,8 +17,6 @@ function configure_Vue() {
 }
 
 function initialize_app() {
-  import initialize_xtNavbar from 'experiences/global/xt-navbar/index.js';
-  import initialize_xtImageLink from 'experiences/global/xt-image-link/index.js'
   initialize_xtImageLink();
   initialize_xtNavbar();
     //
