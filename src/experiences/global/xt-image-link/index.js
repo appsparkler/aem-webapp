@@ -12,6 +12,11 @@ function initialize_XTImageLinkComponents() {
                 console.log(this.$options.name, ' was clicked...');
             }
         },
+        data() {
+          return {
+            // imageLinkConfig:
+          };
+        }
         comments: true
     });
 
@@ -20,7 +25,7 @@ function initialize_XTImageLinkComponents() {
         var $xtImageLink = $(el);
         var componentName = $xtImageLink.attr('is');
         // clear html to avoid vue-warnings
-        $xtImageLink.find("[is^=xt]").html('');
+        $xtImageLink.find("[is^=xt-image-link]").html('');
         var component = Vue.component(componentName, {
             extends: xtImageLink,
             template: componentTemplate

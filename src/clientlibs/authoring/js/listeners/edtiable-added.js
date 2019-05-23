@@ -8,12 +8,12 @@
   			data: {
   				'sling:resourceType': inspectable.type
   			},
-  			async: false	
+  			async: false
   		};
 
-  		if(inspectable.type.indexOf('myApp/components') > -1) $.post(ajaxConfig);
+  		if(inspectable.type.indexOf('aemarch13/dist') > -1) $.post(ajaxConfig);
   	} catch(e) {
   		console.error(e);
-  	}	
+  	}
   }
 }($(document), jQuery));

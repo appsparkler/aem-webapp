@@ -7,11 +7,8 @@ div(
       
       //- IMAGE-LINK COMPONENT FOR NAVBAR LOGO
       sly(
-        data-sly-test="${currentStyle.image_link_logo == 'ON'}"
         data-sly-resource="${ 'navbarLogo' @ resourceType='/apps/aemarch13/dist/experiences/global/xt-image-link' }"
       )
-      p.navbar-brand(data-sly-test="${currentStyle.image_link_logo != 'ON'}")
-        span.bg-dark.text-white Set policy for Logo
         
       //- MOBILE NAVBAR MENU TOGGLE BUTTON
       button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
@@ -47,7 +44,5 @@ div(
           h4
             | Navbar Configuration
         div.col-2.bg-warning.text-white
-          span.pre Logo Config
-          sly(data-sly-test="${currentStyle.image_link_logo == 'ON'}", data-sly-resource="${ 'navbarLogo' @ resourceType='/apps/aemarch13/dist/experiences/global/xt-image-link' }")
-          p.navbar-brand(data-sly-test="${currentStyle.image_link_logo != 'ON'}")
-            span.bg-dark.text-white Set policy for Logo
+          pre Logo Config
+          sly(data-sly-resource="${ 'navbarLogo' @ resourceType='/apps/aemarch13/dist/experiences/global/xt-image-link' }")

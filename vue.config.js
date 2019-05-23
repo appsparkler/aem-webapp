@@ -199,6 +199,12 @@ function get_pluginToCopyAppFolders() {
                 from: 'src/**/chunk-vendors/*?.*',
                 transformPath: path => path.replace('src\\', ''),
                 force: true
+            },
+            // clientlibs
+            {
+                from: 'src/clientlibs/**/*?.*',
+                transformPath: path => path.replace('src\\', ''),
+                force: true
             }
         ], {
             copyUnmodified: true

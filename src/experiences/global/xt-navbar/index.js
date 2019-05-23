@@ -17,7 +17,7 @@ function initialize_XTNavbarComponents() {
 
     $('[is^=xt-navbar]').each(function(idx, el) {
     	var $navbar = $(el);
-        $navbar.find("[is^=xt]").html('');
+        // $navbar.find("[is^=xt]").html('');
         var componentTemplate = el.innerHTML;
         var componentName = $navbar.attr('is');
         console.log(componentTemplate);
