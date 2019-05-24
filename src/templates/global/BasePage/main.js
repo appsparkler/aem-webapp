@@ -5,34 +5,27 @@ import 'bootstrap'
 //
 import Vue from 'vue';
 //
-import initialize_xtNavbar from 'experiences/global/xt-navbar/index.js';
-import initialize_xtImageLink from 'experiences/global/xt-image-link/index.js'
-// experimental
-configure_Vue();
-initialize_app();
+import setup_XTImageLinkComponents from 'experiences/global/xt-navbar/index.js';
+import setup_XTNavbarComponents from 'experiences/global/xt-image-link/index.js'
 
-function configure_Vue() {
-  Vue.config.ignoredElements = ['cq', 'sly'];
-  Vue.config.comments = true;
+setup_XTImageLinkComponents()
+setup_XTNavbarComponents()
+initialize_VueApps()
+
+// VUE APPS
+function initialize_VueApps() {
+    $('[id^=app]').each(VueApp);
 }
 
-function initialize_app() {
-  initialize_xtImageLink();
-  initialize_xtNavbar();
-    //
-    var $app = $('#app');
-    var $xtComponents = $app.find('[is^=xt]');
-    $xtComponents.html('');
-    var appTemplate = $app.get(0).outerHTML;
-    console.log('appTemplate', appTemplate)
-    new Vue({
-        el: '#app',
-        template: appTemplate,
-        mounted: function() {
-	         console.log('app is mounted');
-        },
-        comments: true
+function VueApp() {
+    Vue.config.comments = true;
+    Vue.config.ignoredElements = ['cq', 'sly'];
+    Vue.config.warnHandler = function(msg, vm, trace) {
+        console.log(msg);
+    };
+    Vue.config.productionTip = false;
+    this.VueApp = new Vue({
+        el: this,
+        template: this.outerHTML
     });
 }
-
-export default initialize_app
