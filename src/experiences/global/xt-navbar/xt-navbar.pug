@@ -4,7 +4,12 @@ nav(
 )
   //- XT-IMAGE-LINK for NAVBAR-LOGO
   div(
+    data-sly-test="${wcmmode.isEdit}"
     is='xt-image-link-navbarLogo-${resource.name}'
+  )
+  sly(
+    data-sly-test="${!wcmmode.isEdit}"
+    data-sly-resource="${ 'navbarLogo' @ resourceType='/apps/myApp/components/global/xt-image-link' }"
   )
   
   //- COLLAPSE BUTTON
