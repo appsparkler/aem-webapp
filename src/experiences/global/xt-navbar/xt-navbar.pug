@@ -1,48 +1,44 @@
-div(
-  is='${component.name}-${resource.name}-${resource.parent.name}'
-  data-component-path="${component.path}"
+nav.navbar.navbar-expand-lg.navbar-dark.bg-secondary(
+  is='${component.name}-${currentNode.name}'
 )
-  div
-    nav.navbar.navbar-expand-lg.navbar-dark.bg-secondary
+  //- XT-IMAGE-LINK for NAVBAR-LOGO
+  div(
+    is='xt-image-link-navbarLogo-${resource.name}'
+  )
+  
+  //- COLLAPSE BUTTON
+  button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
+    span.navbar-toggler-icon
       
-      //- IMAGE-LINK COMPONENT FOR NAVBAR LOGO
-      sly(
-        data-sly-resource="${ 'navbarLogo' @ resourceType='/apps/aemarch13/dist/experiences/global/xt-image-link' }"
-      )
-        
-      //- MOBILE NAVBAR MENU TOGGLE BUTTON
-      button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
-        span.navbar-toggler-icon
-          
-      //-  NAVBAR NAV MENU
-      div#navbarSupportedContent.collapse.navbar-collapse
-        ul.navbar-nav.mr-auto
-          li.nav-item.active
-            a.nav-link(href='#')
-              | Home
-              span.sr-only (current)
-          li.nav-item
-            a.nav-link(href='#') Link
-          li.nav-item.dropdown
-            a#navbarDropdown.nav-link.dropdown-toggle(href='#', role='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
-              | Dropdown
-            .dropdown-menu(aria-labelledby='navbarDropdown')
-              a.dropdown-item(href='#') Action
-              a.dropdown-item(href='#') Another action
-              .dropdown-divider
-              a.dropdown-item(href='#') Something else here
-          li.nav-item
-            a.nav-link.disabled(href='#') Disabled
-        form.form-inline.my-2.my-lg-0
-          input.form-control.mr-sm-2(type='search', placeholder='Search', aria-label='Search')
-          button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Search
-    
-    //- AEM AUTHOR NAVBAR EDITOR
-    div.container(data-sly-test='${wcmmode.isEdit}')
-      div.row
-        div.col-12.text-white.bg-dark
-          h4
-            | Navbar Configuration
-        div.col-2.bg-warning.text-white
-          pre Logo Config
-          sly(data-sly-resource="${ 'navbarLogo' @ resourceType='/apps/aemarch13/dist/experiences/global/xt-image-link' }")
+  //-NABVAR-NAV with COLLAPSE
+  div#navbarSupportedContent.collapse.navbar-collapse
+    ul.navbar-nav.mr-auto
+      li.nav-item.active
+        a.nav-link(href='#')
+          | Home
+          span.sr-only (current)
+      li.nav-item
+        a.nav-link(href='#') Link
+      li.nav-item.dropdown
+        a#navbarDropdown.nav-link.dropdown-toggle(href='#', role='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+          | Dropdown
+        div.dropdown-menu(aria-labelledby='navbarDropdown')
+          a.dropdown-item(href='#') Action
+          a.dropdown-item(href='#') Another action
+          div.dropdown-divider
+          a.dropdown-item(href='#') Something else here
+      li.nav-item
+        a.nav-link.disabled(href='#') Disabled
+    form.form-inline.my-2.my-lg-0
+      input.form-control.mr-sm-2(type='search', placeholder='Search', aria-label='Search')
+      button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Search
+      
+//- EDITOR for XT-NAVBAR
+div.container(data-sly-test='${wcmmode.isEdit}')
+  div.row
+    div.col-12.text-white.bg-dark
+      h4
+        | Navbar Configuration
+    div.col-2.bg-warning.text-white
+      span.pre Logo Config
+      sly(data-sly-resource="${ 'navbarLogo' @ resourceType='/apps/myApp/components/global/xt-image-link' }")

@@ -1,14 +1,10 @@
-div(
-  is='${component.name}-${resource.name}-${resource.parent.name}'
-  :image-link-config='imageLinkConfig ? imageLinkConfig : {}'
+a(
+  is="${component.name}-${resource.name}-${resource.parent.name}" 
+  class="${currentStyle.linkCSSClasses || 'navbar-brand'}"
+  href="${properties.href || 'https://www.google.com'}"
+  @click='XTImageLinkClicked();'
 )
-  a(
-    class='${currentStyle.linkCSSClasses}' 
-    href='${properties.href}' 
-    @click='XTImageLinkClicked();'
+  img(
+    class="${currentStyle.imgCSSClasses || 'border-primary rounded-pill'}"
+    src="https://placehold.it/${currentStyle.imgWidth || 120}x${currentStyle.imgHeight || 40}/000/fff?text=${properties.logoText || 'GOOGLE'}"
   )
-    img(
-      class='${currentStyle.imgCSSClasses}' 
-      src='https://placehold.it/${currentStyle.imgWidth}x${currentStyle.imgHeight}/fff/000?text=${properties.logoText}'
-    )
-    | {{ imageLinkConfig.greet }}
