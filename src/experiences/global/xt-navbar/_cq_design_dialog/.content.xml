@@ -12,7 +12,26 @@
     <items jcr:primaryType="nt:unstructured">
       <container jcr:primaryType="nt:unstructured" maximized="true" sling:resourceType="granite/ui/components/coral/foundation/container">
         <items jcr:primaryType="nt:unstructured">
-          <imageLinkLogoCheckbox jcr:primaryType="nt:unstructured" fieldDescription="The Logo-Image for the XT Navbar" name="./image_link_logo" sling:resourceType="/libs/granite/ui/components/coral/foundation/form/checkbox" text="Image Link Logo" uncheckedValue="OFF" value="ON"/>
+          <navCSSClasses
+              jcr:primaryType="nt:unstructured"
+              sling:resourceType="/libs/granite/ui/components/coral/foundation/form/textfield"
+              fieldDescription="CSS Classes on NAV HTML element"
+              fieldLabel="NAV CSS Classes"
+              name="./navCSSClasses"/>
+          <collapseButtonTogglerClasses
+              jcr:primaryType="nt:unstructured"
+              sling:resourceType="/libs/granite/ui/components/coral/foundation/form/textfield"
+              fieldDescription="CSS Classes on BUTTON HTML element"
+              fieldLabel="Collapse-butotn CSS Classes"
+              name="./collapseButtonToggler"/>
+
+          <navbarTogglerIcon
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="/libs/granite/ui/components/coral/foundation/form/textfield"
+            fieldDescription="CSS Classes on SPAN HTML element"
+            fieldLabel="Navbar Toggler Icon CSS Classes"
+            name="./navbarTogglerIcon"
+          />
         </items>
       </container>
     </items>
