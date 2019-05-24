@@ -2,7 +2,7 @@ import $ from 'jquery'
 import XTComponent from 'common-script'
 
 // XT IMAGE LINK COMPONENTS
-export function setup_XTImageLinkComponents() {
+export default function setup_XTImageLinkComponents() {
     $('[is^=xt-image-link]').each(XTImageLinkComponent);
 }
 
