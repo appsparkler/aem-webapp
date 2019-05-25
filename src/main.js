@@ -5,10 +5,3 @@ import 'bootstrap/js/dist/dropdown';
 //
 import commonGreeter from 'common-script.js'
 commonGreeter();
-
-// Vue.config.productionTip = false
-// Vue.config.ignoreElements = ['sly'];
-
-// new Vue({
-//     render: h => h(App)
-// }).$mount('#app');

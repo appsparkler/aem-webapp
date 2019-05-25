@@ -12,9 +12,6 @@ function generate_xtNavbarComponent() {
     const componentOptions = {
       methods: {
           youClicked: () => alert('you clicked...')
-      },
-      mounted() {
-        alert(typeof this.youClicked);
       }
     };
     generate_xtComponent.call(this, componentOptions);
