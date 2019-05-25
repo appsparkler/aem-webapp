@@ -331,7 +331,6 @@ function get_pages() {
                 chunks: [
                   'chunk-vendors',
                   'chunk-common',
-                  'templates/global/BasePage/BasePage-publish-libs',
                   'experiences/global/xt-image-link/xt-image-link-publish-libs'
                 ]
             },

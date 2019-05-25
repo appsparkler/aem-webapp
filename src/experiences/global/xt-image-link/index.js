@@ -17,7 +17,7 @@ function generate_xtImageLinkComponent() {
             }
         },
         mounted() {
-          alert('mounted');
+          // alert('mounted');
         }
     };
     generate_xtComponent.call(this, componentOptions);

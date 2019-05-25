@@ -1,5 +1,7 @@
 import Vue from 'vue';
 import $ from 'jquery';
+import 'bootstrap';
+import 'bootstrap\\dist\\css\\bootstrap.css'
 
 export function initialize_VueApps() {
   $('[id^=app]').each(VueApp);
@@ -12,6 +14,7 @@ export function generate_xtComponent(options) {
     options = options || {};
     options.name = vue_componentName;
     options.template = vue_template;
+    console.log(vue_template)
     Vue.component(vue_componentName, options);
 }
 
@@ -22,8 +25,9 @@ function VueApp() {
         console.log(msg);
     };
     Vue.config.productionTip = false;
-    this.VueApp = new Vue({
+    var VueApp = new Vue({
         el: this,
         template: this.outerHTML
     });
+    console.log(VueApp)
 }
