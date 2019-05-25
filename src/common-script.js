@@ -6,6 +6,6 @@ export default function(options) {
     options = options || {};
     options.name = vue_componentName;
     options.template = vue_template;
-    console.log(vue_template)
-    Vue.component(vue_componentName, options);
+    console.log(Vue.component(vue_componentName, options));
+    // Vue.component(vue_componentName, options);
 }

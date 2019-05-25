@@ -1,10 +1,23 @@
-a(
-  is="${component.name}-${resource.name}-${resource.parent.name}" 
-  class="${currentStyle.linkCSSClasses || 'navbar-brand'}"
-  href="${properties.href || 'https://www.google.com'}"
-  @click='XTImageLinkClicked();'
-)
-  img(
-    class="${currentStyle.imgCSSClasses || 'border-primary rounded-pill'}"
-    src="https://placehold.it/${currentStyle.imgWidth || 120}x${currentStyle.imgHeight || 40}/000/fff?text=${properties.logoText || 'GOOGLE'}"
+if process.env.isProd
+  a(
+    is="${component.name}-${resource.name}-${resource.parent.name}" 
+    class="${currentStyle.linkCSSClasses || 'navbar-brand'}"
+    href="${properties.href || 'https://www.google.com'}"
+    @click='XTImageLinkClicked();'
   )
+    img(
+      class="${currentStyle.imgCSSClasses || 'border-primary rounded-pill'}"
+      src="https://placehold.it/${currentStyle.imgWidth || 120}x${currentStyle.imgHeight || 40}/000/fff?text=${properties.logoText || 'GOOGLE'}"
+    )
+
+else 
+  
+    a(
+      is="xt-image-link"
+      class="border border-primary"
+      href="#"
+      @XTImageLinkClicked="XTImageLinkClicked();"
+    )
+      img(
+        src="https://www.placehold.it/40"
+    )
