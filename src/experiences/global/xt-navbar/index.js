@@ -1,10 +1,21 @@
 import $ from 'jquery';
-import XTComponent from 'common-script';
+import {initialize_VueApps, generate_xtComponent} from 'common-script';
+
+setup_XTNavbarComponents()
+initialize_VueApps();
 
 export default function setup_XTNavbarComponents() {
-    $('[is^=xt-navbar]').each(XTNavbarComponent);
+    $('[is^=xt-navbar]').each(generate_xtNavbarComponent);
 }
 
-function XTNavbarComponent() {
-    XTComponent.call(this);
+function generate_xtNavbarComponent() {
+    const componentOptions = {
+      methods: {
+          youClicked: () => alert('you clicked...')
+      },
+      mounted() {
+        alert(typeof this.youClicked);
+      }
+    };
+    generate_xtComponent.call(this, componentOptions);
 }
