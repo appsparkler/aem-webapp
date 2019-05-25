@@ -51,8 +51,6 @@ class ClientLibFolderWebpackPlugin {
         process_clientLibraryFolders('dist/chunk-vendors');
         process_clientLibraryFolders('dist/chunk-common');
         process_clientLibraryFolders('dist/templates/global/BasePage/BasePage-publish-libs');
-        process_clientLibraryFolders('dist/templates/landing/HomePage/HomePage-publish-libs');
-        process_clientLibraryFolders('dist/components/global/LogoAuthor/LogoAuthor-publish-libs');
         process_clientLibraryFolders('dist/experiences/global/xt-navbar/xt-navbar-publish-libs');
         process_clientLibraryFolders('dist/experiences/global/xt-image-link/xt-image-link-publish-libs');
         process_clientLibraryFolders('dist/experiences/global/xt-container/xt-container-publish-libs');
