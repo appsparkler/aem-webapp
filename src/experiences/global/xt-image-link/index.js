@@ -1,16 +1,15 @@
 import $ from 'jquery'
-import XTComponent from 'common-script'
+import { generate_xtComponent, initialize_VueApps } from 'common-script'
 
 // XT IMAGE LINK COMPONENTS
 setup_XTImageLinkComponents();
-initialize_VueApp();
+initialize_VueApps();
 
 export default function setup_XTImageLinkComponents() {
-    $('[is^=xt-image-link]').each(XTImageLinkComponent);
+    $('[is^=xt-image-link]').each(generate_xtImageLinkComponent);
 }
 
-function XTImageLinkComponent() {
-  alert('setting up...')
+function generate_xtImageLinkComponent() {
     var componentOptions = {
         methods: {
             XTImageLinkClicked: function() {
@@ -21,13 +20,5 @@ function XTImageLinkComponent() {
           alert('mounted');
         }
     };
-    XTComponent.call(this, componentOptions);
-}
-
-function initialize_VueApp() {
-  try {
-      
-  } catch (e) {
-
-  }
+    generate_xtComponent.call(this, componentOptions);
 }
