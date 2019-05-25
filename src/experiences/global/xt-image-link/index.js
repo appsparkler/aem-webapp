@@ -3,7 +3,7 @@ import { generate_xtComponent, initialize_VueApps } from 'common-script'
 
 // XT IMAGE LINK COMPONENTS
 setup_XTImageLinkComponents();
-initialize_VueApps();
+if(process.env.VUE_APP_IS_DEV) initialize_VueApps();
 
 export default function setup_XTImageLinkComponents() {
     $('[is^=xt-image-link]').each(generate_xtImageLinkComponent);
