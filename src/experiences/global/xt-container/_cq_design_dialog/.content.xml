@@ -12,12 +12,33 @@
                 sling:resourceType="granite/ui/components/coral/foundation/container"
                 maximized="{Boolean}true">
                 <items jcr:primaryType="nt:unstructured">
+                    <!--  CONTAINER CSS Classes -->
                     <containerCSSClasses
                         jcr:primaryType="nt:unstructured"
                         sling:resourceType="/libs/granite/ui/components/coral/foundation/form/textfield"
                         fieldDescription="The CSS classes for the XT Container"
-                        fieldLabel="Container CSS Classes"
+                        fieldLabel="Main Container CSS Classes"
                         name="./containerCSSClasses"/>
+
+                    <!-- NESTED DIVS -->
+                    <nestedDivs
+                      sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                      fieldDescription="Add a new nested div element"
+                      fieldLabel="Nested DIV element"
+                      jcr:primaryType="nt:unstructured"
+                      composite="{Boolean}true">
+                      <field sling:resourceType="granite/ui/components/coral/foundation/container"
+                              jcr:primaryType="nt:unstructured" name="./divElements">
+                          <items jcr:primaryType="nt:unstructured">
+                              <linkText
+                                  sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                  fieldLabel="CSS Class"
+                                  jcr:primaryType="nt:unstructured"
+                                  name="./cssClass" />
+                          </items>
+                      </field>
+                  </nestedDivs>
+                  
                 </items>
             </container>
         </items>

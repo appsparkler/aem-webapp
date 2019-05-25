@@ -1,16 +1,22 @@
-<div class="${currentStyle.containerCSSClasses}">
-  <div class="row">
-    <div class="col-3">
-      <div data-sly-resource="${ 'col1' @ resourceType='wcm/foundation/components/responsivegrid' }"></div>
-    </div>
-    <div class="col-3">
-      <div data-sly-resource="${ 'col2' @ resourceType='wcm/foundation/components/responsivegrid' }"></div>
-    </div>
-    <div class="col-3">
-      <div data-sly-resource="${ 'col3' @ resourceType='wcm/foundation/components/responsivegrid' }"></div>
-    </div>
-    <div class="col-3">
-      <div data-sly-resource="${ 'col4' @ resourceType='wcm/foundation/components/responsivegrid' }"></div>
-    </div>
-  </div>
-</div>
+div.container
+  sly(
+    data-sly-test='${currentStyle}'
+    data-sly-use.xtcontainerstyleresource='${currentStyle.path}'
+  )
+    div(
+      data-sly-test='${xtcontainerstyleResource}'
+      class='${currentStyle.containerCSSClasses}'
+    )
+      sly(
+        data-sly-test='${xtcontainerstyleResource.hasChildren}'
+        data-sly-list='${xtcontainerstyleResource.listChildren}'
+      )
+        sly(
+          data-sly-test="${item.name == 'divElements'}"
+          data-sly-list='${item.listChildren}'
+        )
+          div(class='${item.cssClass}')
+            sly(data-sly-resource="${ item.name @ resourceType='wcm/foundation/components/responsivegrid' }")
+  
+  sly(data-sly-test='${!currentStyle}')
+    sly(data-sly-resource="${ item.name @ resourceType='wcm/foundation/components/responsivegrid' }")
