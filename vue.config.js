@@ -334,6 +334,24 @@ function get_pages() {
                   'templates/global/BasePage/BasePage-publish-libs',
                   'experiences/global/xt-image-link/xt-image-link-publish-libs'
                 ]
+            },
+            'experiences/global/xt-container/xt-container-publish-libs': {
+                // entry for the page
+                entry: path.resolve('src/experiences/global/xt-container/index.js'),
+                // the source template
+                template: path.resolve('src/experiences/global/xt-container/index.pug'),
+                // output as dist/index.html
+                filename: isDev ? 'experiences/global/xt-container/index.html' : 'recycle-bin/experiences/global/xt-container/index.html',
+                // when using title option,
+                // template title tag needs to be <title><%= HtmlWebpackPlugin.options.title %></title>
+                title: 'XT Container',
+                // chunks to include on this page, by default includes
+                // extracted common chunks and vendor chunks.
+                chunks: [
+                  'chunk-vendors',
+                  'chunk-common',,
+                  'experiences/global/xt-container/xt-container-publish-libs'
+                ]
             }
         };
         if(isDev) pages['AppIndex'] = {

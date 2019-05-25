@@ -11,7 +11,9 @@ const {
   join: joinPath
 } = require('path');
 const { sync: get_glob } = require('glob');
-const get_directories = folderPath => readDir(folderPath).filter(folderItem => get_folderItemStats(resolvePath(folderPath, folderItem)).isDirectory());
+const get_directories = folderPath => readDir(folderPath).filter(folderItem =>
+
+get_folderItemStats(resolvePath(folderPath, folderItem)).isDirectory());
 
 function process_clientLibraryFolders(pathToDir) {
     pathToDir = resolvePath(pathToDir);
@@ -53,6 +55,7 @@ class ClientLibFolderWebpackPlugin {
         process_clientLibraryFolders('dist/components/global/LogoAuthor/LogoAuthor-publish-libs');
         process_clientLibraryFolders('dist/experiences/global/xt-navbar/xt-navbar-publish-libs');
         process_clientLibraryFolders('dist/experiences/global/xt-image-link/xt-image-link-publish-libs');
+        process_clientLibraryFolders('dist/experiences/global/xt-image-link/xt-container-publish-libs');
       })
   }
 };
