@@ -4,5 +4,5 @@
   xmlns:jcr="http://www.jcp.org/jcr/1.0"
   jcr:primaryType="cq:ClientLibraryFolder"
   categories="[aemarch13.xt.global.xt-image-link]"
-  dependencies="[]"
+  dependencies="[aemarch13.chunkVendors,aemarch13.chunkCommons]"
 />
