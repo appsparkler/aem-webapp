@@ -356,7 +356,7 @@ function get_pages() {
             // entry for the page
             entry: path.resolve('src/main.js'),
             // the source template
-            template: path.resolve('public/index.pug'),
+            template: path.resolve('src/index.pug'),
             // output as dist/index.html
             filename: isDev ? 'index.html' : 'recycle-bin/index.html',
             // when using title option,
