@@ -236,66 +236,6 @@ function get_pages() {
                   'templates/global/BasePage/BasePage-publish-libs'
                 ]
             },
-            /*
-            'templates/landing/HomePage/HomePage-publish-libs': {
-                // entry for the page
-                entry: path.resolve('src/templates/landing/HomePage/main.js'),
-                // the source template
-                template: path.resolve('src/templates/landing/HomePage/index.pug'),
-                // output as dist/index.html
-                filename: isDev ? 'homepage/index.html' : 'recycle-bin/homepage/index.html',
-                // when using title option,
-                // template title tag needs to be <title><%= HtmlWebpackPlugin.options.title %></title>
-                title: 'Home Page',
-                // chunks to include on this page, by default includes
-                // extracted common chunks and vendor chunks.
-                chunks: [
-                  'chunk-vendors',
-                  'chunk-common',
-                  'templates/global/BasePage/BasePage-publish-libs',
-                  'templates/landing/HomePage/HomePage-publish-libs'
-                ]
-            },
-            */
-            /**/
-            'components/global/LogoAuthor/LogoAuthor-publish-libs': {
-                // entry for the page
-                entry: path.resolve('src/components/global/LogoAuthor/index.js'),
-                // the source template
-                template: path.resolve('src/components/global/LogoAuthor/index.pug'),
-                // output as dist/index.html
-                filename: isDev ? 'components/LogoAuthor/index.html' : 'recycle-bin/components/LogoAuthor/index.html',
-                // when using title option,
-                // template title tag needs to be <title><%= HtmlWebpackPlugin.options.title %></title>
-                title: 'Logo Author',
-                // chunks to include on this page, by default includes
-                // extracted common chunks and vendor chunks.
-                chunks: [
-                  'chunk-vendors',
-                  'chunk-common',
-                  'templates/global/BasePage/BasePage-publish-libs',
-                  'components/global/LogoAuthor/LogoAuthor-publish-libs'
-                ]
-            },
-            /**/
-            'components/experiences/Navbar/Navbar-publish-libs': {
-                // entry for the page
-                entry: path.resolve('src/components/experiences/Navbar/index.js'),
-                // the source template
-                template: path.resolve('src/components/experiences/Navbar/index.pug'),
-                // output as dist/index.html
-                filename: isDev ? 'components/experiences/Navbar/index.html' : 'recycle-bin/components/experiences/LogoAuthor/index.html',
-                // when using title option,
-                // template title tag needs to be <title><%= HtmlWebpackPlugin.options.title %></title>
-                title: 'Navbar Experience',
-                // chunks to include on this page, by default includes
-                // extracted common chunks and vendor chunks.
-                chunks: [
-                  'chunk-vendors',
-                  'chunk-common',
-                  'components/experiences/Navbar/Navbar-publish-libs'
-                ]
-            },
             /* experiences */
             'experiences/global/xt-navbar/xt-navbar-publish-libs': {
                 // entry for the page
