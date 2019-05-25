@@ -6,5 +6,6 @@
   jcr:primaryType="cq:Component"
   jcr:title="XT Navbar"
   componentGroup="aemarch13"
+  feLibs="[aemarch13.xt.global.xt-navbar]"
   clientlibs="aemarch13.global.xt.xt_navbar"
 />
