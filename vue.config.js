@@ -153,24 +153,9 @@ function get_pluginToCopyAppFolders() {
     try {
         const CopyPlugin = require('copy-webpack-plugin');
         const plugin = new CopyPlugin([
-            // TEMPLATES
+            // templates
             {
                 from: 'src/templates/**/*?.*',
-                transformPath: path => path.replace('src\\', ''),
-                ignore: ['**/*.pug', '**/*.vue'],
-                force: true
-            },
-            // includes folder
-            {
-                from: 'src/includes/**/*?.*',
-                transformPath: path => path.replace('src\\', ''),
-                ignore: ['**/*.pug', '**/*.vue'],
-                force: true
-
-            },
-            // components
-            {
-                from: 'src/components/**/*?.*',
                 transformPath: path => path.replace('src\\', ''),
                 ignore: ['**/*.pug', '**/*.vue'],
                 force: true
@@ -182,7 +167,7 @@ function get_pluginToCopyAppFolders() {
                 ignore: ['**/*.pug', '**/*.vue'],
                 force: true
             },
-            // templates
+            // .content.xml files
             {
                 from: 'src/**/.content.xml',
                 transformPath: path => path.replace('src\\', ''),
