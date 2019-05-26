@@ -49,7 +49,8 @@ if process.env.isProd
         //- FORM
         form.form-inline.my-2.my-lg-0
           input.form-control.mr-sm-2(type='search', placeholder='Search', aria-label='Search')
-          button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Search
+          div.btn.btn-outline-success.my-2.my-sm-0(is="Button")
+          //- button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Search
           
     //- EDITOR for XT-NAVBAR
     div.container(data-sly-test='${wcmmode.isEdit}')
@@ -69,7 +70,9 @@ else
         | Hello World
       a.navbar-brand(href="#" is="xt-image-link-42312121212" :xt-image-link-config="xtImageLinkConfig" @click="linkClicked();")
         img(src="https://www.placehold.it/120x40")
-        
+      form.form-inline.my-2.my-lg-0
+        input.form-control.mr-sm-2(type='search', placeholder='Search', aria-label='Search')
+        div.btn.btn-outline-success.my-2.my-sm-0(is="Button")
     
     div.navbar.navbar-expand-lg.navbar-dark.bg-warning(is="xt-navbar-1243331212")
       a.navbar-brand(
