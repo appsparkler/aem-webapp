@@ -1,8 +1,6 @@
 if process.env.isProd
   div(is='${component.name}-${currentNode.name}')
-    nav(
-      class="${currentStyle.navCSSClasses || 'navbar navbar-expand-lg navbar-dark bg-secondary'}"
-    )
+    nav(class="${currentStyle.navCSSClasses || 'navbar navbar-expand-lg navbar-dark bg-secondary'}")
       //- XT-IMAGE-LINK for NAVBAR-LOGO
       //- ntro - non-template-reference-only
       div(
@@ -53,19 +51,18 @@ if process.env.isProd
           input.form-control.mr-sm-2(type='search', placeholder='Search', aria-label='Search')
           button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Search
           
-      //- EDITOR for XT-NAVBAR
-      div.container(data-sly-test='${wcmmode.isEdit}')
-        div.row
-          div.col-12.text-white.bg-dark
-            h4
-              | Navbar Configuration
-          div.col-2.bg-warning.text-white
-            span.pre Logo Config
-            sly(data-sly-resource="${ 'navbarLogo' @ resourceType='/apps/myApp/components/global/xt-image-link' }")
+    //- EDITOR for XT-NAVBAR
+    div.container(data-sly-test='${wcmmode.isEdit}')
+      div.row
+        div.col-12.text-white.bg-dark
+          h4
+            | Navbar Configuration
+        div.col-2.bg-warning.text-white
+          span.pre Logo Config
+          sly(data-sly-resource="${ 'navbarLogo' @ resourceType='/apps/myApp/components/global/xt-image-link' }")
 
 else 
     
-    div(is="xt-navbar-1212" data-ntro)
     div.navbar.navbar-expand-lg.navbar-dark.bg-primary(is="xt-navbar-1212")
       a.navbar-brand(href="#" is="xt-image-link-1212" :xt-image-link-config="xtImageLinkConfig" @click="linkClicked();")
         img(src="https://www.placehold.it/140x40")
