@@ -9,6 +9,6 @@ import {initialize_VueApps} from 'common-script'
 import {setup_XTImageLinkComponents} from 'experiences/global/xt-navbar/index.js';
 import {setup_XTNavbarComponents} from 'experiences/global/xt-image-link/index.js'
 
-setup_XTImageLinkComponents()
-setup_XTNavbarComponents()
+// setup_XTImageLinkComponents()
+// setup_XTNavbarComponents()
 initialize_VueApps()

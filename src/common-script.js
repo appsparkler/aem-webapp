@@ -14,11 +14,7 @@ export function generate_xtComponent(el, options) {
     options = options || {};
     options.name = vue_componentName;
     options.template = vue_template;
-    console.log(vue_template);
-    console.log(vue_componentName)
-    var vueComponent = Vue.component(vue_componentName, options);
-    // console.log(vueComponent);
-    return vueComponent;
+    Vue.component(vue_componentName, options);
 }
 
 function VueApp() {

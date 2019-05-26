@@ -237,6 +237,7 @@ function get_pages() {
                 chunks: [
                   'chunk-vendors',
                   'chunk-common',
+                  'experiences/global/xt-image-link/xt-image-link-publish-libs',
                   'experiences/global/xt-navbar/xt-navbar-publish-libs'
                 ]
             },
