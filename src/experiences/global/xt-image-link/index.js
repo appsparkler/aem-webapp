@@ -5,7 +5,6 @@ import { generate_xtComponent, initialize_VueApps } from 'common-script'
 // setup_XTImageLinkComponents();
 // if(process.env.VUE_APP_IS_DEV) initialize_VueApps();
 
-
 export function setup_XTImageLinkComponents() {
     $('[is^=xt-image-link]').each(generate_xtImageLinkComponent);
 }
