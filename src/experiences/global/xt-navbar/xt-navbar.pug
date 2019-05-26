@@ -1,72 +1,71 @@
 if process.env.isProd
-  nav(
-    class="${currentStyle.navCSSClasses || 'navbar navbar-expand-lg navbar-dark bg-secondary'}"
-    is='${component.name}-${currentNode.name}'
-  )
-    //- XT-IMAGE-LINK for NAVBAR-LOGO
-    //- ntro - non-template-reference-only
-    div(
-      class="ntro"
-      data-sly-test="${wcmmode.isEdit}"
-      is='xt-image-link-navbarLogo-${resource.name'
+  div(is='${component.name}-${currentNode.name}')
+    nav(
+      class="${currentStyle.navCSSClasses || 'navbar navbar-expand-lg navbar-dark bg-secondary'}"
     )
-    sly(
-      data-sly-test="${!wcmmode.isEdit}"
-      data-sly-resource="${ 'navbarLogo' @ resourceType='/apps/myApp/components/global/xt-image-link' }"
-    )
-    
-    //- COLLAPSE BUTTON
-    button(
-      type='button'
-      class="${currentStyle.collapseButtonToggler || 'navbar-toggler'}"
-      data-toggle='collapse'
-      data-target='#navbarSupportedContent'
-      aria-controls='navbarSupportedContent'
-      aria-expanded='false'
-      aria-label='Toggle navigation'
-    )
-      span(
-        class="${currentStyle.navbarTogglerIcon || 'navbar-toggler-icon'}"
+      //- XT-IMAGE-LINK for NAVBAR-LOGO
+      //- ntro - non-template-reference-only
+      div(
+        data-sly-test="${wcmmode.isEdit}"
+        is='xt-image-link-navbarLogo-${resource.name}'
       )
-        
-      //-NABVAR-NAV with COLLAPSE
-    div#navbarSupportedContent.collapse.navbar-collapse
-      ul.navbar-nav.mr-auto
-        li.nav-item.active
-          a.nav-link(href='#')
-            | Home
-            span.sr-only (current)
-        li.nav-item
-          a.nav-link(href='#') Link
-        li.nav-item.dropdown
-          a#navbarDropdown.nav-link.dropdown-toggle(href='#', role='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
-            | Dropdown
-          div.dropdown-menu(aria-labelledby='navbarDropdown')
-            a.dropdown-item(href='#') Action
-            a.dropdown-item(href='#') Another action
-            div.dropdown-divider
-            a.dropdown-item(href='#') Something else here
-        li.nav-item
-          a.nav-link.disabled(href='#') Disabled
+      sly(
+        data-sly-test="${!wcmmode.isEdit}"
+        data-sly-resource="${ 'navbarLogo' @ resourceType='/apps/myApp/components/global/xt-image-link' }"
+      )
       
-      //- FORM
-      form.form-inline.my-2.my-lg-0
-        input.form-control.mr-sm-2(type='search', placeholder='Search', aria-label='Search')
-        button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Search
+      //- COLLAPSE BUTTON
+      button(
+        type='button'
+        class="${currentStyle.collapseButtonToggler || 'navbar-toggler'}"
+        data-toggle='collapse'
+        data-target='#navbarSupportedContent'
+        aria-controls='navbarSupportedContent'
+        aria-expanded='false'
+        aria-label='Toggle navigation'
+      )
+        span(
+          class="${currentStyle.navbarTogglerIcon || 'navbar-toggler-icon'}"
+        )
+          
+        //-NABVAR-NAV with COLLAPSE
+      div#navbarSupportedContent.collapse.navbar-collapse
+        ul.navbar-nav.mr-auto
+          li.nav-item.active
+            a.nav-link(href='#')
+              | Home
+              span.sr-only (current)
+          li.nav-item
+            a.nav-link(href='#') Link
+          li.nav-item.dropdown
+            a#navbarDropdown.nav-link.dropdown-toggle(href='#', role='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+              | Dropdown
+            div.dropdown-menu(aria-labelledby='navbarDropdown')
+              a.dropdown-item(href='#') Action
+              a.dropdown-item(href='#') Another action
+              div.dropdown-divider
+              a.dropdown-item(href='#') Something else here
+          li.nav-item
+            a.nav-link.disabled(href='#') Disabled
         
-  //- EDITOR for XT-NAVBAR
-  div.container(data-sly-test='${wcmmode.isEdit}')
-    div.row
-      div.col-12.text-white.bg-dark
-        h4
-          | Navbar Configuration
-      div.col-2.bg-warning.text-white
-        span.pre Logo Config
-        sly(data-sly-resource="${ 'navbarLogo' @ resourceType='/apps/myApp/components/global/xt-image-link' }")
+        //- FORM
+        form.form-inline.my-2.my-lg-0
+          input.form-control.mr-sm-2(type='search', placeholder='Search', aria-label='Search')
+          button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Search
+          
+      //- EDITOR for XT-NAVBAR
+      div.container(data-sly-test='${wcmmode.isEdit}')
+        div.row
+          div.col-12.text-white.bg-dark
+            h4
+              | Navbar Configuration
+          div.col-2.bg-warning.text-white
+            span.pre Logo Config
+            sly(data-sly-resource="${ 'navbarLogo' @ resourceType='/apps/myApp/components/global/xt-image-link' }")
 
 else 
     
-    div.ntro(is="xt-navbar-1212")
+    div(is="xt-navbar-1212" data-ntro)
     div.navbar.navbar-expand-lg.navbar-dark.bg-primary(is="xt-navbar-1212")
       a.navbar-brand(href="#" is="xt-image-link-1212" :xt-image-link-config="xtImageLinkConfig" @click="linkClicked();")
         img(src="https://www.placehold.it/140x40")

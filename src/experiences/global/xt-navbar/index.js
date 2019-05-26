@@ -6,8 +6,8 @@ import {generate_xtImageLinkComponent} from 'experiences/global/xt-image-link';
 setup_XTNavbarComponents();
 if(process.env.VUE_APP_IS_DEV) initialize_VueApps();
 export function setup_XTNavbarComponents() {
-    $('[is^=xt-image-link]:not([class=ntro])', '[is^=xt-navbar]').each(generate_xtImageLinkComponent);
-    $('[is^=xt-navbar]:not([class=ntro])').each(generate_xtNavbarComponent);
+    $('[is^=xt-image-link]', '[is^=xt-navbar]').each(generate_xtImageLinkComponent);
+    $('[is^=xt-navbar]').each(generate_xtNavbarComponent);
 }
 
 export function generate_xtNavbarComponent() {
