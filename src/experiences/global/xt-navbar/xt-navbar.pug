@@ -66,6 +66,6 @@ else
     
     <div is="test-123"></div>
     div.navbar.navbar-expand-lg.navbar-dark.bg-primary(is="xt-navbar-1212")
-      a.navbar-brand(href="#" is="xt-image-link-1212")
+      a.navbar-brand(href="#" is="xt-image-link-1212" :xt-image-link-config="xtImageLinkConfig" @click="linkClicked();")
         img(src="https://www.placehold.it/120x40")
       
