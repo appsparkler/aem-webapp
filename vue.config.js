@@ -272,7 +272,7 @@ function get_pages() {
                 // extracted common chunks and vendor chunks.
                 chunks: [
                   'chunk-vendors',
-                  'chunk-common',,
+                  'chunk-common',
                   'experiences/global/xt-container/xt-container-publish-libs'
                 ]
             }
