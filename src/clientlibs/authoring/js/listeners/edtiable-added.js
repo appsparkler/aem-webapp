@@ -11,7 +11,7 @@
   			async: false
   		};
 
-  		if(inspectable.type.indexOf('aemarch13/dist') > -1) $.post(ajaxConfig);
+  		if(inspectable.type.indexOf('aemarch13/dist') > -1 || inspectable.type.match(/wcm\/foundation\/components\/responsivegrid$/)) $.post(ajaxConfig);
   	} catch(e) {
   		console.error(e);
   	}

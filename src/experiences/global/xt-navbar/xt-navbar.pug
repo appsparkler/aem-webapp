@@ -25,7 +25,20 @@ if process.env.isProd
         span(
           class="${currentStyle.navbarTogglerIcon || 'navbar-toggler-icon'}"
         )
-          
+        
+      //- MY PARSYS WIP
+      sly(
+        data-sly-test="${!wcmmode.isEdit}"
+        data-sly-resource="${ 'navbarNav' @ resourceType='/libs/wcm/foundation/components/responsivegrid' }"
+      )
+      sly(data-sly-test='${wcmmode.isEdit}')
+        sly(
+          data-sly-test="${resource.hasChildren}"
+          data-sly-list='${resource.listChildren}'
+        )
+          sly(data-sly-test="${item.name == 'navbarNav'}", data-sly-list='${item.listChildren}')
+            div(is='xt-image-link-${item.name}-navbarNav')
+        
         //-NABVAR-NAV with COLLAPSE
       div#navbarSupportedContent.collapse.navbar-collapse
         ul.navbar-nav.mr-auto
@@ -56,11 +69,14 @@ if process.env.isProd
     div.container(data-sly-test='${wcmmode.isEdit}')
       div.row
         div.col-12.text-white.bg-dark
-          h4
-            | Navbar Configuration
+          h4 Navbar Configuration
         div.col-2.bg-warning.text-white
           span.pre Logo Config
           sly(data-sly-resource="${ 'navbarLogo' @ resourceType='/apps/myApp/components/global/xt-image-link' }")
+            
+        div.col-2.bg-success.text-white
+          span.pre Navbar Links Config
+          sly(data-sly-resource="${ 'navbarNav' @ resourceType='/libs/wcm/foundation/components/responsivegrid' }")
 
 else 
     
