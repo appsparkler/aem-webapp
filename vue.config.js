@@ -203,6 +203,7 @@ function get_pluginToCopyAppFolders() {
 function get_pages() {
     try {
         let pages = {
+            /* templates */
             'templates/global/BasePage/BasePage-publish-libs': {
                 // entry for the page
                 entry: path.resolve('src/templates/global/BasePage/main.js'),
@@ -221,6 +222,7 @@ function get_pages() {
                   'templates/global/BasePage/BasePage-publish-libs'
                 ]
             },
+
             /* experiences */
             'experiences/global/xt-navbar/xt-navbar-publish-libs': {
                 // entry for the page
@@ -237,26 +239,8 @@ function get_pages() {
                 chunks: [
                   'chunk-vendors',
                   'chunk-common',
-                  'experiences/global/xt-image-link/xt-image-link-publish-libs',
+                  'aem-components/global/image-link/image-link-publish-libs',
                   'experiences/global/xt-navbar/xt-navbar-publish-libs'
-                ]
-            },
-            'experiences/global/xt-image-link/xt-image-link-publish-libs': {
-                // entry for the page
-                entry: path.resolve('src/experiences/global/xt-image-link/index.js'),
-                // the source template
-                template: path.resolve('src/experiences/global/xt-image-link/index.pug'),
-                // output as dist/index.html
-                filename: isDev ? 'experiences/global/xt-image-link/index.html' : 'recycle-bin/experiences/global/xt-image-link/index.html',
-                // when using title option,
-                // template title tag needs to be <title><%= HtmlWebpackPlugin.options.title %></title>
-                title: 'XT Image Link',
-                // chunks to include on this page, by default includes
-                // extracted common chunks and vendor chunks.
-                chunks: [
-                  'chunk-vendors',
-                  'chunk-common',
-                  'experiences/global/xt-image-link/xt-image-link-publish-libs'
                 ]
             },
             'experiences/global/xt-container/xt-container-publish-libs': {
@@ -276,7 +260,27 @@ function get_pages() {
                   'chunk-common',
                   'experiences/global/xt-container/xt-container-publish-libs'
                 ]
-            }
+            },
+
+            /* aem components */
+            'aem-components/global/image-link/image-link-publish-libs': {
+                // entry for the page
+                entry: path.resolve('src/aem-components/global/image-link/index.js'),
+                // the source template
+                template: path.resolve('src/aem-components/global/image-link/index.pug'),
+                // output as dist/index.html
+                filename: isDev ? 'aem-components/global/image-link/index.html' : 'recycle-bin/aem-components/global/image-link/index.html',
+                // when using title option,
+                // template title tag needs to be <title><%= HtmlWebpackPlugin.options.title %></title>
+                title: 'IImage Link',
+                // chunks to include on this page, by default includes
+                // extracted common chunks and vendor chunks.
+                chunks: [
+                  'chunk-vendors',
+                  'chunk-common',
+                  'aem-components/global/image-link/image-link-publish-libs'
+                ]
+            },
         };
         if(isDev) pages['AppIndex'] = {
             // entry for the page

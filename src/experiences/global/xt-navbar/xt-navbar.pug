@@ -1,15 +1,14 @@
 if process.env.isProd
   div(is='${component.name}-${currentNode.name}')
     nav(class="${currentStyle.navCSSClasses || 'navbar navbar-expand-lg navbar-dark bg-secondary'}")
-      //- XT-IMAGE-LINK for NAVBAR-LOGO
-      //- ntro - non-template-reference-only
+      //- IMAGE-LINK for NAVBAR-LOGO
       div(
         data-sly-test="${wcmmode.isEdit}"
-        is='xt-image-link-navbarLogo-${resource.name}'
+        is='image-link-navbarLogo-${resource.name}'
       )
       sly(
         data-sly-test="${!wcmmode.isEdit}"
-        data-sly-resource="${ 'navbarLogo' @ resourceType='/apps/myApp/components/global/xt-image-link' }"
+        data-sly-resource="${ 'navbarLogo' @ resourceType='/apps/aemarch13/dist/components/global/image-link' }"
       )
       
       //- COLLAPSE BUTTON
@@ -37,7 +36,7 @@ if process.env.isProd
           data-sly-list='${resource.listChildren}'
         )
           sly(data-sly-test="${item.name == 'navbarNav'}", data-sly-list='${item.listChildren}')
-            div(is='xt-image-link-${item.name}-navbarNav')
+            div(is='image-link-${item.name}-navbarNav')
         
         //-NABVAR-NAV with COLLAPSE
       div#navbarSupportedContent.collapse.navbar-collapse
@@ -72,7 +71,9 @@ if process.env.isProd
           h4 Navbar Configuration
         div.col-2.bg-warning.text-white
           span.pre Logo Config
-          sly(data-sly-resource="${ 'navbarLogo' @ resourceType='/apps/myApp/components/global/xt-image-link' }")
+          sly(
+            data-sly-resource="${ 'navbarLogo' @ resourceType='/apps/aemarch13/dist/components/global/image-link' }"
+          )
             
         div.col-2.bg-success.text-white
           span.pre Navbar Links Config
@@ -81,10 +82,17 @@ if process.env.isProd
 else 
     
     div.navbar.navbar-expand-lg.navbar-dark.bg-primary(is="xt-navbar-1212")
-      a.navbar-brand(href="#" is="xt-image-link-1212" :xt-image-link-config="xtImageLinkConfig" @click="linkClicked();")
+      a.navbar-brand(href="#" 
+      is="image-link-1212" 
+      :image-link-config="imageLinkConfig" @click="linkClicked();")
         img(src="https://www.placehold.it/140x40")
         | Hello World
-      a.navbar-brand(href="#" is="xt-image-link-42312121212" :xt-image-link-config="xtImageLinkConfig" @click="linkClicked();")
+      a.navbar-brand(
+        href="#" 
+        is="image-link-42312121212" 
+        :image-link-config="imageLinkConfig" 
+        @click="linkClicked();"
+      )
         img(src="https://www.placehold.it/120x40")
       form.form-inline.my-2.my-lg-0
         input.form-control.mr-sm-2(type='search', placeholder='Search', aria-label='Search')
@@ -93,14 +101,16 @@ else
     div.navbar.navbar-expand-lg.navbar-dark.bg-warning(is="xt-navbar-1243331212")
       a.navbar-brand(
         href="#" 
-        is="xt-image-link-1212" :xt-image-link-config="xtImageLinkConfig" 
+        is="image-link-1212" 
+        :image-link-config="imageLinkConfig" 
         @click="linkClicked();"
       )
         img(src="https://www.placehold.it/140x40")
         | Hello World
       a.navbar-brand(
         href="#" 
-        is="xt-image-link-42312121212" 
-        :xt-image-link-config="xtImageLinkConfig" @click="linkClicked();"
+        is="image-link-42312121212" 
+        :image-link-config="imageLinkConfig" 
+        @click="linkClicked();"
       )
         img(src="https://www.placehold.it/120x40")
