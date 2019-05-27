@@ -43,6 +43,7 @@ if(isDev) vueConfig.configureWebpack.plugins.push(get_PluginToHotReloadIncludedP
 if(isProd) vueConfig.configureWebpack.plugins.push(...get_HTMLWebpackPluginsToCompilePugs());
 if(isProd) vueConfig.configureWebpack.plugins.push(get_pluginToCopyAppFolders());
 if(isProd) vueConfig.configureWebpack.plugins.push(get_clientLibraryFolderWebpackPlugin());
+
 // UNUTILIZED : if(isProd) vueConfig.configureWebpack.plugins.push(get_pluginToGenerateManifest());
 
 // CHAIN WEBPACK
