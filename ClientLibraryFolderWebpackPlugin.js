@@ -48,12 +48,20 @@ function deleteFiles_fromDir(pathToDir, fileName) {
 class ClientLibFolderWebpackPlugin {
   apply(compiler) {
       compiler.hooks.afterEmit.tap('ClientLibFolderWebpackPlugin', compilation => {
+
+        // vendor and common chunks
         process_clientLibraryFolders('dist/chunk-vendors');
         process_clientLibraryFolders('dist/chunk-common');
+
+        // templates
         process_clientLibraryFolders('dist/templates/global/BasePage/BasePage-publish-libs');
+
+        // experiences
         process_clientLibraryFolders('dist/experiences/global/xt-navbar/xt-navbar-publish-libs');
-        process_clientLibraryFolders('dist/experiences/global/xt-image-link/xt-image-link-publish-libs');
         process_clientLibraryFolders('dist/experiences/global/xt-container/xt-container-publish-libs');
+        
+        // aem-components
+        process_clientLibraryFolders('dist/aem-components/global/image-link/image-link-publish-libs');
       })
   }
 };
