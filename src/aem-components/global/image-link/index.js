@@ -2,8 +2,8 @@ import $ from 'jquery'
 import { generate_xtComponent, initialize_VueApps } from 'common-script'
 
 // XT IMAGE LINK COMPONENTS
-// setup_XTImageLinkComponents();
-// if(process.env.VUE_APP_IS_DEV) initialize_VueApps();
+setup_ImageLinkComponents();
+if(process.env.VUE_APP_IS_DEV) initialize_VueApps();
 
 export function setup_ImageLinkComponents() {
     $('[is^=image-link]').each(generate_imageLinkComponent);
