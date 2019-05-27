@@ -5,22 +5,22 @@ import { generate_xtComponent, initialize_VueApps } from 'common-script'
 // setup_XTImageLinkComponents();
 // if(process.env.VUE_APP_IS_DEV) initialize_VueApps();
 
-export function setup_XTImageLinkComponents() {
-    $('[is^=xt-image-link]').each(generate_xtImageLinkComponent);
+export function setup_ImageLinkComponents() {
+    $('[is^=image-link]').each(generate_imageLinkComponent);
 }
 
-export function generate_xtImageLinkComponent() {
+export function generate_imageLinkComponent() {
   const component = {
     methods: {
-      XTImageLinkClicked: function() {
+      imageLinkClicked: function() {
         alert('hey...Wassup?');
       }
     },
-    props: ['xtImageLinkConfig'],
+    props: ['imageLinkConfig'],
     methods: {
       linkClicked: function() {
-        if(this.xtImageLinkConfig && this.xtImageLinkConfig.linkClicked)
-        this.xtImageLinkConfig.linkClicked();
+        if(this.imageLinkConfig && this.imageLinkConfig.linkClicked)
+        this.imageLinkConfig.linkClicked();
       }
     }
   }

@@ -3,7 +3,7 @@ if process.env.isProd
     is="${component.name}-${resource.name}-${resource.parent.name}" 
     class="${currentStyle.linkCSSClasses || 'navbar-brand'}"
     href="${properties.href || 'https://www.google.com'}"
-    @click='XTImageLinkClicked();'
+    @click='imageLinkClicked();'
   )
     img(
       class="${currentStyle.imgCSSClasses || 'border-primary rounded-pill'}"
@@ -13,10 +13,10 @@ if process.env.isProd
 else 
   
     a(
-      is="xt-image-link"
+      is="image-link"
       class="navbar-brand"
       href="#"
-      @click="XTImageLinkClicked();"
+      @click="imageLinkClicked();"
     )
       img(
         class="border border-primary d-block"
