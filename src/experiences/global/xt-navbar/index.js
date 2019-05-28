@@ -1,7 +1,7 @@
 import $ from 'jquery';
 import Vue from 'vue';
-// 
-import {initialize_VueApps, generate_xtComponent} from 'common-script';
+//
+import {initialize_VueApps, generate_xtComponent, VueAEMComponent} from 'common-script';
 import {generate_buttonComponent} from 'vue-components/global/button';
 import {generate_imageLinkComponent} from 'aem-components/global/image-link';
 
@@ -15,7 +15,7 @@ export function setup_XTNavbarComponents() {
 }
 
 export function generate_xtNavbarComponent() {
-    const vueComponent = {
+    new VueAEMComponent(this, {
       data() {
         return {
           imageLinkConfig: {
@@ -25,6 +25,5 @@ export function generate_xtNavbarComponent() {
           }
         }
       }
-    };
-    new generate_xtComponent(this, vueComponent);
+    });
 }

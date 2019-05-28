@@ -32,3 +32,14 @@ function VueApp() {
     });
     console.log(VueApp)
 }
+
+export class VueAEMComponent {
+  constructor(el, config) {
+    var vue_componentName = el.attributes.is.value;
+    var vue_template = el.outerHTML.replace(/is=".*?"/, "").toString(); // avoid "maximum-call-stack-size-exceeded"
+    config = config || {};
+    config.name = vue_componentName;
+    config.template = vue_template;
+    Vue.component(vue_componentName, config);
+  }
+}
