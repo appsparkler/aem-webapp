@@ -1,3 +1,7 @@
+TODO
+  SETUP feApp
+
+
 TODO EXECUTE-plan
   TODO TRY-data-sly-use-with-resources (https://stackoverflow.com/questions/36654433/aem-sightly-how-to-loop-through-component-child-nodes)
   TODO CREATE-exprience-template-for-navbar
