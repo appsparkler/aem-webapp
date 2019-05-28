@@ -1,0 +1,19 @@
+if process.env.isProd
+  template(data-sly-template.templateWithPropertiesArray="${ @ propertiesArray}")
+    button(is="vc-global-vue-button-navbarLogo-xt_navbar")
+      i(${propertiesArray[0]})
+      span ${propertiesArray[1]}
+      
+  template(data-sly-template.template)
+    button(is="vc-global-vue-button-navbarLogo-xt_navbar")
+      i(${properties.buttonIconClass})
+      span ${properties.buttonTitle}
+else 
+  
+  button(
+    is="vc-global-vue-button-navbarLogo-xt_navbar"
+    @click="buttonClicked();"
+  )
+    i.fa.fa-search
+    span &nbsp; Search
+    
