@@ -42,7 +42,7 @@ vueConfig.configureWebpack = {
 if(isDev) vueConfig.configureWebpack.plugins.push(get_PluginToHotReloadIncludedPugs());
 if(isProd) vueConfig.configureWebpack.plugins.push(...get_HTMLWebpackPluginsToCompilePugs());
 if(isProd) vueConfig.configureWebpack.plugins.push(get_pluginToCopyAppFolders());
-if(isProd) vueConfig.configureWebpack.plugins.push(get_clientLibraryFolderWebpackPlugin());
+if(isProd) vueConfig.configureWebpack.plugins.push(get_clientLibraryFolderWebpackPlugin.call(null, require('./webpackAssets/customPlugins/ClientLibraryFolderWebpackPlugin.js')));
 
 // UNUTILIZED : if(isProd) vueConfig.configureWebpack.plugins.push(get_pluginToGenerateManifest());
 
@@ -373,7 +373,7 @@ function get_pluginToGenerateManifest() {
     }
 }
 
-function get_clientLibraryFolderWebpackPlugin() {
-    const ClientLibFolderWebpackPlugin = require('./ClientLibraryFolderWebpackPlugin.js');
+function get_clientLibraryFolderWebpackPlugin(ClientLibFolderWebpackPlugin) {
+    // const ClientLibFolderWebpackPlugin = require('./ClientLibraryFolderWebpackPlugin.js');
     return new ClientLibFolderWebpackPlugin();
 }
