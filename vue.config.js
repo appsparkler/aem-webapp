@@ -283,19 +283,19 @@ function get_pages() {
                 ]
             },
         };
-        if(isDev) pages['AppIndex'] = {
+        if(isDev) pages['FEAppIndex'] = {
             // entry for the page
-            entry: path.resolve('src/main.js'),
+            entry: path.resolve('src/feApp/index.js'),
             // the source template
-            template: path.resolve('src/index.pug'),
+            template: path.resolve('src/feApp/index.pug'),
             // output as dist/index.html
-            filename: isDev ? 'index.html' : 'recycle-bin/index.html',
+            filename: isDev ? 'index.html' : 'recycle-bin/feApp/index.html',
             // when using title option,
             // template title tag needs to be <title><%= HtmlWebpackPlugin.options.title %></title>
-            title: 'App Index',
+            title: 'AEM FE Dev App',
             // chunks to include on this page, by default includes
             // extracted common chunks and vendor chunks.
-            chunks: ['chunk-vendors', 'chunk-common', 'AppIndex']
+            chunks: ['chunk-vendors', 'chunk-common', 'FEAppIndex']
         };
         return pages;
     } catch (e) {
