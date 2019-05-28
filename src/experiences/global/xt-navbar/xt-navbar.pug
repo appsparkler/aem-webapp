@@ -61,7 +61,11 @@ if process.env.isProd
         //- FORM
         form.form-inline.my-2.my-lg-0
           input.form-control.mr-sm-2(type='search', placeholder='Search', aria-label='Search')
-          div.btn.btn-outline-success.my-2.my-sm-0(is="Button")
+          sly(
+            data-sly-use.button='/apps/aemarch13/dist/vue-components/global/button/template.html'
+            data-sly-call="${ button.templateWithPropertiesArray @ propertiesArray=['btn btn-success my-2 my-sm-0','fa fa-search', 'ml-2', 'Search'] }"
+          )
+
           //- button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Search
           
     //- EDITOR for XT-NAVBAR
