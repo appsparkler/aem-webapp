@@ -1,5 +1,5 @@
 import $ from 'jquery'
-import { generate_xtComponent, initialize_VueApps } from 'common-script'
+import { VueAEMComponent } from 'common-script'
 
 // XT IMAGE LINK COMPONENTS
 // setup_ImageLinkComponents();
@@ -10,12 +10,7 @@ export function setup_ImageLinkComponents() {
 }
 
 export function generate_imageLinkComponent() {
-  const component = {
-    methods: {
-      imageLinkClicked: function() {
-        alert('hey...Wassup?');
-      }
-    },
+  new VueAEMComponent(this, {
     props: ['imageLinkConfig'],
     methods: {
       linkClicked: function() {
@@ -23,6 +18,5 @@ export function generate_imageLinkComponent() {
         this.imageLinkConfig.linkClicked();
       }
     }
-  }
-    new generate_xtComponent(this, component);
+  })
 }

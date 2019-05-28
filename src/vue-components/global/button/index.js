@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import {generate_xtComponent} from 'common-script';
+import {VueAEMComponent} from 'common-script';
 
 // generate_buttonComponents();
 
@@ -12,7 +12,7 @@ function generate_buttonComponents() {
 }
 
 export function generate_buttonComponent() {
-    var componentConfig = {
+    new VueAEMComponent(this, {
       props: ['buttonConfig'],
       data:function() {
         return {
@@ -32,6 +32,5 @@ export function generate_buttonComponent() {
           }
         }
       }
-    }
-    generate_xtComponent.call(htis, componentConfig);
+    })
 }

@@ -1,7 +1,7 @@
 import $ from 'jquery';
 import Vue from 'vue';
 //
-import {initialize_VueApps, generate_xtComponent, VueAEMComponent} from 'common-script';
+import {initialize_VueApps, VueAEMComponent} from 'common-script';
 import {generate_buttonComponent} from 'vue-components/global/button';
 import {generate_imageLinkComponent} from 'aem-components/global/image-link';
 
