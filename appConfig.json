@@ -1,0 +1,31 @@
+{
+  "lists":{
+    "componentGroupList": [
+        "ARCH Components",
+        "ARCH Experiences"
+    ],
+    "typesOfComponents": [
+      "AEM AUTHORABLE Components",
+      "VUE NON-AUTHORABLE Components",
+      "EXPERIENCE Components"
+    ]
+  },
+
+
+  "aemComponents": {
+    "global": {
+      "path": "/apps/aemarch13/dist/aemComponents/global/image-link",
+      "title": "Image Link",
+      "description": "This is the image link component that has an image with an <a> tag wrapper.",
+      "componentGroup": "ARCH AEM Components",
+
+      "cqDesignDialog": {
+        "title": "XT Image Link Designer"
+      },
+
+      "cqDialog": {
+        "title": "XT Image Link Editor"
+      }
+    }
+  }
+}

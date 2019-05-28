@@ -1,4 +1,6 @@
 TODO
+  RENAME component-names for implementing namespaces
+  SETUP appConfig
   SETUP feApp
 
 
