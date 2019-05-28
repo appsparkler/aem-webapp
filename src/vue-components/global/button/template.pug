@@ -1,13 +1,16 @@
 if process.env.isProd
   template(data-sly-template.templateWithPropertiesArray="${ @ propertiesArray}")
-    button(is="vc-global-vue-button-navbarLogo-xt_navbar")
-      i(${propertiesArray[0]})
-      span ${propertiesArray[1]}
+    button(
+      is="vc-global-button-${resource.name}-${resource.parent.name}"
+      class="${propertiesArray[0]}"
+    )
+      i(class="${propertiesArray[1]}")
+      span(class="${propertiesArray[2]}") ${propertiesArray[3]}
       
   template(data-sly-template.template)
     button(is="vc-global-vue-button-navbarLogo-xt_navbar")
-      i(${properties.buttonIconClass})
-      span ${properties.buttonTitle}
+      i(class="${properties.vcGlobalButtonIconClasses}")
+      span(class="${properties.vcGlobalButtonTitleClasses}") ${properties.vcGlobalButtonTitle}
 else 
   
   button(
