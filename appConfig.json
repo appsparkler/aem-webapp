@@ -1,12 +1,12 @@
 {
-  "lists":{
+  "lists": {
     "appLabel": "aemarch13",
     "appName": "AEM Arch 13",
 
 
     "componentGroupList": [
-        "AEM Arch 13 Components",
-        "AEM Arch 13 Experiences"
+      "AEM Arch 13 Components",
+      "AEM Arch 13 Experiences"
     ],
 
 
@@ -17,24 +17,45 @@
     ]
   },
 
-
   "aemComponents": {
     "global": {
       "path": "/apps/aemarch13/dist/aemComponents/global/image-link",
-      "clientLibraryParentPath":"/apps/aemarch13/dist/aemComponents/global/image-link/image-link-publish-libs",
-      "title": "Image Link",
+      "clientLibraryParentPath": "/apps/aemarch13/dist/aemComponents/global/image-link/image-link-publish-libs",
+      "label": "image-link",
+      "name": "Image Link",
       "description": "This is the image link component that has an image with an <a> tag wrapper.",
       "componentGroup": "ARCH AEM Components",
 
       "cqDesignDialog": {
-        "title": "XT Image Link Designer"
+        "title": "Image Link Designer"
       },
 
       "cqDialog": {
-        "title": "XT Image Link Editor"
+        "title": "Image Link Editor"
+      }
+    }
+  },
+
+  "experiences": {
+    "global": {
+      "xtContainer": {},
+      "xtNavbar": {
+        "path": "/apps/aemarch13/dist/experiences/global/xt-navbar",
+        "label": "xt-navbar",
+        "name": "XT Navbar",
+        "description": "This is the XT Navbar experience",
+        "componentGroup": "AEM ARCH 13 Experiences",
+
+        "cqDesignDialog": {
+          "title": "XT Navbar Designer"
+        },
+
+        "cqDialog": {
+          "title": "XT Navbar Editor"
+        }
+
       }
     }
   }
 
-  
 }

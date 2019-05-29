@@ -1,26 +1,14 @@
 if process.env.isProd
+  sly(data-sly-test='${currentStyle}')
   div.container
-    sly(
-      data-sly-test='${currentStyle}'
-      data-sly-use.xtcontainerstyleresource='${currentStyle.path}'
-    )
-      div(
-        data-sly-test='${xtcontainerstyleResource}'
-        class='${currentStyle.containerCSSClasses}'
-      )
-        sly(
-          data-sly-test='${xtcontainerstyleResource.hasChildren}'
-          data-sly-list='${xtcontainerstyleResource.listChildren}'
-        )
-          sly(
-            data-sly-test="${item.name == 'divElements'}"
-            data-sly-list='${item.listChildren}'
-          )
+    sly(data-sly-use.xtcontainer='${currentStyle.path}')
+      div(class='${currentStyle.containerCSSClasses}', data-sly-test='${xtcontainer}')
+        sly(data-sly-test='${xtcontainer.hasChildren}', data-sly-list='${xtcontainer.listChildren}')
+          sly(data-sly-test="${item.name == 'divElements'}", data-sly-list='${item.listChildren}')
             div(class='${item.cssClass}')
               sly(data-sly-resource="${ item.name @ resourceType='wcm/foundation/components/responsivegrid' }")
-    
-    sly(data-sly-test='${!currentStyle}')
-      sly(data-sly-resource="${ item.name @ resourceType='wcm/foundation/components/responsivegrid' }")
+  sly(data-sly-test='${!currentStyle}')
+    sly(data-sly-resource="${ item.name @ resourceType='wcm/foundation/components/responsivegrid' }")
 
 else
   
