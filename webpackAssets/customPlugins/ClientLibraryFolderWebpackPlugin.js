@@ -11,9 +11,8 @@ const {
   join: joinPath
 } = require('path');
 const { sync: get_glob } = require('glob');
-const get_directories = folderPath => readDir(folderPath).filter(folderItem =>
-
-get_folderItemStats(resolvePath(folderPath, folderItem)).isDirectory());
+const get_directories = folderPath => readDir(folderPath)
+  .filter(folderItem => get_folderItemStats(resolvePath(folderPath, folderItem)).isDirectory());
 
 function process_clientLibraryFolders(pathToDir) {
     pathToDir = resolvePath(pathToDir);
@@ -48,22 +47,25 @@ function deleteFiles_fromDir(pathToDir, fileName) {
 class ClientLibFolderWebpackPlugin {
   apply(compiler) {
       compiler.hooks.afterEmit.tap('ClientLibFolderWebpackPlugin', compilation => {
-
         // vendor and common chunks
-        process_clientLibraryFolders('dist/chunk-vendors');
-        process_clientLibraryFolders('dist/chunk-common');
-
-        // templates
-        process_clientLibraryFolders('dist/templates/global/BasePage/BasePage-publish-libs');
-
-        // experiences
-        process_clientLibraryFolders('dist/experiences/global/xt-navbar/xt-navbar-publish-libs');
-        process_clientLibraryFolders('dist/experiences/global/xt-container/xt-container-publish-libs');
-
-        // aem-components
-        process_clientLibraryFolders('dist/aem-components/global/image-link/image-link-publish-libs');
+        process_clientLibraryFoldersForCommonAndVendorChunks();
+        process_clientLibraryFoldersForAllPublishLibs();
       })
   }
 };
 
 module.exports = ClientLibFolderWebpackPlugin;
+
+function process_clientLibraryFoldersForAllPublishLibs() {
+  try {
+    const publishLibsGlobArray = get_glob('dist/**/*-publish-libs');
+    publishLibsGlobArray.forEach(folder => process_clientLibraryFolders(folder));
+  } catch (e) {
+      console.error(e)
+  }
+}
+
+function process_clientLibraryFoldersForCommonAndVendorChunks() {
+  process_clientLibraryFolders('dist/chunk-vendors');
+  process_clientLibraryFolders('dist/chunk-common');
+}

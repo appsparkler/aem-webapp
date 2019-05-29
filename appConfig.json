@@ -1,13 +1,19 @@
 {
   "lists":{
+    "appLabel": "aemarch13",
+    "appName": "AEM Arch 13",
+
+
     "componentGroupList": [
-        "ARCH Components",
-        "ARCH Experiences"
+        "AEM Arch 13 Components",
+        "AEM Arch 13 Experiences"
     ],
+
+
     "typesOfComponents": [
-      "AEM AUTHORABLE Components",
-      "VUE NON-AUTHORABLE Components",
-      "EXPERIENCE Components"
+      "AEM Arch 13 Authrable Components",
+      "AEM Arch 13 Non Authorable Components",
+      "AEM Arch 13 Experience Components"
     ]
   },
 
@@ -29,4 +35,6 @@
       }
     }
   }
+
+  
 }
