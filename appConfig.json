@@ -41,8 +41,21 @@
       "xtContainer": {},
       "xtNavbar": {
         "path": "/apps/aemarch13/dist/experiences/global/xt-navbar",
+        "page":{
+          "libraryPath": "experiences/global/xt-navbar/xt-navbar-publish-libs",
+          "entry": "src/experiences/global/xt-navbar/index.js",
+          "template": "src/experiences/global/xt-navbar/index.pug",
+          "fileName": "experiences/global/xt-navbar/index.html",
+          "title": "XT Navbar",
+          "chunks": [
+            "chunk-vendors",
+            "chunk-common",
+            "aem-components/global/image-link/image-link-publish-libs",
+            "experiences/global/xt-navbar/xt-navbar-publish-libs"
+          ]
+        },
         "label": "xt-navbar",
-        "name": "XT Navbar",
+        "name": "Global XT Navbar",
         "description": "This is the XT Navbar experience",
         "componentGroup": "AEM ARCH 13 Experiences",
 
