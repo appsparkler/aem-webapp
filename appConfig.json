@@ -19,19 +19,22 @@
 
   "aemComponents": {
     "global": {
-      "path": "/apps/aemarch13/dist/aemComponents/global/image-link",
-      "clientLibraryParentPath": "/apps/aemarch13/dist/aemComponents/global/image-link/image-link-publish-libs",
-      "label": "image-link",
-      "name": "Image Link",
-      "description": "This is the image link component that has an image with an <a> tag wrapper.",
-      "componentGroup": "ARCH AEM Components",
+      "imageLink": {
+        "path": "/apps/aemarch13/dist/aemComponents/global/image-link",
+        "chunkName": "aem-components/global/image-link/image-link-publish-libs",
+        "clientLibraryParentPath": "/apps/aemarch13/dist/aemComponents/global/image-link/image-link-publish-libs",
+        "label": "image-link",
+        "name": "Image Link",
+        "description": "This is the image link component that has an image with an <a> tag wrapper.",
+        "componentGroup": "ARCH AEM Components",
 
-      "cqDesignDialog": {
-        "title": "Image Link Designer"
-      },
+        "cqDesignDialog": {
+          "title": "Image Link Designer"
+        },
 
-      "cqDialog": {
-        "title": "Image Link Editor"
+        "cqDialog": {
+          "title": "Image Link Editor"
+        }
       }
     }
   },
@@ -41,7 +44,7 @@
       "xtContainer": {},
       "xtNavbar": {
         "path": "/apps/aemarch13/dist/experiences/global/xt-navbar",
-        "page":{
+        "page": {
           "libraryPath": "experiences/global/xt-navbar/xt-navbar-publish-libs",
           "entry": "src/experiences/global/xt-navbar/index.js",
           "template": "src/experiences/global/xt-navbar/index.pug",

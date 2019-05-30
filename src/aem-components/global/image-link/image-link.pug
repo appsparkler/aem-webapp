@@ -1,15 +1,17 @@
 if process.env.isProd
   a(
     is="${component.name}-${resource.name}-${resource.parent.name}" 
-    class="${currentStyle.linkCSSClasses || 'navbar-brand'}"
-    href="${properties.href || 'https://www.google.com'}"
+    class="${currentStyle.linkCSSClasses}"
+    href="${properties.href || '#'}"
     @click='imageLinkClicked();'
+    data-sly-test="${currentStyle}"
   )
     img(
-      class="${currentStyle.imgCSSClasses || 'border-primary rounded-pill'}"
-      src="https://placehold.it/${currentStyle.imgWidth || 120}x${currentStyle.imgHeight || 40}/000/fff?text=${properties.logoText || 'GOOGLE'}"
+      class="${currentStyle.imgCSSClasses}"
+      src="https://placehold.it/${currentStyle.imgWidth}x${currentStyle.imgHeight}/000/fff?text=${properties.logoText}"
     )
-
+  div.p-3(data-sly-test="${!currentStyle}")
+    span.badge.badge-info.p-2 Please Update Policy
 else 
   
     a(
