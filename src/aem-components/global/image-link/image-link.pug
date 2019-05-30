@@ -10,8 +10,12 @@ if process.env.isProd
       class="${currentStyle.imgCSSClasses}"
       src="https://placehold.it/${currentStyle.imgWidth}x${currentStyle.imgHeight}/000/fff?text=${properties.logoText}"
     )
-  div.p-3(data-sly-test="${!currentStyle}")
-    span.badge.badge-info.p-2 Please Update Policy
+    
+  div(
+    class="container border border-info p-5" 
+    data-sly-test="${!currentStyle}"
+  )
+    span.badge.badge-info.p-2 Please update Policy for ${resource.name}
 else 
   
     a(

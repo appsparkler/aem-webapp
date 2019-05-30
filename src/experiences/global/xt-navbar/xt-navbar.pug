@@ -1,5 +1,8 @@
 if process.env.isProd
-  div(is='${component.name}-${currentNode.name}')
+  div(
+    is='${component.name}-${currentNode.name}' 
+    data-sly-test="${currentStyle}"
+  )
     nav(class="${currentStyle.navCSSClasses || 'navbar navbar-expand-lg navbar-dark bg-secondary'}")
       //- IMAGE-LINK for NAVBAR-LOGO
       div(
@@ -82,7 +85,13 @@ if process.env.isProd
         div.col-2.bg-success.text-white
           span.pre Navbar Links Config
           sly(data-sly-resource="${ 'navbarNav' @ resourceType='/libs/wcm/foundation/components/responsivegrid' }")
-
+  
+  div(
+    class="container border border-info p-5" 
+    data-sly-test="${!currentStyle}"
+  )
+    span.badge.badge-info.p-2 Please update Policy for ${resource.name}
+    
 else 
     
     div.navbar.navbar-expand-lg.navbar-dark.bg-primary(is="xt-navbar-1212")
