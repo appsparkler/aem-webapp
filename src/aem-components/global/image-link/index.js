@@ -1,6 +1,5 @@
 import $ from 'jquery'
-import { VueAEMComponent } from 'common-script'
-
+import { VueAEMComponent, initialize_VueApps } from 'common-script'
 // XT IMAGE LINK COMPONENTS
 // setup_ImageLinkComponents();
 // if(process.env.VUE_APP_IS_DEV) initialize_VueApps();
