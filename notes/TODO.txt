@@ -1,4 +1,5 @@
 TODO
+  CREATE play-area for components
   REMOVE any optional current styles
   CREATE template for optionally rendering vue component instead of resource in edit mode (for ex. in XT Navbar)
   RENAME component-names for implementing namespaces
