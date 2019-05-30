@@ -1,11 +1,8 @@
-const appConfig = require('./appConfig.json');
 const path = require('path');
 const _ = require('underscore')
+const appConfig = require(path.resolve('appConfig.json'));
 
-// get_pages();
-// create_pageObject.call(null, appConfig, true);
-
-exports.getPages = function (isDev) {
+module.exports = function (isDev) {
   try {
     var nodesForGeneratingPages = [
       "aem-components",
@@ -41,21 +38,4 @@ exports.getPages = function (isDev) {
   } catch (e) {
       console.error(e)
   }
-}
-
-function create_pageObject(appConfig, isDev) {
-    var inputObject = appConfig.aemComponents.global['image-link'];
-
-    var pages = {
-      [`aem-components/global/${inputObject.name}/${inputObject.name}-publish-libs`] :{
-        entry: path.resolve(`src/aem-components/global/${inputObject.name}/index.js`),
-        template: path.resolve(`src/aem-components/global/${inputObject.name}/index.pug`),
-        filename: isDev ?
-        `aem-components/global/${inputObject.name}/index.html` :
-        `recycle-bin/aem-components/global/${inputObject.name}/index.html`,
-        title: inputObject.title,
-        chunks: inputObject.chunks
-      }
-    };
-  console.log(pages);
 }
