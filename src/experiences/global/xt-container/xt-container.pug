@@ -7,11 +7,11 @@ if process.env.isProd
             sly(data-sly-test="${item.name == 'divElements'}", data-sly-list='${item.listChildren}')
               div(class='${item.cssClass}')
                 sly(data-sly-resource="${ item.name @ resourceType='wcm/foundation/components/responsivegrid' }")
-    div(
-      class="container border border-info p-5" 
-      data-sly-test="${!currentStyle}"
-    )
-      span.badge.badge-info.p-2 Please update Policy for ${resource.name}
+  div(
+    class="container border border-info p-5" 
+    data-sly-test="${!currentStyle}"
+  )
+    span.badge.badge-info.p-2 Please update Policy for ${resource.name}
     
 else
   
