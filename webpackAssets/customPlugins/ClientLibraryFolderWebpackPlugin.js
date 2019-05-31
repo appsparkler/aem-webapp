@@ -58,7 +58,7 @@ module.exports = ClientLibFolderWebpackPlugin;
 
 function process_clientLibraryFoldersForAllPublishLibs() {
   try {
-    const publishLibsGlobArray = get_glob('dist/**/*-publish-libs');
+    const publishLibsGlobArray = get_glob('dist/**/publishLibs');
     publishLibsGlobArray.forEach(folder => process_clientLibraryFolders(folder));
   } catch (e) {
       console.error(e)

@@ -26,7 +26,7 @@
         "chunks": [
           "chunk-vendors",
           "chunk-common",
-          "aem-components/global/image-link/image-link-publish-libs"
+          "aem-components/global/image-link/publishLibs"
         ]
       }
     }
@@ -41,8 +41,8 @@
         "chunks": [
           "chunk-vendors",
           "chunk-common",
-          "aem-components/global/image-link/image-link-publish-libs",
-          "experiences/global/xt-navbar/xt-navbar-publish-libs"
+          "aem-components/global/image-link/publishLibs",
+          "experiences/global/xt-navbar/publishLibs"
         ]
       },
       "xt-container": {
@@ -52,7 +52,7 @@
         "chunks": [
           "chunk-vendors",
           "chunk-common",
-          "experiences/global/xt-container/xt-container-publish-libs"
+          "experiences/global/xt-container/publishLibs"
         ]
       }
     }
@@ -67,7 +67,7 @@
         "chunks": [
           "chunk-vendors",
           "chunk-common",
-          "templates/global/BasePage/BasePage-publish-libs"
+          "templates/global/BasePage/publishLibs"
         ]
       }
     }
