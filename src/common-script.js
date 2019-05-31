@@ -17,6 +17,7 @@ export function initialize_VueApps() {
 }
 
 function VueApp() {
+    console.log(this.outerHTML);
     var VueApp = new Vue({
         el: this,
         template: this.outerHTML
