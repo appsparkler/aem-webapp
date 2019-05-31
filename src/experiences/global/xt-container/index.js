@@ -5,7 +5,7 @@ import 'bootstrap\\dist\\css\\bootstrap.css'
 
 import {VueAEMComponent} from 'common-script';
 
-export default generate_XTContainerComponent() {
+export default function generate_XTContainerComponent() {
     new VueAEMComponent(this, {
       data() {
         return {

@@ -192,6 +192,11 @@ function get_pluginToCopyAppFolders() {
                 from: 'src/clientlibs/**/*?.*',
                 transformPath: path => path.replace('src\\', ''),
                 force: true
+            },
+            // HTLTemplates
+            {
+              from: 'src/HTLTemplates',
+              to: 'HTLTemplates'
             }
         ], {
             copyUnmodified: true
