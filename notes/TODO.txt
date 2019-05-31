@@ -1,5 +1,8 @@
 TODO
+  
   RENAME all publish-libs to publishLibs
+  CREATE a folder for HTL-Templates
+
   CREATE play-area for components
   REMOVE any optional current styles
   CREATE template for optionally rendering vue component instead of resource in edit mode (for ex. in XT Navbar)
