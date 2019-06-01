@@ -227,7 +227,7 @@ function get_pages() {
               'chunk-vendors',
               'chunk-common',
               //
-              "aem-components/global/image-link/publishLibs",
+              "components/global/image-link/publishLibs",
               "experiences/global/xt-navbar/publishLibs",
               "experiences/global/xt-container/publishLibs",
               "templates/global/BasePage/publishLibs",

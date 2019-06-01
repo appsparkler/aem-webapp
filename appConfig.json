@@ -2,7 +2,7 @@
   "appName": "aemarch13",
   "pathToAEMProjectFolder":"D:\\Projects\\archive\\workspaces\\AdobeCQ\\archetype-projects",
 
-  "aem-components": {
+  "components": {
     "global": {
       "image-link": {
         "name": "image-link",
@@ -11,7 +11,7 @@
         "chunks": [
           "chunk-vendors",
           "chunk-common",
-          "aem-components/global/image-link/publishLibs"
+          "components/global/image-link/publishLibs"
         ]
       }
     }

@@ -5,7 +5,7 @@ const appConfig = require(path.resolve('appConfig.json'));
 module.exports = function (isDev) {
   try {
     var nodesForGeneratingPages = [
-      "aem-components",
+      "components",
       "experiences",
       "templates"
     ];
