@@ -1,6 +1,6 @@
 {
   "appName": "aemarch13",
-  "pathToAEMApp": "D:\\Projects\\archive\\workspaces\\AdobeCQ\\archetype-projects\\aemarch13\\ui.apps\\src\\main\\content\\jcr_root\\apps\\aemarch13",
+  "pathToAEMProjectFolder":"D:\\Projects\\archive\\workspaces\\AdobeCQ\\archetype-projects",
 
   "aem-components": {
     "global": {
@@ -57,8 +57,7 @@
     }
   },
 
-
-
+  "un-utilized-Properties":"",
   "lists": {
 
 

@@ -4,9 +4,7 @@ module.exports = function() {
   const appConfig = require(path.resolve('appConfig.json'));
   const appName = appConfig.appName;
   const pathToAEMProjectFolder = appConfig.pathToAEMProjectFolder;
-
   const AEMUIAPPSPath = path.resolve(pathToAEMProjectFolder, appName, 'ui.apps');
-
   const mvnInstallExe = exec(`mvn -PautoInstallPackage clean install -o`, {
     cwd: AEMUIAPPSPath
   });

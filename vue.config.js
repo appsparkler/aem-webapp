@@ -321,12 +321,14 @@ function copy_toAEMApps() {
       const fs = require('fs-extra');
       const path = require('path');
       const appConfig = require('./appConfig.json');
-      const pathToAEMAppDist = path.join(appConfig.pathToAEMApp, 'dist');
+      const appName = appConfig.appName;
+      const pathToAEMAppDist = path.join(appConfig.pathToAEMProjectFolder, `/${appName}/ui.apps/src/main/content/jcr_root/apps/${appName}`, 'dist');
       return new EventHooksPlugin({
         done() {
           try {
               fs.removeSync(pathToAEMAppDist);
               fs.copySync('dist', pathToAEMAppDist);
+              require('./webpackAssets/utils/executeMavenBuild.js')();
           } catch (e) {
               console.error(e);
           }

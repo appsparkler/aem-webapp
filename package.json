@@ -5,10 +5,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "cross-env NODE_ENV=production vue-cli-service build",
-    "lint": "vue-cli-service lint",
-    "build:temp": "rm -rf dist /D/Projects/archive/workspaces/AdobeCQ/archetype-projects/aemarch13/ui.apps/src/main/content/jcr_root/apps/aemarch13/dist && cross-env NODE_ENV=production vue-cli-service build && mv dist /D/Projects/archive/workspaces/AdobeCQ/archetype-projects/aemarch13/ui.apps/src/main/content/jcr_root/apps/aemarch13/dist",
-    "deploy:temp": "(cd /D/Projects/archive/workspaces/AdobeCQ/archetype-projects/aemarch13/ui.apps && mvn -PautoInstallPackage clean install -o)",
-    "build:deploy": "npm run build:temp && npm run deploy:temp"
+    "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.8.1",
