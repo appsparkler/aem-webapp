@@ -44,6 +44,7 @@ if(isDev) vueConfig.configureWebpack.plugins.push(get_PluginToHotReloadIncludedP
 if(isProd) vueConfig.configureWebpack.plugins.push(...get_HTMLWebpackPluginsToCompilePugs());
 if(isProd) vueConfig.configureWebpack.plugins.push(get_pluginToCopyAppFolders());
 if(isProd) vueConfig.configureWebpack.plugins.push(get_clientLibraryFolderWebpackPlugin());
+if(isProd) vueConfig.configureWebpack.plugins.push(copy_toAEMApps());
 
 // UNUTILIZED : if(isProd) vueConfig.configureWebpack.plugins.push(get_pluginToGenerateManifest());
 
@@ -312,4 +313,26 @@ function get_pluginToGenerateManifest() {
 
 function get_clientLibraryFolderWebpackPlugin() {
   return new (require('./webpackAssets/customPlugins/ClientLibraryFolderWebpackPlugin.js'))();
+}
+
+function copy_toAEMApps() {
+  try {
+      const EventHooksPlugin = require('event-hooks-webpack-plugin');
+      const fs = require('fs-extra');
+      const path = require('path');
+      const appConfig = require('./appConfig.json');
+      const pathToAEMAppDist = path.join(appConfig.pathToAEMApp, 'dist');
+      return new EventHooksPlugin({
+        done() {
+          try {
+              fs.removeSync(pathToAEMAppDist);
+              fs.copySync('dist', pathToAEMAppDist);
+          } catch (e) {
+              console.error(e);
+          }
+        }
+      })
+  } catch (e) {
+
+  }
 }

@@ -1,21 +1,6 @@
 {
-  "lists": {
-    "appLabel": "aemarch13",
-    "appName": "AEM Arch 13",
-
-
-    "componentGroupList": [
-      "AEM Arch 13 Components",
-      "AEM Arch 13 Experiences"
-    ],
-
-
-    "typesOfComponents": [
-      "AEM Arch 13 Authrable Components",
-      "AEM Arch 13 Non Authorable Components",
-      "AEM Arch 13 Experience Components"
-    ]
-  },
+  "appName": "aemarch13",
+  "pathToAEMApp": "D:\\Projects\\archive\\workspaces\\AdobeCQ\\archetype-projects\\aemarch13\\ui.apps\\src\\main\\content\\jcr_root\\apps\\aemarch13",
 
   "aem-components": {
     "global": {
@@ -70,5 +55,26 @@
         ]
       }
     }
+  },
+
+
+
+  "lists": {
+
+
+    "appName": "AEM Arch 13",
+
+
+    "componentGroupList": [
+      "AEM Arch 13 Components",
+      "AEM Arch 13 Experiences"
+    ],
+
+
+    "typesOfComponents": [
+      "AEM Arch 13 Authrable Components",
+      "AEM Arch 13 Non Authorable Components",
+      "AEM Arch 13 Experience Components"
+    ]
   }
 }
