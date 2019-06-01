@@ -1,11 +1,8 @@
 import $ from 'jquery'
-import { VueAEMComponent, initialize_VueApps } from 'common-script'
-// XT IMAGE LINK COMPONENTS
-// setup_ImageLinkComponents();
-// if(process.env.VUE_APP_IS_DEV) initialize_VueApps();
+import { VueAEMComponent} from 'common-script'
 
 setup_ImageLinkComponents();
-window.imageLink = "test...123..."
+
 export function setup_ImageLinkComponents() {
     $('[is^=image-link]').each(generate_imageLinkComponent);
 }

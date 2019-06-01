@@ -2,7 +2,6 @@ import $ from 'jquery';
 import Vue from 'vue';
 //
 import {initialize_VueApps, VueAEMComponent} from 'common-script';
-import {generate_imageLinkComponent} from 'aem-components/global/image-link';
 
 setup_XTNavbarComponents();
 

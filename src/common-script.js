@@ -12,15 +12,21 @@ Vue.config.warnHandler = function(msg, vm, trace) {
 Vue.config.productionTip = false;
 Vue.config.devTools = true;
 
+global.vueComponents = global.vueComponents || [];
+
 export function initialize_VueApps() {
   $('[id^=app]').each(VueApp);
 }
 
+export function initialize_VueComponents() {
+  vueComponents.forEach(obj => Vue.component(obj.vue_componentName, obj.config));
+}
+
 function VueApp() {
-    console.log(this.outerHTML);
     var VueApp = new Vue({
         el: this,
-        template: this.outerHTML
+        template: this.outerHTML,
+        components: {...vueComponents}
     });
 }
 export class VueAEMComponent {
@@ -28,10 +34,12 @@ export class VueAEMComponent {
     var vue_componentName = el.attributes.is.value;
     var outerHTML = new String(el.outerHTML);
     var vue_template = outerHTML.replace(/is=".*?"/, "").toString(); // avoid "maximum-call-stack-size-exceeded"
-    console.log(vue_template);
     config = config || {};
     config.name = vue_componentName;
     config.template = vue_template;
-    // Vue.component(vue_componentName, config)
+    this.vue_componentName = vue_componentName;
+    this.config = config;
+    vueComponents.push(this);
+    console.log(vueComponents);
   }
 }
