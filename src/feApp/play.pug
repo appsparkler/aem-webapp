@@ -1,66 +1,26 @@
-#app
-  .root.responsivegrid
-    .aem-Grid.aem-Grid--12.aem-Grid--default--12
-      .xt-navbar.aem-GridColumn.aem-GridColumn--default--12
-        div(is='xt-navbar-xt_navbar-root')
-          nav.navbar.navbar-dark.bg-info.navbar-expand-lg.container
-            a.navbar-brand(is='image-link-navbarLogo-xt_navbar', href='https://www.logo.com', @click='imageLinkClicked();')
-              img.rounded-pill(src='https://placehold.it/140x40/000/fff?text=LOGO')
-            button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
-              span.navbar-toggler-icon
-            .aem-Grid.aem-Grid--12.aem-Grid--default--12
-            #navbarSupportedContent.collapse.navbar-collapse
-              ul.navbar-nav.mr-auto
-                li.nav-item.active
-                  a.nav-link(href='#')
-                    | Home
-                    span.sr-only (current)
-                li.nav-item
-                  a.nav-link(href='#') Link
-                li.nav-item.dropdown
-                  a#navbarDropdown.nav-link.dropdown-toggle(href='#', role='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') Dropdown
-                  .dropdown-menu(aria-labelledby='navbarDropdown')
-                    a.dropdown-item(href='#') Action
-                    a.dropdown-item(href='#') Another action
-                    .dropdown-divider
-                    a.dropdown-item(href='#') Something else here
-                li.nav-item
-                  a.nav-link.disabled(href='#') Disabled
-              form.form-inline.my-2.my-lg-0
-                input.form-control.mr-sm-2(type='search', placeholder='Search', aria-label='Search')
-                button.btn.btn-success.my-2.my-sm-0(is='vc-global-button-xt_navbar-root')
-                  i.fa.fa-search
-                  span.ml-2 Search
-      .xt-container.aem-GridColumn.aem-GridColumn--default--12
-        div
-          .container
-            .row.border.border-primary.mt-2
-              .col-12.p-0
-                .aem-Grid.aem-Grid--12.aem-Grid--default--12
-                  .image-link.aem-GridColumn.aem-GridColumn--default--12
-                    a(is='image-link-image_link-item0', href='https://www.google.com', @click='imageLinkClicked();')
-                      img.img-fluid(src='https://placehold.it/1200x400/000/fff?text=PAGE%20BANNER')
-      .xt-container.aem-GridColumn.aem-GridColumn--default--12
-        div
-          .container
-            .row.mt-2
-              .col-3.p-0 
-                .aem-Grid.aem-Grid--12.aem-Grid--default--12
-                  .image-link.aem-GridColumn.aem-GridColumn--default--12
-                    a.border.border-primary.d-flex.justify-content-center.p-2(is='image-link-image_link-item0', href='#', @click='imageLinkClicked();')
-                      img.img-fluid(src='https://placehold.it/400x100/000/fff?text=')
-              .col-3.p-0
-                .aem-Grid.aem-Grid--12.aem-Grid--default--12
-                  .image-link.aem-GridColumn.aem-GridColumn--default--12
-                    a.border.border-primary.d-flex.justify-content-center.p-2(is='image-link-image_link-item1', href='#', @click='imageLinkClicked();')
-                      img.img-fluid(src='https://placehold.it/400x100/000/fff?text=')
-              .col-3.p-0
-                .aem-Grid.aem-Grid--12.aem-Grid--default--12
-                  .image-link.aem-GridColumn.aem-GridColumn--default--12
-                    a.border.border-primary.d-flex.justify-content-center.p-2(is='image-link-image_link-item2', href='#', @click='imageLinkClicked();')
-                      img.img-fluid(src='https://placehold.it/400x100/000/fff?text=')
-              .col-3.p-0
-                .aem-Grid.aem-Grid--12.aem-Grid--default--12
-                  .image-link.aem-GridColumn.aem-GridColumn--default--12
-                    a.border.border-primary.d-flex.justify-content-center.p-2(is='image-link-image_link-item3', href='#', @click='imageLinkClicked();')
-                      img.img-fluid(src='https://placehold.it/400x100/000/fff?text=')
+div#app
+  nav.navbar.navbar-expand-lg.navbar-light.bg-light(is="xt-navbar-293939")
+    a.navbar-brand(href='#') Navbar
+    button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
+      span.navbar-toggler-icon
+    #navbarSupportedContent.collapse.navbar-collapse
+      ul.navbar-nav.mr-auto
+        li.nav-item.active
+          a.nav-link(href='#')
+            | Home 
+            span.sr-only (current)
+        li.nav-item
+          a.nav-link(href='#') Link
+        li.nav-item.dropdown
+          a#navbarDropdown.nav-link.dropdown-toggle(href='#', role='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
+            | Dropdown
+          .dropdown-menu(aria-labelledby='navbarDropdown')
+            a.dropdown-item(href='#') Action
+            a.dropdown-item(href='#') Another action
+            .dropdown-divider
+            a.dropdown-item(href='#') Something else here
+        li.nav-item
+          a.nav-link.disabled(href='#') Disabled
+      form.form-inline.my-2.my-lg-0
+        input.form-control.mr-sm-2(type='search', placeholder='Search', aria-label='Search')
+        button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Search
