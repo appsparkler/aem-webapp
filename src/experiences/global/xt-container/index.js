@@ -1,20 +1,8 @@
-import Vue from 'vue';
-import $ from 'jquery';
-import 'bootstrap';
-import 'bootstrap\\dist\\css\\bootstrap.css'
+import $ from 'jquery'
+import { VueAEMComponent } from 'common-script'
 
-import {VueAEMComponent} from 'common-script';
+$('[is^=xt-container]').each(generate_XTContainerComponent);
 
-export default function generate_XTContainerComponent() {
-    new VueAEMComponent(this, {
-      data() {
-        return {
-          imageLinkConfig: {
-            linkClicked() {
-              alert('link Clicked passed from parent...');
-            }
-          }
-        }
-      }
-    });
+function generate_XTContainerComponent() {
+    new VueAEMComponent(this, {});
 }
