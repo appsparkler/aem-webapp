@@ -1,7 +1,7 @@
 import $ from 'jquery';
 import {VueAEMComponent} from 'common-script';
 
-// generate_buttonComponents();
+generate_buttonComponents();
 
 function generate_buttonComponents() {
   try {
