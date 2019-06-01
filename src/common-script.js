@@ -35,7 +35,6 @@ export class VueAEMComponent {
     var outerHTML = new String(el.outerHTML);
     var vue_template = outerHTML.replace(/is=".*?"/, "").toString(); // avoid "maximum-call-stack-size-exceeded"
     config = config || {};
-    config.name = vue_componentName;
     config.template = vue_template;
     this.vue_componentName = vue_componentName;
     this.config = config;
