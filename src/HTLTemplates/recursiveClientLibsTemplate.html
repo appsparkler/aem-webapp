@@ -28,7 +28,7 @@
     </sly>
 
     <!-- TEMPLATE RECURSION WITH CHILD ITEM -->
-    <sly data-sly-call="${recursiveClientLibsTemplate @ item=item}"></sly>
+    <sly data-sly-call="${recursiveClientLibsTemplate @ item=item, type=type}"></sly>
   </sly>
 
 </template>
