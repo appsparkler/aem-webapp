@@ -1,6 +1,6 @@
 if process.env.isProd
   div(
-    is='${component.name}-${currentNode.name}' 
+    is='${component.name}-${resource.name}-${resource.parent.name}' 
     data-sly-test="${currentStyle}"
   )
     nav(class="${currentStyle.navCSSClasses || 'navbar navbar-expand-lg navbar-dark bg-secondary'}")

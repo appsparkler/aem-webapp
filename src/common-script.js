@@ -23,15 +23,15 @@ function VueApp() {
         template: this.outerHTML
     });
 }
-
 export class VueAEMComponent {
   constructor(el, config) {
     var vue_componentName = el.attributes.is.value;
-    var vue_template = el.outerHTML.replace(/is=".*?"/, "").toString(); // avoid "maximum-call-stack-size-exceeded"
+    var outerHTML = new String(el.outerHTML);
+    var vue_template = outerHTML.replace(/is=".*?"/, "").toString(); // avoid "maximum-call-stack-size-exceeded"
     console.log(vue_template);
     config = config || {};
     config.name = vue_componentName;
     config.template = vue_template;
-    Vue.component(vue_componentName, config);
+    // Vue.component(vue_componentName, config)
   }
 }

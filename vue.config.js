@@ -222,7 +222,17 @@ function get_pages() {
             title: 'AEM FE Dev App',
             // chunks to include on this page, by default includes
             // extracted common chunks and vendor chunks.
-            chunks: ['chunk-vendors', 'chunk-common', 'FEAppIndex']
+            chunks: [
+              'chunk-vendors',
+              'chunk-common',
+              //
+              "aem-components/global/image-link/publishLibs",
+              "experiences/global/xt-navbar/publishLibs",
+              "experiences/global/xt-container/publishLibs",
+              "templates/global/BasePage/publishLibs",
+              //
+              'FEAppIndex'
+            ]
         };
         return pages;
     } catch (e) {

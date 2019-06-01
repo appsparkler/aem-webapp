@@ -5,7 +5,7 @@ import { VueAEMComponent, initialize_VueApps } from 'common-script'
 // if(process.env.VUE_APP_IS_DEV) initialize_VueApps();
 
 setup_ImageLinkComponents();
-
+window.imageLink = "test...123..."
 export function setup_ImageLinkComponents() {
     $('[is^=image-link]').each(generate_imageLinkComponent);
 }

@@ -41,7 +41,6 @@
         "chunks": [
           "chunk-vendors",
           "chunk-common",
-          "aem-components/global/image-link/publishLibs",
           "experiences/global/xt-navbar/publishLibs"
         ]
       },
