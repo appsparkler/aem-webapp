@@ -1,5 +1,5 @@
 // styles
-import './styles.css';
+import './styles.scss';
 export default {
   data() {
     return {

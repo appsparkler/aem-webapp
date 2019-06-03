@@ -30,6 +30,7 @@
     "pug-loader": "^2.4.0",
     "pug-plain-loader": "^1.0.0",
     "raw-loader": "^1.0.0",
+    "sass-loader": "^7.1.0",
     "vue-template-compiler": "^2.6.10",
     "webpack-livereload-plugin": "^2.2.0",
     "webpack-manifest-plugin": "^2.0.4"
