@@ -1,5 +1,7 @@
 // styles
 import './styles.scss';
+
+// scripts
 export default {
   data() {
     return {
