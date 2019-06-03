@@ -10,6 +10,9 @@ module.exports = function() {
   });
 
   console.log('Maven is building and deploying your project.  Please wait...');
+
+
+  // Uncomment, if we want a live-log
   // mvnInstallExe.stdout.on('data', function (data) {
   //   console.log(data.toString());
   // });
