@@ -9,9 +9,10 @@ module.exports = function() {
     cwd: AEMUIAPPSPath
   });
 
-  mvnInstallExe.stdout.on('data', function (data) {
-    console.log(data.toString());
-  });
+  console.log('Maven is building and deploying your project.  Please wait...');
+  // mvnInstallExe.stdout.on('data', function (data) {
+  //   console.log(data.toString());
+  // });
 
   mvnInstallExe.stderr.on('data', function (data) {
     console.log('stderr: ' + data.toString());
