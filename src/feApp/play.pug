@@ -1,26 +1,84 @@
-div#app
-  nav.navbar.navbar-expand-lg.navbar-light.bg-light.aemarch13-xp-global-xt-navbar(is="xt-navbar-293939")
-    a.navbar-brand(href='#' @click.prevent="linkClicked();") The Navbar
-    button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
-      span.navbar-toggler-icon
-    #navbarSupportedContent.collapse.navbar-collapse
-      ul.navbar-nav.mr-auto
-        li.nav-item.active
-          a.nav-link(href='#')
-            | Home 
-            span.sr-only (current)
-        li.nav-item
-          a.nav-link(href='#') Link
-        li.nav-item.dropdown
-          a#navbarDropdown.nav-link.dropdown-toggle(href='#', role='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false')
-            | Dropdown
-          .dropdown-menu(aria-labelledby='navbarDropdown')
-            a.dropdown-item(href='#') Action
-            a.dropdown-item(href='#') Another action
-            .dropdown-divider
-            a.dropdown-item(href='#') Something else here
-        li.nav-item
-          a.nav-link.disabled(href='#') Disabled
-      form.form-inline.my-2.my-lg-0
-        input.form-control.mr-sm-2(type='search', placeholder='Search', aria-label='Search')
-        button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Search
+#app
+  .root.responsivegrid
+    .aem-Grid.aem-Grid--12.aem-Grid--default--12
+      .xt-navbar.aem-GridColumn.aem-GridColumn--default--12
+        div(is='xt-navbar-xt_navbar-root-3303')
+          nav.navbar.navbar-dark.bg-info.navbar-expand-lg.container
+            a.navbar-brand(is='image-link-navbarLogo-xt_navbar', href='https://www.google.com', @click='imageLinkClicked();')
+              img.rounded-pill(:src=" `https://placehold.it/140x40/000/fff?text=${title}` ")
+            button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
+              span.navbar-toggler-icon
+            .aem-Grid.aem-Grid--12.aem-Grid--default--12
+            #navbarSupportedContent.collapse.navbar-collapse
+              ul.navbar-nav.mr-auto
+                li.nav-item.active
+                  a.nav-link(href='#')
+                    | Home
+                    span.sr-only (current)
+                li.nav-item
+                  a.nav-link(href='#') Link
+                li.nav-item.dropdown
+                  a#navbarDropdown.nav-link.dropdown-toggle(href='#', role='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') Dropdown
+                  .dropdown-menu(aria-labelledby='navbarDropdown')
+                    a.dropdown-item(href='#') Action
+                    a.dropdown-item(href='#') Another action
+                    .dropdown-divider
+                    a.dropdown-item(href='#') Something else here
+                li.nav-item
+                  a.nav-link.disabled(href='#') Disabled
+              form.form-inline.my-2.my-lg-0
+                input.form-control.mr-sm-2(type='search', placeholder='Search', aria-label='Search')
+      .xt-navbar.aem-GridColumn.aem-GridColumn--default--12
+        div(is='xt-navbar-xt_navbar_265858056-root')
+          nav.navbar.navbar-dark.bg-info.navbar-expand-lg.container
+            a.navbar-brand(is='image-link-navbarLogo-xt_navbar_265858056', href='https://www.hi.com', @click='imageLinkClicked();')
+              img.rounded-pill(src='https://placehold.it/140x40/000/fff?text=H.I.')
+            button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
+              span.navbar-toggler-icon
+            .aem-Grid.aem-Grid--12.aem-Grid--default--12
+            #navbarSupportedContent.collapse.navbar-collapse
+              ul.navbar-nav.mr-auto
+                li.nav-item.active
+                  a.nav-link(href='#')
+                    | Home
+                    span.sr-only (current)
+                li.nav-item
+                  a.nav-link(href='#') Link
+                li.nav-item.dropdown
+                  a#navbarDropdown.nav-link.dropdown-toggle(href='#', role='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') Dropdown
+                  .dropdown-menu(aria-labelledby='navbarDropdown')
+                    a.dropdown-item(href='#') Action
+                    a.dropdown-item(href='#') Another action
+                    .dropdown-divider
+                    a.dropdown-item(href='#') Something else here
+                li.nav-item
+                  a.nav-link.disabled(href='#') Disabled
+              form.form-inline.my-2.my-lg-0
+                input.form-control.mr-sm-2(type='search', placeholder='Search', aria-label='Search')
+      .xt-navbar.aem-GridColumn.aem-GridColumn--default--12
+        div(is='xt-navbar-xt_navbar_1268366357-root')
+          nav.navbar.navbar-dark.bg-danger.navbar-expand-lg
+            a.navbar-brand(is='image-link-navbarLogo-xt_navbar_1268366357', href='https://www.whathappend.com', @click='imageLinkClicked();')
+              img.rounded-pill(src='https://placehold.it/140x40/000/fff?text=HEY')
+            button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
+              span.navbar-toggler-icon
+            .aem-Grid.aem-Grid--12.aem-Grid--default--12
+            #navbarSupportedContent.collapse.navbar-collapse
+              ul.navbar-nav.mr-auto
+                li.nav-item.active
+                  a.nav-link(href='#')
+                    | Home
+                    span.sr-only (current)
+                li.nav-item
+                  a.nav-link(href='#') Link
+                li.nav-item.dropdown
+                  a#navbarDropdown.nav-link.dropdown-toggle(href='#', role='button', data-toggle='dropdown', aria-haspopup='true', aria-expanded='false') Dropdown
+                  .dropdown-menu(aria-labelledby='navbarDropdown')
+                    a.dropdown-item(href='#') Action
+                    a.dropdown-item(href='#') Another action
+                    .dropdown-divider
+                    a.dropdown-item(href='#') Something else here
+                li.nav-item
+                  a.nav-link.disabled(href='#') Disabled
+              form.form-inline.my-2.my-lg-0
+                input.form-control.mr-sm-2(type='search', placeholder='Search', aria-label='Search')

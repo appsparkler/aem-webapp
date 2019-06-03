@@ -1,7 +1,7 @@
 import $ from 'jquery';
 import Vue from 'vue';
 //
-import vueComponentConfig from './vueComponentConfig'
+import XTNavbarComponentConfig from './vueComponentConfig'
 import {initialize_VueApps, VueAEMComponent} from 'common-script';
 
 setup_XTNavbarComponents();
@@ -11,5 +11,7 @@ function setup_XTNavbarComponents() {
 }
 
 function generate_xtNavbarComponent() {
-    new VueAEMComponent(this, vueComponentConfig);
+    const componentName = $(this).attr('is');
+    const XTNavbar = new XTNavbarComponentConfig(componentName)
+    new VueAEMComponent(this, XTNavbar.config);
 }
