@@ -17,8 +17,8 @@ export function initialize_VueApps() {
 }
 
 export function initialize_VueComponents() {
-
   vueComponents.forEach(obj => {
+    console.log(obj.config)
     Vue.component(obj.config.name, obj.config);
   });
 }
@@ -33,6 +33,6 @@ function VueApp() {
 
 export class VueAEMComponent {
   constructor(el, config) {
-    
+
   }
 }

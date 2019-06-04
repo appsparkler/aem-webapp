@@ -1,6 +1,7 @@
 import $ from 'jquery'
-import { VueAEMComponent} from 'common-script'
+import ImageLinkComponentConfig from './vueComponentConfig'
 
+global.vueComponents = global.vueComponents || [];
 setup_ImageLinkComponents();
 
 export function setup_ImageLinkComponents() {
@@ -8,13 +9,5 @@ export function setup_ImageLinkComponents() {
 }
 
 export function generate_imageLinkComponent() {
-  new VueAEMComponent(this, {
-    props: ['imageLinkConfig'],
-    methods: {
-      linkClicked: function() {
-        if(this.imageLinkConfig && this.imageLinkConfig.linkClicked)
-        this.imageLinkConfig.linkClicked();
-      }
-    }
-  })
+  vueComponents.push(new ImageLinkComponentConfig(this));
 }
