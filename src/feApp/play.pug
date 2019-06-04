@@ -6,7 +6,7 @@
           nav.navbar.navbar-dark.bg-info.navbar-expand-lg.container
             a.navbar-brand(is='image-link-navbarLogo-xt_navbar', href='https://www.google.com', @click='imageLinkClicked();')
               img.rounded-pill(:src=" `https://placehold.it/140x40/000/fff?text=Hello` ") 
-              | title : ${title}
+              | test : {{ test }}
             button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
               span.navbar-toggler-icon
             .aem-Grid.aem-Grid--12.aem-Grid--default--12

@@ -17,9 +17,9 @@ export function initialize_VueApps() {
 }
 
 export function initialize_VueComponents() {
+
   vueComponents.forEach(obj => {
-    console.log(obj);
-    Vue.component(obj.vue_componentName, obj.config);
+    Vue.component(obj.config.name, obj.config);
   });
 }
 
@@ -33,16 +33,6 @@ function VueApp() {
 
 export class VueAEMComponent {
   constructor(el, config) {
-    var vue_componentName = el.attributes.is.value;
-    var outerHTML = new String(el.outerHTML);
-    var vue_template = outerHTML.replace(/is=".*?"/, "").toString(); // avoid "maximum-call-stack-size-exceeded"
-    config = config || {};
-    config.template = vue_template;
-    // this.vue_componentName = vue_componentName;
-    // this.config = config;
-    vueComponents.push({
-      vue_componentName: vue_componentName,
-      config: config
-    });
+    
   }
 }

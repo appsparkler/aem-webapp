@@ -6,7 +6,6 @@ import XTNavbarComponentConfig from './vueComponentConfig'
 global.vueComponents = global.vueComponents || [];
 setup_XTNavbarComponents();
 
-console.trace();
 function setup_XTNavbarComponents() {
     $('[is^=xt-navbar]').each(generate_xtNavbarComponent);
 }
@@ -14,8 +13,8 @@ function setup_XTNavbarComponents() {
 function generate_xtNavbarComponent() {
     // const componentName = $(this).attr('is');
     const XTNavbar = new XTNavbarComponentConfig(this);
-    vueComponents.push(XTNavbar.name, XTNavbar.config);
-    console.log(XTNavbar.config);
+    vueComponents.push(XTNavbar);
+    console.log(vueComponents);
     // console.log(XTNavbar);
     // new VueAEMComponent(this, XTNavbar.config);
 }
