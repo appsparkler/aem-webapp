@@ -12,27 +12,19 @@ Vue.config.devTools = true;
 
 global.vueComponents = global.vueComponents || [];
 
-export function initialize_VueApps() {
+export const initialize_VueApps = () => {
   $('[id^=app]').each(VueApp);
 }
 
-export function initialize_VueComponents() {
+export const initialize_VueComponents = () => {
   vueComponents.forEach(obj => {
-    console.log(obj.config)
     Vue.component(obj.config.name, obj.config);
   });
 }
-
+// private functions
 function VueApp() {
-    var VueApp = new Vue({
-        el: this,
-        template: this.outerHTML,
-        components: {...vueComponents}
-    });
-}
-
-export class VueAEMComponent {
-  constructor(el, config) {
-
-  }
+  var VueApp = new Vue({
+      el: this,
+      template: this.outerHTML
+  });
 }
