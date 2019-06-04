@@ -30,6 +30,7 @@ function VueApp() {
         components: {...vueComponents}
     });
 }
+
 export class VueAEMComponent {
   constructor(el, config) {
     var vue_componentName = el.attributes.is.value;
