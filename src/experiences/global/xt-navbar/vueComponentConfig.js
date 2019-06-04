@@ -1,8 +1,11 @@
+import VCG from './VueComponentNameAndTemplateExtractor';
+
 // styles
 import './styles.scss';
 
 // scripts
-export default class GlobalXTNavbar {
+export default class XTNavbarComponentConfig {
+  // name and config do not need to be added as they will be generated dynamically from the document HTML
   config = {
     data: function() {
       return {
@@ -23,8 +26,8 @@ export default class GlobalXTNavbar {
   }
 
   constructor(el) {
-    const outerHTML = new String(el.outerHTML);
-    this.config.name = el.attributes.is.value;
-    this.config.template = outerHTML.replace(/is=".*?"/, "").toString();
+    const extractor = new VCG(el);
+    this.config.name = extractor.name;
+    this.config.template = extractor.template;
   }
 }
