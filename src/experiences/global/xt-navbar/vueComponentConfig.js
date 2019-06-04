@@ -3,7 +3,7 @@ import './styles.scss';
 
 // scripts
 export default class GlobalXTNavbar {
-  componentConfig = {
+  config = {
     data: function() {
       return {
         test: 'Hello...',
@@ -26,9 +26,5 @@ export default class GlobalXTNavbar {
     const outerHTML = new String(el.outerHTML);
     this.config.name = el.attributes.is.value;
     this.config.template = outerHTML.replace(/is=".*?"/, "").toString();
-  }
-
-  get config() {
-    return this.componentConfig;
   }
 }

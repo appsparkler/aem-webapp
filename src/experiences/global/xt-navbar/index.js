@@ -11,10 +11,5 @@ function setup_XTNavbarComponents() {
 }
 
 function generate_xtNavbarComponent() {
-    // const componentName = $(this).attr('is');
-    const XTNavbar = new XTNavbarComponentConfig(this);
-    vueComponents.push(XTNavbar);
-    console.log(vueComponents);
-    // console.log(XTNavbar);
-    // new VueAEMComponent(this, XTNavbar.config);
+    vueComponents.push(new XTNavbarComponentConfig(this));
 }
