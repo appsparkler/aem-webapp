@@ -1,6 +1,6 @@
 const path = require('path');
 const _ = require('underscore')
-const appConfig = require(path.resolve('appConfig.json'));
+const appConfig = require(path.resolve('.yo-rc.json'))['generator-aemvue'];
 
 module.exports = function (isDev) {
   try {

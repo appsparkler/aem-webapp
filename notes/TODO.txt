@@ -1,5 +1,6 @@
 TODO
-  
+  SETUP appConfig to work for generators-amevue
+
   RENAME all publish-libs to publishLibs
   CREATE a folder for HTL-Templates
 
