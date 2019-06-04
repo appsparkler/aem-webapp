@@ -1,7 +1,7 @@
 {
   "generator-aemvue": {
     "appName": "aemarch13",
-    "pathToAEMProjectFolder": "D:\\Projects\\archive\\workspaces\\AdobeCQ\\archetype-projects",
+    "pathToAEMProjectFolder": "D:\\Projects\\archive\\workspaces\\AdobeCQ\\archetype-projects\\aemarch13",
 
     "components": {
       "global": {
