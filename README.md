@@ -1,5 +1,7 @@
 # aem-webapp
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/appsparkler/aem-webapp.svg)](https://greenkeeper.io/)
+
 ## Project setup
 ```
 npm install
